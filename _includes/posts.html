@@ -1,0 +1,11 @@
+<table class="table">
+	<thead><tr><th>Title</th><th>Created</th><th>Language</th></tr></thead>
+	<tbody>
+		{% for post in site.posts limit:include.limit %}
+		<tr>
+			<td><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></td>
+			<td>{{ post.date | date: "%d. %m. %Y" }}</td>
+			<td>{{ post.lang }}</td>
+		</tr>
+		{% endfor %}
+</table>

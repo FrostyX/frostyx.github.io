@@ -1,0 +1,45 @@
+html
+{
+	position: relative;
+	min-height: 100%;
+}
+
+body
+{
+	margin-bottom: 60px;
+}
+
+#page
+{
+	width: 860px;
+}
+
+.container
+{
+	width: auto;
+}
+
+ul.nav a:hover
+{
+	color: black !important;
+	background-color: white !important;
+}
+
+#content
+{
+	margin: 0 auto;
+}
+
+.footer
+{
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	height: 50px;
+}
+
+#contact li
+{
+	list-style-type: none;
+}
