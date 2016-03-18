@@ -2,4 +2,20 @@
 layout: default
 ---
 
+<div id="posthead">
+
+	<span class="text-muted">
+		{{ page.date | date: "%d. %m. %Y" }} |
+		Jakub Kadlčík |
+		{{ page.lang }}
+	</span>
+
+	<span class="pull-right">
+	{% for category in page.categories %}
+		<button class="btn btn-default btn-xs">{{ category }}</button>
+	{% endfor %}
+	</span>
+
+</div>
+
 {{ content }}

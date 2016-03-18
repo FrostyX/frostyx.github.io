@@ -25,6 +25,14 @@ ul.nav a:hover
 	background-color: white !important;
 }
 
+#posthead
+{
+	margin-top: -10px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
 #content
 {
 	margin: 0 auto;
