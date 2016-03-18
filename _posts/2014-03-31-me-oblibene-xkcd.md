@@ -24,7 +24,7 @@ Warning: this comic occasionally contains strong language (which may be unsuitab
 <img src="http://imgs.xkcd.com/comics/the_ring.png" alt="On the other hand, poor Samara -- transcoded to FLV.  No one deserves that." /></a>
 
 <hr />
-<h3>Facebook</h3
+<h3>Facebook</h3>
 <a href="http://xkcd.com/300/" title="''Here, I''ll put my number in your cell pho -- wait, why is it already here?''">
 <img src="http://imgs.xkcd.com/comics/facebook.png" alt="''Here, I''ll put my number in your cell pho -- wait, why is it already here?''" /></a>
 
