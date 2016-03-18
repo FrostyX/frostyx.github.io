@@ -2,6 +2,7 @@
 layout: post
 title: Lightweight zamykání obrazovky
 lang: cz
+categories: desktop
 ---
 
 

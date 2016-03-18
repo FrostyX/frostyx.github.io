@@ -2,6 +2,7 @@
 layout: post
 title: Gentoo - aktualizace
 lang: cz
+categories: gentoo updates
 ---
 
 

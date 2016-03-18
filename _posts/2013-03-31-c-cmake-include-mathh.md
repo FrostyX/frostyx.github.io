@@ -2,6 +2,7 @@
 layout: post
 title: C - cmake - include math.h
 lang: cz
+categories: dev C
 ---
 
 

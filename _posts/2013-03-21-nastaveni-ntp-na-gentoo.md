@@ -2,6 +2,7 @@
 layout: post
 title: Nastavení NTP na Gentoo
 lang: cz
+categories: gentoo
 ---
 
 

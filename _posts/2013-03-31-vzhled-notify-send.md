@@ -2,6 +2,7 @@
 layout: post
 title: Vzhled notify-send
 lang: cz
+categories: desktop
 ---
 
 

@@ -2,6 +2,7 @@
 layout: post
 title: Facebook API - Sdílení vaší stránky na facebooku
 lang: cz
+categories: facebook dev php
 ---
 
 

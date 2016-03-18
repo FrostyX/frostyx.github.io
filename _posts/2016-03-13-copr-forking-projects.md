@@ -2,7 +2,7 @@
 layout: post
 title: Copr - Forking Projects
 lang: en
-categories: copr fedora changelog
+categories: copr fedora changelog howto
 ---
 
 Do you know the famous <button class="btn btn-default btn-xs"><i class="fa fa-code-fork"></i> Fork</button> button on GitHub? Now this feature is finally here for Copr and it brings us many possible scenarios how to utilize it!
