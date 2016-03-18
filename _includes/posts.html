@@ -6,6 +6,11 @@
 			<td><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></td>
 			<td>{{ post.date | date: "%d. %m. %Y" }}</td>
 			<td>{{ post.lang }}</td>
+			<td>
+				{% for category in post.categories %}
+					<button class="btn btn-default btn-xs">{{ category }}</button>
+				{% endfor %}
+			</td>
 		</tr>
 		{% endfor %}
 </table>
