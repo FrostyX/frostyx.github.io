@@ -39,6 +39,11 @@ ul.nav a:hover
 	margin-bottom: 50px;
 }
 
+#disqus_thread
+{
+	margin-top: 50px;
+}
+
 .footer
 {
 	text-align: center;
