@@ -20,7 +20,7 @@ permalink: /contact/
 			<li><a href="http://webchat.freenode.net/" title="webchat - irc.freenode.net">irc.freenode.net</a></li>
 			<ul>
 				<li>#gentoo.cs</li>
-				<li>#fedora-cs</li>
+				<li>#fedora-buildsys</li>
 			</ul>
 
 		</ul>
