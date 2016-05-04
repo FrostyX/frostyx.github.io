@@ -3,4 +3,4 @@ help:
 	@echo "  serve          to run jekyll serve"
 
 serve:
-	jekyll serve --incremental
+	jekyll serve --drafts
