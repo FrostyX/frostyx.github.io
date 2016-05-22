@@ -2,11 +2,12 @@
 layout: post
 title: Copr CLI - Building from Tito, Mock and PyPI
 lang: en
-published: false
 categories: copr fedora changelog howto
 ---
 
 It has been a while since Copr supports building directly from Git repository which is managed by Tito, or more freely building via Mock SCM. Since last release it is also possible to generate a `.spec` file and submit a build from PyPI package. You can read more about it [here](http://miroslav.suchy.cz/blog/archives/2016/03/29/new_features_in_copr/). What was missing about this features was command line support. Which is finally done now!
+
+Since `copr-cli-1.50` and `python-copr-1.68` you can use following commands.
 
 
 ## Tito
@@ -25,6 +26,7 @@ Options:
 
 	--test
 	    To build from the last commit instead of the last release tag.
+
 
 ## Mock
 	copr-cli buildmock <username>/<project> --scm-url=<url> --spec=<path/to/foo.spec>
