@@ -20,9 +20,7 @@ As you may expect, the build form is located at Builds > New Build > RubyGems. T
 
 ## CLI support
 
-@TODO Specify versions
-
-Since `copr-cli-xy` and `python-copr-xy` you can submit a build via command line.
+Since `copr-cli-1.51` and `python-copr-1.69` you can submit a build via command line.
 
 	copr-cli buildgem <username>/<project> --gem=<name>
 
