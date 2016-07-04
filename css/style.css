@@ -33,6 +33,11 @@ ul.nav a:hover
 	border-bottom: 1px solid #eee;
 }
 
+#posthead a
+{
+	color: black !important;
+}
+
 #content
 {
 	margin: 0 auto;
