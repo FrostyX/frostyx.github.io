@@ -62,3 +62,8 @@ ul.nav a:hover
 {
 	list-style-type: none;
 }
+
+.img
+{
+	margin: 20px;
+}
