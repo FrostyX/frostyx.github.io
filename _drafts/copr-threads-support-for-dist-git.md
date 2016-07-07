@@ -41,8 +41,8 @@ See the comparison of importing 1000 packages on current and new Copr-dist-git.
 	<div class="row col-md-5">
 		<table class="table table-bordered">
 			<tr><th>Version</th><th>Time</th></tr>
-			<tr><td>copr-dist-git-0.19</td><td>XY minutes</td></tr>
-			<tr><td>dev</td><td>1,5 hours</td></tr>
+			<tr><td>copr-dist-git-0.19</td><td>1 hour 15 minutes</td></tr>
+			<tr><td>dev</td><td>45 minutes</td></tr>
 		</table>
 	</div>
 </div>
