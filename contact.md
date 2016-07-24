@@ -13,7 +13,6 @@ permalink: /contact/
 			<li><a href="mailto:kadlcik@creative-vision.cz">kadlcik@creative-vision.cz</a></li>
 		</ul>
 	</div>
-
 	<div class="col-md-6">
 		<h2>IRC</h2>
 		<ul>
@@ -22,10 +21,8 @@ permalink: /contact/
 				<li>#gentoo.cs</li>
 				<li>#fedora-buildsys</li>
 			</ul>
-
 		</ul>
 	</div>
-
 </div>
 <hr>
 <div class="row">
@@ -38,7 +35,6 @@ permalink: /contact/
 			<li><a href="https://www.facebook.com/jakubkadlcik" title="FrostyX on facebook.com">facebook.com</a></li>
 		</ul>
 	</div>
-
 	<div class="col-md-6">
 		<h2>Bugzilla</h2>
 		<ul>

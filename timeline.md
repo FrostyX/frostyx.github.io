@@ -6,6 +6,43 @@ permalink: /timeline/
 
 <ul class="timeline">
 	<li>
+		<div class="timeline-badge work"><i class="fa fa-credit-card"></i></div>
+		<div class="timeline-panel">
+			<div class="timeline-heading">
+				<h4 class="timeline-title">Red Hat - Associate software engineer</h4>
+				<p>
+					<small class="text-muted">
+						<i class="glyphicon glyphicon-time"></i> 2016 - now<br>
+						<i class="fa fa-map-marker"></i> Brno, Czech Republic
+					</small>
+				</p>
+			</div>
+			<div class="timeline-body">
+				<p>Tranfer from intern to associate</p>
+			</div>
+		</div>
+	</li>
+
+	<li class="timeline-inverted">
+		<div class="timeline-badge work"><i class="fa fa-credit-card"></i></div>
+		<div class="timeline-panel">
+			<div class="timeline-heading">
+				<h4 class="timeline-title">Red Hat - Internship</h4>
+				<p>
+					<small class="text-muted">
+						<i class="glyphicon glyphicon-time"></i> 2015 - 2016<br>
+						<i class="fa fa-map-marker"></i> Brno, Czech Republic<br>
+						<i class="fa fa-external-link"></i> <a href="https://copr.fedorainfracloud.org/">copr.fedorainfracloud.org/</a><br>
+					</small>
+				</p>
+			</div>
+			<div class="timeline-body">
+				<p>I've joined the development team of Copr project. We work on a community build service in Fedora that builds your code and provides you with your own RPM repository.</p>
+			</div>
+		</div>
+	</li>
+
+	<li>
 		<div class="timeline-badge project"><i class="fa fa-code"></i></div>
 		<div class="timeline-panel">
 			<div class="timeline-heading">
