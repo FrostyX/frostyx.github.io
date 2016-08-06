@@ -2,7 +2,7 @@
 layout: post
 title: Moje zkušenost s Korteho tréninkem
 lang: cz
-categories:
+categories: powerlifting
 ---
 
 ## O co jde?
