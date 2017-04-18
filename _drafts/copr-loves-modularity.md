@@ -39,7 +39,7 @@ To create a module from existing modulemd, please send a `POST` request to Copr 
 	Content-Type: multipart/form-data
 
 	{
-		"modulemd": "./module.yaml"
+		"modulemd": "<path/to/module.yaml>"
 	}
 
 Unfortunately there isn't `copr-cli` support yet, so in the meantime you can use something like this.
