@@ -10,56 +10,50 @@ categories: dev copr fedora
 
 ## Modularity in Copr
 
-In last releases we introduced a lot of interesting things regarding modularity. You can now submit an existing modulemd to be build or alternatively generate modulemd from your project through few easy steps in your browser. We also made an initial UI concept for viewing modules.
+In last releases we introduced a lot of interesting things regarding modularity. You can now use copr-cli for submitting an existing modulemd to be built or alternatively generate modulemd from your project through few easy steps in your browser. We also made a cool UI for viewing modules.
 
 
-### Web UI
+### How to submit a module via copr-cli
 
-<div class="row">
-	<div class="col-lg-6">
-		<a href="/files/img/module-create-full.png" title="Generate modulemd from your project">
-			<img src="/files/img/module-create-thumb.png">
-		</a>
-	</div>
-	<div class="col-lg-6">
-		<a href="/files/img/module-detail-full.png" title="Detail of a module">
-			<img src="/files/img/module-detail-thumb.png" class="pull-right">
-		</a>
-	</div>
+Now we have a new command `copr-cli build-module ...` for submitting module builds into Copr and it is very easy to use. It expect you to select one of the optional parameters `--url` or `--yaml` to specify a modulemd source. And that is basically it. You can also specify an owner and project name like you can do it for other copr-cli commands.
+
+<pre class="prettyprint">
+# Most simple is just to submit a build from localy stored modulemd yaml file
+copr-cli build-module --yaml ~/git/testmodule/testmodule.yaml
+
+# Guys from Factory 2.0 may be also interested in submitting yaml files stored in some SCM
+copr-cli build-module --url git://pkgs.fedoraproject.org/modules/testmodule.git?#9082569
+
+# To specify an owner and project name, use positional argument as usual
+copr-cli make-module --yaml ~/git/testmodule/testmodule.yaml @copr/testmodule
+</pre>
+
+
+Watch this two minutes long video to see building modules in action
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/mkHJg5QmAxg"></iframe>
 </div>
 
 
-### API
-
-To create a module from existing modulemd, please send a `POST` request to Copr API.
-
-	POST /api/coprs/<username>/<coprname>/module/build/ HTTP/1.1
-	Host: copr.fedoraproject.org
-	Authorization: Basic base64=encoded=string
-	Content-Type: multipart/form-data
-
-	{
-		"modulemd": "<path/to/module.yaml>"
-	}
-
-Unfortunately there isn't `copr-cli` support yet, so in the meantime you can use something like this.
-
-	curl --user <login>:<token> -F "modulemd=@`pwd`/<filename>.yaml" \
-	     http://copr.fedoraproject.org/api/coprs/<user>/<copr>/module/build/
-
-Where `<login>` and `<token>` values can be found in your `~/.config/copr` file.
+### Background
+Let's very briefly talk about how this works. There is a [Module Build Service](https://pagure.io/fm-orchestrator) (aka MBS) which orchestrates all the magic related to modules. It takes care about obtaining the dependencies for the module, order in which they should be built, etc. Copr runs own instance of this service and after you submit a build to the frontend, it passes it to MBS which takes control about it and orchestrates the rest of the process. If you want to know more, look forward to an upcoming article about it.
 
 
 ## Limitations
-1. Copr does not actually build the module in a way that it is supposed to do. It just takes built packages from chroots copy them into another directory and create module repository from it
-2. As a consequence of the previous point, you must have all components successfully build in the project before trying to build a module
-3. Missing copr-cli support
+Try it and tell us the limitations. What needs to be improved in order to make you start using this feature?
+
+Few limitations we already know about:
+
+- When submitting via `--url` option, only certain URLs are allowed ([pkgs.stg.fedoraproject.org](git://pkgs.stg.fedoraproject.org/modules/) and [pkgs.fedoraproject.org](git://pkgs.fedoraproject.org/modules/)). This restriction comes from MBS (issue [#513](https://pagure.io/fm-orchestrator/issue/513)) and hopefully should be removed soon.
+- No user access to logs. Unfortunately when something fails and it shouldn't you have to ping an admin to examine the logs, you can't do it by yourself yet
 
 
 ## What next
-We are currently working on removing the limitations described above. But apart from this, it is entirely up to you, your needs and use-cases that you want to achieve. Let us know your ideas in the comment section below or on our [mailing list](https://lists.fedorahosted.org/admin/lists/copr-devel.lists.fedorahosted.org/).
+In next article we will look on generating a modulemd from a copr project and building it without any knowledge about creating modules whatsoever. And where the development should proceed? It is mainly up to you and use-cases that you want to achieve. Let us know your ideas in the comment section below or on our [mailing list](https://lists.fedorahosted.org/admin/lists/copr-devel.lists.fedorahosted.org/).
 
 
 ## References
 - [1] <https://fedoraproject.org/wiki/Modularity>
-- [2] <https://www.youtube.com/watch?v=907pRakAjMU>
+- [2] <https://www.youtube.com/watch?v=mkHJg5QmAxg>
+- [3] <https://pagure.io/fm-orchestrator>
