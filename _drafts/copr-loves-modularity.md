@@ -10,12 +10,12 @@ categories: dev copr fedora
 
 ## Modularity in Copr
 
-In last releases we introduced a lot of interesting things regarding modularity. You can now use copr-cli for submitting an existing modulemd to be built or alternatively generate modulemd from your project through few easy steps in your browser. We also made a cool UI for viewing modules.
+In last releases we introduced a lot of interesting things regarding modularity. You can now use `copr-cli` for submitting an existing modulemd to be built or alternatively generate modulemd from your project through few easy steps in your browser. We also made a cool UI for viewing modules. Let's see how you can build something.
 
 
 ### How to submit a module via copr-cli
 
-Now we have a new command `copr-cli build-module ...` for submitting module builds into Copr and it is very easy to use. It expect you to select one of the optional parameters `--url` or `--yaml` to specify a modulemd source. And that is basically it. You can also specify an owner and project name like you can do it for other copr-cli commands.
+There is a new command `copr-cli build-module ...` for submitting module builds into Copr and it is very easy to use. It expect you to select one of the optional parameters `--url` or `--yaml` to specify a modulemd source. And that is basically it. You can also specify an owner and project name like you can do it for other `copr-cli` commands.
 
 <pre class="prettyprint">
 # Most simple is just to submit a build from localy stored modulemd yaml file
@@ -37,16 +37,16 @@ Watch this two minutes long video to see building modules in action
 
 
 ### Background
-Let's very briefly talk about how this works. There is a [Module Build Service](https://pagure.io/fm-orchestrator) (aka MBS) which orchestrates all the magic related to modules. It takes care about obtaining the dependencies for the module, order in which they should be built, etc. Copr runs own instance of this service and after you submit a build to the frontend, it passes it to MBS which takes control about it and orchestrates the rest of the process. If you want to know more, look forward to an upcoming article about it.
+Let's very briefly talk about how this works. There is a [Module Build Service](https://pagure.io/fm-orchestrator) (aka MBS) which orchestrates all the magic related to modules. It takes care about obtaining the dependencies for the module, order in which they should be built, etc. Copr runs own instance of this service and after you submit a build to the frontend, it passes it to MBS which takes control about it and orchestrates the rest of the process. If you want to know more, look forward to an upcoming article about implementation details.
 
 
 ## Limitations
-Try it and tell us the limitations. What needs to be improved in order to make you start using this feature?
+Try it and tell us the limitations. What needs to be improved in order to make **you** start using this feature?
 
 Few limitations we already know about:
 
 - When submitting via `--url` option, only certain URLs are allowed ([pkgs.stg.fedoraproject.org](git://pkgs.stg.fedoraproject.org/modules/) and [pkgs.fedoraproject.org](git://pkgs.fedoraproject.org/modules/)). This restriction comes from MBS (issue [#513](https://pagure.io/fm-orchestrator/issue/513)) and hopefully should be removed soon.
-- No user access to logs. Unfortunately when something fails and it shouldn't you have to ping an admin to examine the logs, you can't do it by yourself yet
+- No user access to logs. Unfortunately when something fails and it shouldn't, you have to ping an admin to examine the logs, you can't do it by yourself yet
 
 
 ## What next
