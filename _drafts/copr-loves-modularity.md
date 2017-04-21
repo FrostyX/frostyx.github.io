@@ -6,7 +6,7 @@ categories: dev copr fedora
 ---
 
 
-[Modularity](https://fedoraproject.org/wiki/Modularity) is an exciting, new initiative aimed at resolving the issue of diverging lifecycles of different *components* within Fedora. The building block of this idea is a **module**, which is a set of RPM packages that are well tested together as a solution. Module defines its components and dependencies and then it can be built into **artifact** such as repository or container.
+[Modularity](https://docs.pagure.org/modularity/) is an exciting, new initiative aimed at resolving the issue of diverging lifecycles of different *components* within Fedora. The building block of this idea is a **module**, which is a set of RPM packages that are well tested together as a solution. Module defines its components and dependencies and then it can be built into **artifact** such as repository or container.
 
 ## Modularity in Copr
 
@@ -25,7 +25,7 @@ copr-cli build-module --yaml ~/git/testmodule/testmodule.yaml
 copr-cli build-module --url git://pkgs.fedoraproject.org/modules/testmodule.git?#9082569
 
 # To specify an owner and project name, use positional argument as usual
-copr-cli make-module --yaml ~/git/testmodule/testmodule.yaml @copr/testmodule
+copr-cli build-module --yaml ~/git/testmodule/testmodule.yaml @copr/testmodule
 </pre>
 
 
@@ -54,6 +54,6 @@ In next article we will look on generating a modulemd from a copr project and bu
 
 
 ## References
-- [1] <https://fedoraproject.org/wiki/Modularity>
+- [1] <https://docs.pagure.org/modularity/>
 - [2] <https://www.youtube.com/watch?v=mkHJg5QmAxg>
 - [3] <https://pagure.io/fm-orchestrator>
