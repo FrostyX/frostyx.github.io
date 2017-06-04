@@ -36,12 +36,13 @@ Open your builds tab and select the build that you want to re-build as part of a
 <img src="/files/img/builds.png" alt="Builds tab" class="img-responsive center-block">
 <br>
 
-Git hash, that you should use as a `ref` is in the table named as "Dist Git Source"
+Git hash, that you should use as a `ref` is in the table named as "Dist Git Source". Then click on it.
 <img src="/files/img/build-results.png" alt="Build results" class="img-responsive center-block">
 <br>
 
-On the end of cgit page there is a link for cloning
-IMG TBD
+Use a first part of the URL as `repository`
+<img src="/files/img/cgit.png" alt="Build results" class="img-responsive center-block">
+<br>
 
 
 ## References
