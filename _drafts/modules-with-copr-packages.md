@@ -11,21 +11,21 @@ In the [last article](/posts/copr-loves-modularity) we talked about Fedora modul
 
 Lets assume that you have your [modulemd yaml](https://pagure.io/modulemd/blob/master/f/spec.yaml) file created and you want to add a package from Copr into it. We are going to modify a `components` section, which so far should look like this
 
-	components:
-		rpms:
-			ed:
-				rationale: A build dependency of mksh.
-				ref: master
-			mksh:
-				rationale: The main package of the module.
-				buildorder: 1
-				ref: master
+    components:
+        rpms:
+            ed:
+                rationale: A build dependency of mksh.
+                ref: master
+            mksh:
+                rationale: The main package of the module.
+                buildorder: 1
+                ref: master
 
 We can append a Copr package like this
 
-	        hello:
-			    rationale: An example of Copr package
-				ref: 9d1ced1
+            hello:
+                rationale: An example of Copr package
+                ref: 9d1ced1
                 repository: 'http://copr-dist-git.fedorainfracloud.org/git/frostyx/hello/hello.git'}
 
 wait, wait, wait ... but, where can I find the `ref` and `repository` for my package? Follow this short image tutorial.
