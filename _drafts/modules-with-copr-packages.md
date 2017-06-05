@@ -26,7 +26,7 @@ We can append a Copr package like this
             hello:
                 rationale: An example of Copr package
                 ref: 9d1ced1
-                repository: 'http://copr-dist-git.fedorainfracloud.org/git/frostyx/hello/hello.git'}
+                repository: 'http://copr-dist-git.fedorainfracloud.org/git/frostyx/hello/hello.git'
 
 wait, wait, wait ... but, where can I find the `ref` and `repository` for my package? Follow this short image tutorial.
 
