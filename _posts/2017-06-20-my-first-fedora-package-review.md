@@ -5,7 +5,7 @@ lang: en
 categories: fedora howto packaging
 ---
 
-Recently I've done my first fedora package review and this very short post is about usage of `fedora-review` tool.
+Recently I've done my first fedora [package review](https://fedoraproject.org/wiki/Package_Review_Process) and this very short post is about usage of `fedora-review` tool.
 
 
 ## Usage
@@ -29,3 +29,10 @@ Then I could edit it as I wanted, build it and see whether my suggestions are he
 
 	rpmbuild -bs ~/rpmbuild/SPECS/foo.spec
 	fedora-review -rn ~/rpmbuild/SRPMS/foo-0.2-1.fc25.src.rpm --mock-config fedora-rawhide-x86_64
+
+
+## References
+
+1. <https://fedoraproject.org/wiki/Package_Review_Process>
+2. <https://fedoraproject.org/wiki/Packaging:ReviewGuidelines>
+3. <https://fedoraproject.org/wiki/Packaging:Guidelines>
