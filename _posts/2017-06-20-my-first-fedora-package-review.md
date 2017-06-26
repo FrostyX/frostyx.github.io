@@ -12,11 +12,11 @@ Recently I've done my first fedora package review and this very short post is ab
 
 Standard usage is very straightforward. You just need to know the bug ID for review request
 
-	fedora-reivew -b 123456
+	fedora-review -b 123456
 
 It will complain that you should build the package in rawhide, so basically this is a way to go
 
-	fedora-reivew -b 123456 --mock-config fedora-rawhide-x86_64
+	fedora-review -b 123456 --mock-config fedora-rawhide-x86_64
 
 
 ## My usage
