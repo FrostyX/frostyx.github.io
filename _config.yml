@@ -17,7 +17,6 @@ github_username:  frostyx
 permalink: /posts/:title
 
 # Build settings
-#markdown: kramdown
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
