@@ -18,5 +18,9 @@ permalink: /posts/:title
 
 # Build settings
 markdown: kramdown
+  # Auto-generate ID's for headings
+  # https://milanaryal.com/adding-hover-anchor-links-to-header-on-github-pages-using-jekyll/
+  auto_ids: true
+
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
