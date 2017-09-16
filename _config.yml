@@ -18,6 +18,8 @@ permalink: /posts/:title
 
 # Build settings
 markdown: kramdown
+
+kramdown:
   # Auto-generate ID's for headings
   # https://milanaryal.com/adding-hover-anchor-links-to-header-on-github-pages-using-jekyll/
   auto_ids: true
