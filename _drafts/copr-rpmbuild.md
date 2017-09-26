@@ -5,18 +5,18 @@ lang: en
 categories: dev copr fedora
 ---
 
-Well, sort of. Has your package failed to build in [Copr](http://copr.fedoraproject.org/)? We introduce a new tool called `copr-rpmbuild` which allows you to locally reproduce it and make the debugging process much easier.
+Well, sort of. Has your package failed to build in [Copr](http://copr.fedoraproject.org/)? We introduce a new tool called `copr-rpmbuild` which allows you to reproduce it locally and make the debugging process much easier.
 
 
 ## Behold copr-rpmbuild
 
-`copr-rpmbuild` is a simple tool for reproducing Copr builds. Upon your needs, it can produce SRPM or RPM package. The best thing is that we use this tool internally within Copr infrastructure, so you can be sure that it reproduces the build under the exactly same conditions.
+`copr-rpmbuild` is a simple tool for reproducing Copr builds. Upon your needs, it can produce SRPM or RPM package. The best thing is that we use this tool internally within Copr infrastructure, so you can be sure that it reproduces the build under exactly same conditions.
 
 The basic usage is straightforward
 
 	copr-rpmbuild --build-id <id> --chroot <name>
 
-This will obtain a task definition from Copr and attempt to build RPM package into `/var/lib/copr-rpmbuild/results/` directory. Except from the binary package itself, there are also generated mock configs and logs.
+This will obtain a task definition from Copr and attempt to build RPM package into `/var/lib/copr-rpmbuild/results/` directory. Except the binary package itself, there are also generated mock configs and logs.
 
 If you are interested only in SRPM package, use
 
@@ -25,9 +25,9 @@ If you are interested only in SRPM package, use
 
 ## Disclaimer
 
-Did I got you on the buzzword _reproducible builds_? Well, let me clarify what does it mean in this context. Copr stores a definition of every build. We call such definition a _build task_ and it contains information needed to create a desired buildroot and produce a package in it. For instance there is a name of mock chroot that should be used, what repositories should be allowed there, what packages should be installed, ... and of course information about what is going to be built in it.
+Did I get you on the buzzword _reproducible builds_? Well, let me clarify what does it mean in this context. Copr stores a definition of every build. We call such definition a _build task_, and it contains information needed to create the desired buildroot and produce a package in it. For instance, there is a name of mock chroot that should be used, what repositories should be allowed there, what packages should be installed, ... and of course information about what is going to be built in it.
 
-The meaning of _reproducing_ a build is creating a local build from the same task as the original one. It is not guaranteed that the output will always be a 100% same. It may vary when using a different mock version or nonstandard configuration on client side and in situations when the package operates with build timestamp of itself.
+The meaning of _reproducing_ a build is creating a local build from the same task as the original one. It is not guaranteed that the output will always be a 100% same. It may vary when using a different mock version or non-standard configuration on a client side and in situations when the package operates with build timestamp of itself.
 
 
 ## Configuration
