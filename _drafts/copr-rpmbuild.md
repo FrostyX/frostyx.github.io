@@ -1,12 +1,11 @@
 ---
 layout: post
-title:
+title: Reproducible Copr builds
 lang: en
-categories: dev copr fedora modularity
+categories: dev copr fedora
 ---
 
-Has your package failed to build in Copr?
-_Some more catchy perex and title here_
+Well, sort of. Has your package failed to build in [Copr](http://copr.fedoraproject.org/)? We introduce a new tool called `copr-rpmbuild` which allows you to locally reproduce it and make the debugging process much easier.
 
 
 ## Behold copr-rpmbuild
@@ -15,23 +14,30 @@ _Some more catchy perex and title here_
 
 The basic usage is straightforward
 
-	copr-rpmbuild <task-id>
+	copr-rpmbuild --build-id <id> --chroot <name>
 
-This will obtain a task (wait, what is _task_? [Read further](#)) from [Copr](#) and attempt to build RPM package into `/var/lib/copr-rpmbuild/results/` directory. Except from the binary package itself, there are also generated mock configs and logs.
+This will obtain a task definition from Copr and attempt to build RPM package into `/var/lib/copr-rpmbuild/results/` directory. Except from the binary package itself, there are also generated mock configs and logs.
 
 If you are interested only in SRPM package, use
 
-	copr-rpmbuild --srpm <build-id>
+	copr-rpmbuild --srpm --build-id <id>
+
+
+## Disclaimer
+
+Did I got you on the buzzword _reproducible builds_? Well, let me clarify what does it mean in this context. Copr stores a definition of every build. We call such definition a _build task_ and it contains information needed to create a desired buildroot and produce a package in it. For instance there is a name of mock chroot that should be used, what repositories should be allowed there, what packages should be installed, ... and of course information about what is going to be built in it.
+
+The meaning of _reproducing_ a build is creating a local build from the same task as the original one. It is not guaranteed that the output will always be a 100% same. It may vary when using a different mock version or nonstandard configuration on client side and in situations when the package operates with build timestamp of itself.
 
 
 ## Configuration
 
-When no other config is specified, the pre-installed `/etc/copr-rpmbuild/main.ini` is used. This is also a configuration used in Copr stack. You can specify different config file by `--config <path>` parameter. Such config doesn't necessarily have to contain all the possible options, just the ones that you want to change. Let me suggest two alternative configurations
+When no other config is specified, the pre-installed `/etc/copr-rpmbuild/main.ini` is used. This is also a configuration file used in Copr stack. You can specify a different config file by `--config <path>` parameter. Such config doesn't necessarily have to contain all the possible options, just the ones that you want to change. Let me suggest two alternative configurations
 
 
 ### User-friendly paths
 
-Do not touch to system directories.
+Do not touch system directories.
 
 	[main]
 	resultdir = ~/copr-rpmbuild/results
@@ -42,7 +48,7 @@ Do not touch to system directories.
 
 ### Different Copr instance
 
-Use Copr [staging](#) instance as an example.
+Use Copr [staging](http://copr-fe-dev.cloud.fedoraproject.org/) instance as an example.
 
 	[main]
 	frontend_url = http://copr-fe-dev.cloud.fedoraproject.org
@@ -50,21 +56,14 @@ Use Copr [staging](#) instance as an example.
 	distgit_clone_url = http://copr-dist-git-dev.fedorainfracloud.org/git
 
 
-## Copr tasks
-
-Finally, let's talk about what copr tasks are and how to identify them. Tasks describe every information needed for creating build environment and producing a RPM package in it. e.g. which mock chroot should be used, what repositories should be allowed there, what packages should be installed, ... and of course information about what is going to be built.
-
-Such task is identified with `task-id` which is combination of `<build-id>-<chroot-name>` (e.g. 123456-fedora-27-x86_64).
-
-
 ## Examples
 <pre class="prettyprint lang-bash">
 # Default usage
-copr-rpmbuild 123456-fedora-27-x86_64
+copr-rpmbuild --build-id 123456 --chroot fedora-27-x86_64
 
 # Build only SRPM package
-copr-rpmbuild --srpm 123456
+copr-rpmbuild --srpm --build-id 123456
 
 # Use different config
-copr-rpmbuild -c ~/my-copr-rpmbuild.ini 123456-fedora-27-x86_64
+copr-rpmbuild -c ~/my-copr-rpmbuild.ini --build-id 123456 --chroot fedora-27-x86_64
 </pre>
