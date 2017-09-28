@@ -28,6 +28,8 @@ The only problem was, that light has not been packaged for Fedora yet. Since I w
 
 There is also a pending [package review](https://bugzilla.redhat.com/show_bug.cgi?id=1481416) so you might be able to install it directly from Fedora repositories soon.
 
+Update: The package is already in Fedora repositories.
+
 ## Usage
 
 <pre class="prettyprint">
