@@ -5,24 +5,28 @@ lang: en
 categories: dev copr fedora howto
 ---
 
-This article explains my local environment and personal workflow for developing [Copr](#). This doesn't neccessary mean that it is the best way how to do it, but it is the way that suits best to my personal preferences.
+This article explains my local setup and personal workflow for developing [Copr](http://copr.fedoraproject.org/). This doesn't neccessary mean that it is the best way how to do it, but it is the way that suits best to my personal preferences. Other team members probably approach this differently.
 
 
 ## Theory
-Developing in vagrant has lot of advantages, but it also brings us very few unpleasant things. You can basically set up your whole environment just by running `vagrant up` which allows you to test your code in production-like machine. This is absolutely awesome. The bad thing is that on production machine you can't do things like "I am gonna change this line and see what happens" or interactive debugging via [ipdb](https://pypi.python.org/pypi/ipdb).
+Developing in vagrant has lot of advantages, but it also brings us few unpleasant things. You can basically set up your whole environment just by running `vagrant up` which allows you to test your code in production-like machine. This is absolutely awesome. The bad thing (while developping) is that on such machine you can't do things like "I am gonna change this line and see what happens" or interactive debugging via [ipdb](https://pypi.python.org/pypi/ipdb).
 
 Actually what you have to do is commiting the change first, building package from your commit, installing it and then restarting your server. Or if you are lazy, commiting change and reloading the whole virtual machine. However it doesnt matter, it will be slow and painfull either way. In this article I am going to explain how you can benefit from Vagrant features, but still develop comfortably and "interactively".
 
 
 ## Prerequisites
 
-	$ sudo systemctl stop firewalld
-	$ sudo dnf install vagrant
+<pre class="prettyprint">
+# You should definitely not turn off your firewall
+# I am lazy to configure it though
+$ sudo systemctl stop firewalld
+$ sudo dnf install vagrant
+</pre>
 
 
 ## Example workflow
 
-Lets imagine that we want to make some change in frontend code. First of all we have to setup and start our dev environment. Following command will run virtual machines with frontend, distgit and backend.
+Lets imagine that we want to make some change in frontend code. First of all we have to setup and start our dev environment. Following command will run virtual machines with frontend and distgit.
 
 	$ vagrant up
 
@@ -34,43 +38,36 @@ Now, as it is described in [frontend section](#Frontend), we will stop productio
 
 	ipdb>
 
-Similarly you can use such workflow for distgit and backend.
+Similarly you can use such workflow for distgit.
 
 
 <div id="Frontend"></div>
 
 ## Frontend
 
-	# [frontend]
-	sudo systemctl stop httpd
-	sudo python /vagrant/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0
+<pre class="prettyprint">
+# [frontend]
+sudo systemctl stop httpd
+sudo python /vagrant/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0
+</pre>
 
 
 ## Dist-git
 
-	# [dist-git]
-	sudo systemctl stop copr-dist-git
-	sudo su copr-service
-	cd
-	PYTHONPATH=/vagrant/dist-git /vagrant/dist-git/run/importer_runner.py
+<pre class="prettyprint">
+# [dist-git]
+sudo systemctl stop copr-dist-git
+sudo su copr-service
+cd
+PYTHONPATH=/vagrant/dist-git /vagrant/dist-git/run/importer_runner.py
+</pre>
 
 
 ## Backend
 
-	# [backend]
-	sudo supervisorctl stop copr-backend
-	sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_be.py -u root -g root
-	sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_job_grab.py
-	sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_vmm.py
-	sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_logger.py
+There is no vagrant support for backend. We rather use [docker image](#) for it. Let's leave this topic for another post.
 
 
-Most comfortable way is to create grid of 4 panes in [tmux](#) and run and run all the commands in it.
+## Follow up
 
-	#!/bin/bash
-	tmux new-session -ds copr 'exec sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_be.py -u root -g root'
-	tmux select-window -t copr:0
-	tmux split-window -h 'exec sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_job_grab.py'
-	tmux split-window -v -t 0 'exec sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_vmm.py'
-	tmux split-window -v -t 1 'exec sudo PYTHONPATH=/vagrant/backend /usr/bin/copr_run_logger.py'
-	tmux -2 attach-session -t copr
+I've been using this setup for over a year now and it served me quite well. Right until I wanted to run several machines at once, IDE and browser on a laptop with limited RAM capacity. That is one of the reasons why I decided to dockerize the whole Copr stack and move away from Vagrant. See my current workflow in a newer post - [The whole Copr stack dockerized!](#)
