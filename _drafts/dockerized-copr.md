@@ -5,7 +5,7 @@ lang: en
 categories: dev copr fedora howto
 ---
 
-Lately I decided to dockerize the whole Copr stack and utilize it for development. It is quite nifty and just ridiculously easy to use. In this article I want to show you how to run it, describe what is inside the containers and explain my personal workflow.
+Lately, I decided to dockerize the whole Copr stack and utilize it for development. It is quite nifty and just ridiculously easy to use. In this article, I want to show you how to run it, describe what is inside the containers and explain my personal workflow.
 
 There are no prerequisites required, you only need to have [properly configured](https://developer.fedoraproject.org/tools/docker/about.html) docker and `docker-compose` command installed.
 
@@ -14,18 +14,18 @@ There are no prerequisites required, you only need to have [properly configured]
 
 Have I already said, that it is ridiculously easy to use? Just run following command in the copr root directory.
 
-	docker-compose up -d
+    docker-compose up -d
 
-It builds images for all Copr services and run containers from them. Once it is done, you should be able to open <http://127.0.0.1:5000> and successfully build a package in it.
+It builds images for all Copr services and runs containers from them. Once it is done, you should be able to open <http://127.0.0.1:5000> and successfully build a package in it.
 
 
 ### How so?
 
-There is a `docker-compose.yaml` file in the copr root directory, which describes all the Copr services and ties them together. At this point we have frontend, distgit, backend and database. This may change in the future by splitting the functionality across more containers.
+There is a `docker-compose.yaml` file in the copr root directory, which describes all the Copr services and ties them together. At this point, we have a frontend, distgit, backend and database. This may change in the future by splitting the functionality across more containers.
 
-In copr repository also lies a directory called `docker` which contains corresponding Dockerfile for each service.
+In copr repository also lies a directory called `docker` which contains the corresponding Dockerfile for each service.
 
-All the images are build in the same way. First the whole copr repository is copied in. Then the `tito` is used to build an appropriate package for the service. It is installed, configured and started. The only exception here is the database, which just setups a simple postgresql server.
+All the images are built in the same way. First, the whole copr repository is copied in. Then the `tito` is used to build an appropriate package for the service. It is installed, configured and started. The only exception here is the database, which just setups a simple PostgreSQL server.
 
 The parent process for the services running in containers is a `supervisord` so they can be controlled via `supervisorctl` command.
 
@@ -38,21 +38,21 @@ How can I see running containers?
 
     docker-compose ps
 
-Why some container doesn't start as expected?
+Why doesn't some container start as expected?
 
     docker-compose logs --follow
 
-How can I open shell in the container?
+How can I open a shell in the container?
 
     docker exec -it <name> bash
 
 How can I see running services in the container?
 
-	supervisorctl status
+    supervisorctl status
 
 How can I control services in the container?
 
-	supervisorctl start/stop/restart all/<name>
+    supervisorctl start/stop/restart all/<name>
 
 
 ### My personal workflow
@@ -66,9 +66,9 @@ Once we have running container for frontend, we can open shell in it and do
     supervisorctl stop httpd
     python /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0
 
-to stop the service from pre-installed package and run a built-in server from live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
+to stop the service from a pre-installed package and run a built-in server from live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
 
-Alternatively, for distgit we can use
+Alternatively, for distgit, we can use
 
-	supervisorctl stop copr-dist-git
-	PYTHONPATH=/opt/copr/dist-git /opt/copr/dist-git/run/importer_runner.py
+    supervisorctl stop copr-dist-git
+    PYTHONPATH=/opt/copr/dist-git /opt/copr/dist-git/run/importer_runner.py
