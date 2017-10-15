@@ -72,3 +72,9 @@ Alternatively, for distgit, we can use
 
     supervisorctl stop copr-dist-git
     PYTHONPATH=/opt/copr/dist-git /opt/copr/dist-git/run/importer_runner.py
+
+
+### Resources
+1. <https://developer.fedoraproject.org/tools/docker/about.html>
+2. <https://docs.docker.com/compose/overview/>
+3. <https://devcenter.heroku.com/articles/local-development-with-docker-compose>
