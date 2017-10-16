@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dockerized Copr
+title: Copr stack dockerized!
 lang: en
 categories: dev copr fedora howto
 ---
