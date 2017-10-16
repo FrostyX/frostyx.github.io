@@ -59,14 +59,14 @@ How can I control services in the container?
 
 Are you familiar with utilizing containers for development? Just stop reading here. This section describes my personal preferences and you might not endorse them. That is fine, I am not trying to force you to do it my way. However, I think that it is a good idea to describe them, so new team members (or even the current ones) can inspire themselves. Also, if everyone described their setup, we would be clear on what we need to support.
 
-In case that you haven't read the post about [my vagrant setup](/posts/copr-vagrant-development), you should do it. The workflow remains exactly the same, just tools changed. Let's have a frontend as an example.
+In case that you haven't read the post about [my vagrant setup](/posts/copr-vagrant-development), you should do it. The workflow remains exactly the same, just the tools changed. Let's have a frontend as an example.
 
-Once we have running container for frontend, we can open shell in it and do
+Once we have a running container for the frontend, we can open a shell in it and do
 
     supervisorctl stop httpd
     python /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0
 
-to stop the service from a pre-installed package and run a built-in server from live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
+to stop the service from a pre-installed package and run a built-in server from the live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
 
 Alternatively, for distgit, we can use
 
