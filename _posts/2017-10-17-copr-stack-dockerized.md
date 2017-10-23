@@ -54,6 +54,10 @@ How can I control services in the container?
 
     supervisorctl start/stop/restart all/<name>
 
+How can I throw away a changes, that I made inside the container
+
+    docker-compose up -d --force-recreate <service>
+
 
 ### My personal workflow
 
