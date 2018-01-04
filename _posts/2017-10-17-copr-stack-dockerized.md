@@ -68,7 +68,7 @@ In case that you haven't read the post about [my vagrant setup](/posts/copr-vagr
 Once we have a running container for the frontend, we can open a shell in it and do
 
     supervisorctl stop httpd
-    python /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0
+    python /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0 --no-reload
 
 to stop the service from a pre-installed package and run a built-in server from the live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
 
@@ -76,6 +76,12 @@ Alternatively, for distgit, we can use
 
     supervisorctl stop copr-dist-git
     PYTHONPATH=/opt/copr/dist-git /opt/copr/dist-git/run/importer_runner.py
+
+And lastly for backend
+
+    supervisorctl status  # To find the daemon that we want to work with
+    supervisorctl stop copr-backend-action
+    PYTHONPATH=/opt/copr/backend /opt/copr/backend/run/copr_run_action_dispatcher.py
 
 
 ### Resources
