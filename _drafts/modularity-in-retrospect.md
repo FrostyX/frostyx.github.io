@@ -35,7 +35,7 @@ It was on us to implement the [Copr builder](https://pagure.io/copr/module-build
 ## Buildroot from modules
 As you can see from the previous demo, we used to build modules in Fedora rawhide chroot. This contradicted with one of the former modularity goals which was a fully modular system built in fully modular buildroot. We solved it by building modules in `custom-1-x86_64` chroot with an enabled external repository to base-runtime (later platform) module. You can see the demo [here](https://www.youtube.com/watch?v=mlo27-CIXD8).
 
-We took it even further. Although the MBS constructs a buildroot from modules, it actually kind of cheats. It determines which modules should be installed into the buildroot and then finds out which packages are provided by those modules. Those are installed into the buildroot. This makes a sense maybe as a workaround, but I consider it wrong from the design perspective. This made us implement a support for [Mock](https://github.com/rpm-software-management/mock) to be able to [directly install modules into the buildroot](https://github.com/rpm-software-management/mock/wiki/Release-Notes-1.4.2) and then [updated MBS][https://pagure.io/fm-orchestrator/pull-request/765] to specify dependencies as modules instead of packages.
+We took it even further. Although the MBS constructs a buildroot from modules, it actually kind of cheats. It determines which modules should be installed into the buildroot and then finds out which packages are provided by those modules. Those are installed into the buildroot. This makes a sense maybe as a workaround, but I consider it wrong from the design perspective. This made us implement a support for [Mock](https://github.com/rpm-software-management/mock) to be able to [directly install modules into the buildroot](https://github.com/rpm-software-management/mock/wiki/Release-Notes-1.4.2) and then [updated MBS](https://pagure.io/fm-orchestrator/pull-request/765) to specify dependencies as modules instead of packages.
 
 
 ## Modules with Copr packages
@@ -43,11 +43,7 @@ How to built modules from Copr packages? Wait for an upcoming article. It will b
 
 
 ## MBS Plugins
-@TODO module-build-service-copr
-
-
-## Modules based on Copr modules
-@TODO
+It turned out that having the code of third-party builders such as Copr in the [fm-orchestrator](https://pagure.io/fm-orchestrator) repository is quite ineffective. The Copr release process became dependant on MBS release and at the same time, the MBS upstream didn't know the implementation details of the Copr side. We mutually agreed that custom builders should be moved out to their own repositories in the form of [plugins](https://pagure.io/fm-orchestrator/pull-request/787). That day [module-build-service-copr](https://pagure.io/copr/module-build-service-copr) was born.
 
 
 ## Hybrid Modularity
