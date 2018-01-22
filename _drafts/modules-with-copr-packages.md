@@ -39,7 +39,7 @@ Scroll down the detail page to see the results box. In the "Dist Git Source" col
 <img src="/files/img/build-results.png" alt="Build results" class="img-responsive center-block">
 <br>
 
-Now you can see the Copr [dist git](https://clime.github.io/2017/05/20/DistGit-1.0.html). Use the first part of the URL as `repository`
+Now you can see the Copr [dist git](https://clime.github.io/2017/05/20/DistGit-1.0.html). Use the first part of the URL as the `repository`, just replace `/cgit/` with `/git/`.
 <img src="/files/img/cgit.png" alt="Build results" class="img-responsive center-block">
 <br>
 
