@@ -68,7 +68,7 @@ In case that you haven't read the post about [my vagrant setup](/posts/copr-vagr
 Once we have a running container for the frontend, we can open a shell in it and do
 
     supervisorctl stop httpd
-    python /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0 --no-reload
+    python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0 --no-reload
 
 to stop the service from a pre-installed package and run a built-in server from the live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
 
