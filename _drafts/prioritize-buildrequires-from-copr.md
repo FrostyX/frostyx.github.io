@@ -7,7 +7,7 @@ categories: dev copr fedora
 
 In this short article, we are going to see how it is possible to prioritize external repositories when building a package in Copr.
 
-Imagine the following [use-case](https://pagure.io/copr/copr/issue/97#comment-446610). You have a package `foo` which depends on package `bar`, i.e. `BuildRequires: bar`. The package `bar` is provided by Fedora repositories in version 1.2 and you have also built the package in version 1.1 in Copr. Now you want to build `foo` and explicitly say, that package `bar` should be installed from your Copr project, even though it is a lesser version than Fedora provides.
+Imagine the following [use-case](https://pagure.io/copr/copr/issue/97#comment-446610). You have a package `foo` which depends on package `bar`, i.e., `BuildRequires: bar`. The package `bar` is provided by Fedora repositories in version 1.2, and you have also built the package in version 1.1 in Copr. Now you want to build `foo` and explicitly say, that package `bar` should be installed from your Copr project, even though it is a lesser version than Fedora provides.
 
 
 ## Solution
@@ -16,7 +16,7 @@ We have extended the syntax for enabling external Copr repositories to support t
 
     copr://<owner>/<project>
 
-Now you can also specify the priority like this
+Now you can also specify the priority like this:
 
     copr://<owner>/<project>?priority=<num>
     copr://frostyx/copr-dev?priority=10
