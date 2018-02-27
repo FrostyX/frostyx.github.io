@@ -24,7 +24,7 @@ You can see the list of all successfully built packages in the project. By defau
 ## CLI
 Are you a pro who likes to write modulemd files manually? By no means, we don't want to complicate your workflow. You can submit a build from an existing modulemd yaml stored on both your system or public repository.
 
-    # You need a copr-cli-1.X for this
+    # You need a copr-cli-1.67 and python3-copr-1.86 for this
     copr-cli build-module --yaml ~/path/to/your/testmodule.yaml
     copr-cli build-module --url http://example.com/path/testmodule.yaml
 
@@ -37,7 +37,7 @@ Let's do a complete example together to see how can we install modules from Copr
     New project was successfully created.
 
     # We can borrow modules/httpd for this example
-    $ copr-cli build-module --url http://pkgs.fedoraproject.org/modules/httpd/raw/master/f/httpd.yaml testmodule
+    $ copr-cli build-module --url https://src.fedoraproject.org/modules/httpd/raw/2.4/f/httpd.yaml testmodule
     Created module httpd-master-20180118000705
 
 To be able to install modules in your system, you need the [DNF with modularity features](https://copr.fedorainfracloud.org/coprs/mhatina/dnf-modularity-stable/). For this demo, I will borrow [@asamalik](https://github.com/asamalik)'s container in which the DNF is preinstalled.
@@ -51,7 +51,7 @@ Now we can navigate to our testmodule project, see Modules and then the detail o
     Name                   Stream                   Version                     Profiles
     httpd                  master                   20180118000705              default
 
-    [root@38f31f452b83 ~]# dnf module info httpd
+    [root@38f31f452b83 ~]# dnf module info httpd:master
     Name        : httpd
     Stream      : master
     Version     : 20180118000705
