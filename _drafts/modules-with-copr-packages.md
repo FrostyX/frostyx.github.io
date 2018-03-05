@@ -6,7 +6,7 @@ categories: dev copr fedora modularity
 ---
 
 
-In the [last article](/posts/how-to-build-modules-in-copr), we have talked about [Fedora modularity project](https://docs.pagure.org/modularity/) and how to submit a module to be built in Copr. If you choose to write a modulemd file manually, you may be puzzled on how to have a package built in Copr as the part of the module. This is exactly what this article is going to be about.
+In the [last article](/posts/how-to-build-modules-in-copr), we have talked about [Fedora modularity project](https://docs.pagure.org/modularity/) and how to submit a module to be built in Copr. If you choose to write a modulemd file manually, you may be puzzled on how to have a package which has been built in Copr as the part of the module. This is exactly what this article is going to be about.
 
 Let's assume that you have your [modulemd yaml](https://pagure.io/modulemd/blob/master/f/spec.yaml) file created and you want to add a package from Copr into it. We are going to modify the `components` section, which should so far look like this
 
