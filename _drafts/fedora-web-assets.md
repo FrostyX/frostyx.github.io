@@ -54,4 +54,4 @@ It can be used like this.
 &lt;script src="&#123;&#123; url_for('system_static', component='jquery', filename='1/jquery.min.js') }}"></script>
 </pre>
 
-Feel free to customise the code to your needs.
+Feel free to customize the code to your needs.
