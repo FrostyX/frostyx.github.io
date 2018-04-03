@@ -11,7 +11,7 @@ categories: dev fedora
 ## Bundling
 The most common way to provide third-party assets like [jQuery](https://jquery.com/) or [Font Awesome](https://fontawesome.com/) is to download them, put them into some static directory of the application and commit them to the git repository. This is wrong for a [number of reasons](https://fedoraproject.org/wiki/Packaging:JavaScript#Rationale). The main one is security - developers are supposed to update the bundled libraries, but this usually never happens and results in using archaic versions that are buggy and have a lot of security issues.
 
-Next problem is licensing. Consider the following situation. You are creating an application under the GPLv3 license and bundling-in a jQuery which is released under the MIT licnese and the [Google's code-prettifier](https://github.com/google/code-prettify) which is available under the Apache License 2.0. What are you going to put into the `License` tag in the `.spec` file of your package?
+Next problem is licensing. Consider the following situation. You are creating an application under the GPLv3 license and bundling-in a jQuery which is released under the MIT license and the [Google's code-prettifier](https://github.com/google/code-prettify) which is available under the Apache License 2.0. What are you going to put into the `License` tag in the `.spec` file of your package?
 
 Does your project look like this and you don't even know javascript?
 
