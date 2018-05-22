@@ -32,4 +32,4 @@ For more information about the rpkg features, please read [the documentation](ht
 You may notice, that all tito build commands in the cheat sheet table have `--test` parameter. That's because rpkg always works with the last commit. So how to build a package from the last tag? We need to _checkout_ it first.
 
     git checkout <tag>
-	rpkg local
+    rpkg local
