@@ -37,19 +37,27 @@ Goals for the new API was:
 
 
 ## Show me the code
+Let's quickly look on some code example.
 
 <pre class="prettyprint">
 from copr.v3 import Client
 
 # Create an API client from config file
+# By default it reads ~/.config/copr
 client = Client.create_from_config_file()
 
 # Create a new project
 chroots = ["fedora-rawhide-x86_64", "fedora-rawhide-i386"]
-client.project_proxy.add("@copr", "foo", chroots, description="Some desc")
+project = client.project_proxy.add("@copr", "foo", chroots, description="My example project")
 
-# Build a package
+# Submit a new build
 url = "http://foo.ex/bar.src.rpm"
-build = client.build_proxy.create_from_url("@copr", "foo", url)
+build = client.build_proxy.create_from_url(project.ownername, project.name, url)
 print(build.id)
 </pre>
+
+A configuration is needed in order to by supplied to the client. It can be read from config file or defined as a `dict` in the code. The `client` object can be used to simplify the work with the API, but it is not required. The functionality is separated among multiple proxy objects. Methods return data stored in [munches](#) which are basically dicts with object-like access to properties.
+
+
+## Read further
+If you are interested in more code samples and details, there is a nice [documentation](#). You can see how the [client can be initialized](#), how the [data structures](#) look, how to [handle errors](#), how the [pagination](#) works, what [proxy methods](#) are available and many more. Also, please stay tuned for upcomming blog posts about the API.
