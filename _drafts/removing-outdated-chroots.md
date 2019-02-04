@@ -49,7 +49,6 @@ See this graph of Copr data consumption since the start of the project. The data
 <br>
 Let's see how much disk space was needed for particular Fedora releases.
 
-{:.table .table-bordered}
 | Distribution | Disk usage |
 |--------------|------------|
 | Fedora 21    | 82 GB      |
@@ -60,16 +59,17 @@ Let's see how much disk space was needed for particular Fedora releases.
 | Fedora 26    | 775 GB     |
 | EPEL 5       | 9.7 GB     |
 | EPEL 6       | 132 GB     |
+{: .table .table-bordered}
 
 
 <br>
 We also have an idea of how much data is required for alternative architectures in comparison to intel.
 
-{:.table .table-bordered}
 | Architecture   | Disk usage |
 |----------------|------------|
 | ppc64le        | 307 GB     |
 | x86_64, i686   | 5.5 TB     |
+{: .table .table-bordered}
 
 
 ## What benefits it brings
