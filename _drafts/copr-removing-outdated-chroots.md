@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Removing outdated chroots
+title: Copr - Removing outdated chroots
 lang: en
 categories: copr fedora
 ---
