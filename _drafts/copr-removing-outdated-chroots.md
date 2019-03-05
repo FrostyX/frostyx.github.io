@@ -31,14 +31,14 @@ The notification email will look like this.
 
 Of course, I got this one from devel instance, that's why there is a link to localhost. You will receive one email notifying you about all your projects (not one email per project). We chose this option to avoid unnecessary spamming.
 
-You can read the [Copr outdated chroots removal policy](#) if this change affects you.
+You can read the [Copr outdated chroots removal policy](https://docs.pagure.org/copr.copr/copr_outdated_chroots_removal_policy.html) if this change affects you.
 
 
 ## Why do we need it
 
 Long story short, we are quickly getting out of disk space. Our daily consumption continually grows and we currently store about 10GB/day. During last year we have used 2TB and we are accelerating, so for this year, we are going to need even more. Assuming the same growth as in the past, we will consume up to 2.5TB and the following year up to 5TB.
 
-See this graph of Copr data consumption since the start of the project until now. The data were collected by [@msuchy](#) and presented on Fedora infra [mailing list](#).
+See this graph of Copr data consumption since the start of the project until now. The data were collected by [@msuchy](https://github.com/xsuchy) and presented on Fedora infra [mailing list](https://lists.fedoraproject.org/archives/list/infrastructure@lists.fedoraproject.org/thread/V5NNMXNKS4KD7DPGALR5XFDN6SYJZNML/#4TPN77UWDPTKLMJLY4EM4PYXCKMQD3IU).
 
 <div class="text-center img">
   <a href="/files/img/copr-storage.png">
@@ -79,6 +79,6 @@ So, we are going to remove some old data, that is a _bad_ thing. But it will hav
 
 ## Resources
 
-- [1] [Copr outdated chroots removal policy](#)
+- [1] [Copr outdated chroots removal policy](https://docs.pagure.org/copr.copr/copr_outdated_chroots_removal_policy.html)
 - [2] [Storage at copr-be \| infrastructure@lists.fedoraproject.org](https://lists.fedoraproject.org/archives/list/infrastructure@lists.fedoraproject.org/thread/V5NNMXNKS4KD7DPGALR5XFDN6SYJZNML/#4TPN77UWDPTKLMJLY4EM4PYXCKMQD3IU)
 - [3] <https://github.com/rpm-software-management/mock/wiki/Feature-forcearch>
