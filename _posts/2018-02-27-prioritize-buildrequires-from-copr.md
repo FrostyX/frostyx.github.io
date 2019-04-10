@@ -3,6 +3,7 @@ layout: post
 title: Prioritize BuildRequires from Copr
 lang: en
 categories: dev copr fedora
+updated: 2019-04-10
 ---
 
 In this short article, we are going to see how it is possible to prioritize external repositories when building a package in Copr.
@@ -22,6 +23,15 @@ Now you can also specify the priority like this:
     copr://frostyx/copr-dev?priority=10
 
 Please note that other parameters than `?priority` are currently ignored.
+
+<div class="bs-callout bs-callout-default" id="non-copr-repo">
+    <p>Updated: 10. 4. 2019</p>
+    <p>
+       Upon user requests, we have decided to support priority setting even for non-copr repositories.
+       It is now possible to have:
+       <pre>https://foo.bar/baz?priority=90</pre>
+    </p>
+</div>
 
 
 ## DNF
