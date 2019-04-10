@@ -1,13 +1,13 @@
 ---
 layout: default
 ---
-
 <div id="posthead">
 
 	<span class="text-muted">
-		{{ page.date | date: "%d. %m. %Y" }} |
-		Jakub Kadlčík |
-		{{ page.lang }}
+		<i class="fa fa-calendar" aria-hidden="true"></i> {{ page.date | date: "%d. %m. %Y" }}
+		{% if page.updated %}| <i class="fa fa-pencil" aria-hidden="true"></i> {{ page.updated | date: "%d. %m. %Y" }}{% endif %}
+		| <i class="fa fa-user" aria-hidden="true"></i> Jakub Kadlčík
+		| <i class="fa fa-language" aria-hidden="true"></i> {{ page.lang | upcase }}
 	</span>
 
 	<span class="pull-right">
