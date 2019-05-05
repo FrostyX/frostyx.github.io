@@ -15,7 +15,7 @@ The problem with Vimwiki is, that it always creates diary pages empty. There was
   <a href="/files/img/vimwiki-diary-template/vimwiki-diary-template.gif">
     <img src="/files/img/vimwiki-diary-template/5.png" alt="" />
   </a>
-  <p>This an animated gif, click on it! Please ... it was a lot of work.</p>
+  <p>This is an animated gif, click on it! Please ... it was a lot of work.</p>
 </div>
 
 First, we need to create a script that prints the desired template to the standard output. Why script and not just having a template content in a text file? That's because for each day we want to at least generate its date to the title. Use what programing language you prefer. It can look like this.
