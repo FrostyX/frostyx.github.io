@@ -22,6 +22,7 @@ First, we need to create a script that prints the desired template to the standa
 
 <pre class="prettyprint lang-py">
 #!/usr/bin/python
+import sys
 import datetime
 
 template = """# {date}
@@ -35,8 +36,10 @@ template = """# {date}
 
 ## Notes"""
 
-rendered = template.format(date=datetime.date.today())
-print(rendered)
+date = (datetime.date.today() if len(sys.argv) < 2
+        # Expecting filename in YYYY-MM-DD.foo format
+        else sys.argv[1].split(".", 1)[0])
+print(template.format(date=date))
 </pre>
 
 Save the script as `~/.vim/bin/generate-vimwiki-diary-template`. Don't forget to make it executable.
@@ -45,6 +48,6 @@ Save the script as `~/.vim/bin/generate-vimwiki-diary-template`. Don't forget to
 
 Now, we need to configure Vim to use it when creating diary pages. This requires no additional plugin. Just put this line in your `~/.vimrc`.
 
-	au BufNewFile ~/vimwiki/diary/*.md :silent 0r !~/.vim/bin/generate-vimwiki-diary-template
+	au BufNewFile ~/vimwiki/diary/*.md :silent 0r !~/.vim/bin/generate-vimwiki-diary-template '%'
 
 If needed, change the `~/vimwiki/diary/*.md` to an appropriate format, depending on whether you use `.wiki` or `.md`. And that's really all of it, please come to chat on `#vimwiki` at [freenode.net](https://freenode.net/) and let us know, what do you think!
