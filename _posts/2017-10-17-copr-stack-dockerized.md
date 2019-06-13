@@ -3,6 +3,7 @@ layout: post
 title: Copr stack dockerized!
 lang: en
 categories: dev copr fedora howto
+updated: 2019-06-13
 ---
 
 Lately, I decided to dockerize the whole Copr stack and utilize it for development. It is quite nifty and just ridiculously easy to use. In this article, I want to show you how to run it, describe what is inside the containers and explain my personal workflow.
@@ -68,7 +69,7 @@ In case that you haven't read the post about [my vagrant setup](/posts/copr-vagr
 Once we have a running container for the frontend, we can open a shell in it and do
 
     supervisorctl stop httpd
-    python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 80 -h 0.0.0.0 --no-reload
+    sudo -u copr-fe /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --no-reload
 
 to stop the service from a pre-installed package and run a built-in server from the live code. It allows us to try uncommitted changes (_duh_) or use tools like `ipdb`.
 
