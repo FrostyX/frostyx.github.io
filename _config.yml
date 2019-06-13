@@ -16,6 +16,9 @@ twitter_username: frostyx
 github_username:  frostyx
 permalink: /posts/:title
 
+plugins:
+  - jekyll-gist
+
 # Build settings
 markdown: kramdown
 
