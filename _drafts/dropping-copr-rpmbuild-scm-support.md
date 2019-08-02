@@ -7,7 +7,7 @@ categories: dev copr fedora
 
 First of all, let me assure you that this **doesn't mean** dropping the [SCM method](https://docs.pagure.org/copr.copr/user_documentation.html#scm) from Copr itself. That is an awesome feature and will remain available. In this article, we are going to discuss only an interface for one of the Copr internal tools, `copr-rpmbuild`.
 
-Within [Copr](https://copr.fedorainfracloud.org/) stack we use a tool called `copr-rpmbuild`. Its main purpose is to fetch a definition of a build task from [frontend](https://copr.fedorainfracloud.org/) and build SRPM or RPM package. We execute the `copr-rpmbuild` tool from dedicated OpenStack instances, that are used as builders, but it is possible to use this command anywhere and reproduce a build outside of the Copr infrastructure.
+Within [Copr](https://copr.fedorainfracloud.org/) stack we use a tool called `copr-rpmbuild`. Its main purpose is to fetch a definition of a build task from the [frontend](https://copr.fedorainfracloud.org/) and build SRPM or RPM package. We execute the `copr-rpmbuild` tool on dedicated OpenStack instances, that are used as builders, but it is possible to use this command anywhere and reproduce a build outside of the Copr infrastructure.
 
 The standard usage is following:
 
@@ -25,11 +25,11 @@ While the intention behind this feature was (and still is) good, the actual impl
 
 ## Reasoning
 
-But first, let's talk about what was good about `copr-rpmbuild scm` that we want to preserve and what was the reason to drop it so we can avoid the same mistake in the new implementation.
+But first, let's talk about what was good about `copr-rpmbuild scm` that we want to preserve and what was the reason to drop it so we can avoid the same mistake in a new implementation.
 
 ### Pros:
 - It allowed building packages without needing to talk to frontend
-- As a consequence, it was usable independently on official Copr instance
+- As a consequence, it was usable independently on the official Copr instance and therefore easy to use for debugging builds from development or private instances.
 
 ### Cons:
 - It allowed building packages without needing a task definition. This sounds positive, but as a consequence, the task definition needed to be artificially constructed inside the `copr-rpmbuild`
