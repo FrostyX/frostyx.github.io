@@ -6,7 +6,7 @@ categories: copr fedora flock report modularity
 ---
 
 This year's [Flock][flock-to-fedora] is inevitably over, so the right thing to do now is to capture its best moments. This time, the conference
-took place in the unbelievably beautiful Budapest, starting from Thursday 8 of August and carried on till the end
+took place in the unbelievably beautiful city of Budapest, starting from Thursday 8th of August and carried on till the end
 of the week. I would like to thank all organizers, sponsors, volunteers and the community for putting the effort and resources into hosting such
 a great conference and also my employer for giving me an opportunity to attend. It was a wild ride!
 
@@ -30,15 +30,15 @@ a city tour with a guide, candy swap, board games, non-English events, and slide
 
 For me, this was the first time of staying in a hotel right in the venue and it was incredibly comfortable. As a hefty guy
 involved in strength sports, I need to eat a lot. And the food situation was fantastic. Breakfast and lunch
-were served in the form of all you can eat buffet, we also had countless coffee breaks with an endless supply of snacks and a diet
+were served in the form of all you can eat buffet, and we also had countless coffee breaks with an endless supply of snacks and a diet
 coke.
 
 Now, it sounds like a sightseeing trip full of fine dining, but in fact, this was [Flock To Fedora 2019][flock-to-fedora]!
 I just wanted to start this blog post with all the extras. Now, let's dive into the important things.
 
 This year, we had multiple panels focused mainly on packaging, automation, containers, python, modularity and more.
-Talks were probably evenly distributed throughout more various topics, it's just that I am mostly interested in these
-areas.
+Talks were probably evenly distributed throughout more areas, it's just that I am mostly interested in these.
+
 
 
 ## Packaging and Automation
@@ -64,7 +64,7 @@ There were many more, but unfortunately, I couldn't be at ten places at the same
 ## Containers
 
 My next primary focus was on [containers][containers] because there is a lot of containers-related work ahead of me
-in the upcoming months. One of the technologies that I barely knew about is [podman][podman]. However, thanks to the
+in the upcoming months. One of the technologies that I barely knew about was [podman][podman]. However, thanks to the
 [Valentin Rothberg][rothberg] who deputized [Dan Walsh][rhatdan] in a talk
 [Replacing Docker with Podman][replacing-docker-with-podman] and then workshop
 [Containers Birds-of-a-Feather][containers-birds-of-a-feather] where I got answered my specific questions about
@@ -91,16 +91,16 @@ The containers panel was probably the most beneficial for me, too bad I couldn't
 
 The last year I went to literally everything modularity-related, so this time I picked just one workshop -
 [Modularity & packager experience birds-of-a-feather][modularity-packager-experience-birds-of-a-feather].
-And I couldn't pick better as this was one of the most constructive discussions I've been part of (on such event).
-I believe that this was thanks to [Adam Šamalík][asamalik]'s moderation of the whole workshop. The audience shouted
+And I couldn't pick better as this was one of the most constructive discussions I've ever been part of (on such event).
+I believe that this was thanks to [Adam Šamalík][asamalik]'s moderation of the whole workshop. In the beginning, the audience shouted
 every possible topic that they wanted to discuss, then all of us voted to figure out what were the most interesting
 topics for most of us. We split the workshop into several fifteen minutes blocks dedicated one for each topic.
 We strictly complied this rule and it paid off.
 
 Experts in this area such as [Stephen Gallagher][stephen.gallagher.31], [Langdon White][langdon1], [Petr Šabata][contyk] and [Adam Samalik][asamalik] underwent a trial by fire,
 and in my eyes, succeeded. Personally, I spent too much time on [modularity support for Copr][modularity-support-for-copr] and it turned out,
-that [Neal Gompa][ngompa] did the same for [OBS][obs]. Basically, [Vít Ondruch][vondruch] captured all of our issues with a simple line -
-*MBS is a blackbox*. Which is accurate because nobody of us really knows what actions and in what order the [MBS][mbs]
+that [Neal Gompa][ngompa] did the same for [OBS][obs]. Basically, [Vít Ondruch][vondruch] captured all of our issues with a simple quote -
+*"MBS is a blackbox"*. Which is accurate because nobody of us really knows what actions and in what order the [MBS][mbs]
 does during the build process. We demanded reverse engineering of the MBS build process and properly documenting it.
 Furthermore, I've expressed the fact, that running an own MBS instance for each third-party build system is a
 *bullsh\*t* and proposed to extract its functionality into a reusable library or a series of smaller tools.
@@ -129,22 +129,22 @@ friendships with [Luis Enrique Bazán De León][lbazan20], [Renata Gegaj][gegajr
 Hopefully, we will meet again.
 
 
-<div class="text-center img-row row">
-  <div class="col-xs-6 col-md-6">
-    <a href="https://www.flickr.com/photos/tatadbb/48529652412/in/album-72157710286583721/">
-      <img src="/files/img/flock-group-photo.jpg" alt="" />
-    </a>
-  </div>
+<div class="text-center img-row">
 
-  <div class="embed-responsive embed-responsive-16by9 clearfix">
-    <iframe height="276" class="" src="https://www.youtube.com/embed/O1eHRoEps6I" style="height: 276px;"></iframe>
-    <div class="col-xs-6 col-sm-6 col-md-6">
+  <div class="row">
+    <div class="col-xs-6 col-md-6">
+      <a href="https://www.flickr.com/photos/tatadbb/48529652412/in/album-72157710286583721/">
+        <img src="/files/img/flock-group-photo.jpg" alt="" />
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-6">
+      <div class="embed-responsive-16by9">
+        <iframe width="432" height="276" style="margin-left: -30px;" src="https://www.youtube.com/embed/O1eHRoEps6I"></iframe>
+      </div>
     </div>
   </div>
-
-  <!-- Holly shit, this is an ugly fix -->
-  <p style="margin-top: -205px">
-    Both the group photo and video were created by talented <a href="https://flock2019.sched.com/speaker/tatica">Maria Leandro</a>
+  <p>
+    Both the group photo and video were created by talented <a href="https://flock2019.sched.com/speaker/tatica">Maria Leandro</a>.
 	See <a href="https://www.flickr.com/photos/tatadbb/albums/72157710286583721">her photo gallery from Flock 2019</a>
   </p>
 </div>
@@ -157,7 +157,7 @@ establish a new CI to periodically deploy containers with the latest versions of
 the [communishift][communishift] and automatically run our [sanity tests suite][integration-tests] against it,
 to make sure that our development version works as expected.
 
-Also, we would like to migrate production Copr instances from Fedora OpenStack to OpenShift. To do that, we need to
+Also, we would like to migrate Copr production instances from Fedora OpenStack to OpenShift. To do that, we need to
 improve our [development stack][copr-development-stack] to be production-ready. That will involve separating it into more smaller containers
 providing just one service per container (i.e. getting rid of supervisord), and replacing docker-compose
 with something suitable for both the local development but also production deployment.
