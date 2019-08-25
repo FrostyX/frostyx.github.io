@@ -5,34 +5,36 @@ lang: en
 categories: copr fedora flock report modularity
 ---
 
-This year's [Flock](flock) is over so the right thing to do now, is capture its best moments. This time, the conference
-took place in the unbelievably beautiful Budapest, starting from Thursday 8 aug and carried on till the end
-of the week. I would like to thank all organisers and sponsors for putting the effort and resources into hosting such
+This year's [Flock][flock-to-fedora] is inevitably over, so the right thing to do now is to capture its best moments. This time, the conference
+took place in the unbelievably beautiful Budapest, starting from Thursday 8 of August and carried on till the end
+of the week. I would like to thank all organizers, sponsors, volunteers and the community for putting the effort and resources into hosting such
 a great conference and also my employer for giving me an opportunity to attend. It was a wild ride!
 
 
-## A lot of fun
+## First-class entertainment
 
-@TODO what about some not dumb title?
+I traveled with the majority of Red Hatters from Brno by a private bus and that was where all the fun began. Our four-hour
+ride was thoroughly supervised by Miroslav Suchý as a bus captain. And by that, I mean entertaining us with his witty
+standup comedy.
 
-I traveled with the majority of Red Hatters from Brno by a private bus and that was where all the fun begun. Our four
-hour ride thoroughly supervised Miroslav Suchý as a bus captain. And by that I mean entertaining us with his witty
-standup comedy. I was in charge of ordering the autobus.
+I was in charge of ordering the autobus.
 
-@TODO Maybe mirek's photo if there is any
-@TODO I am helping meme
+<div class="text-center img-row row">
+  <div class="col-xs-6 col-md-6"><img src="/files/img/flock-budapest.png" alt="" /></div>
+  <div class="col-xs-6 col-md-6"><img src="/files/img/im-helping.png" alt="" /></div>
+</div>
 
-For the whole time, it was perfectly taken care of us. On wednesday, there was no official program so we could rest
-after the drive and explore the city by ourselves, but the following evenings we cruised the river on a boat, had
-a city tour with a guide, Candy XXX, board games, non-english events and slideshow karaoke.
+For the whole time, it was perfectly taken care of us. On Wednesday, there was no official program so we could rest
+after the drive and explore the city by ourselves, but on the following evenings, we cruised the river on a boat, had
+a city tour with a guide, candy swap, board games, non-English events, and slideshow karaoke.
 
-For me, this was the first time of staying right in the venue and it was incredibly comfortable. As a hefty guy
-involved in streght sports, need to eat a lot. And the food situaion was literally fantastic. Breakfast and lunch
-were served in a form of an all you can eat buffet, we also had a countless of coffee breaks with snacks and a diet
-coke everywhere.
+For me, this was the first time of staying in a hotel right in the venue and it was incredibly comfortable. As a hefty guy
+involved in strength sports, I need to eat a lot. And the food situation was fantastic. Breakfast and lunch
+were served in the form of all you can eat buffet, we also had countless coffee breaks with an endless supply of snacks and a diet
+coke.
 
-Now it sounds like sightseeing trip full of fine dining, but in fact, this was [Flock To Fedora 2019](flock)!
-I just wanted start this blog post with all the extras. Now, let's dive into the important things.
+Now, it sounds like a sightseeing trip full of fine dining, but in fact, this was [Flock To Fedora 2019][flock-to-fedora]!
+I just wanted to start this blog post with all the extras. Now, let's dive into the important things.
 
 This year, we had multiple panels focused mainly on packaging, automation, containers, python, modularity and more.
 Talks were probably evenly distributed throughout more various topics, it's just that I am mostly interested in these
@@ -41,106 +43,145 @@ areas.
 
 ## Packaging and Automation
 
-The [packaging (and automation) panel](packaging-and-automation) started with [Neal Gompa](ngompa) and [Igor Gnatenko](ignatenkobrain) talking
+The [packaging (and automation) panel][packaging-and-automation] started with [Neal Gompa][ngompa] and [Igor Gnatenko][ignatenkobrain] talking
 about saving packagers' time by automating the rebuild of packages when their dependency changes, and also not
 requiring them to write changelog and manage release number manually, but rather generate them from git. The talk
-was called [Improving Packaging Experience with Automation](improving-packaging-experience-with-automation).
+was called [Improving Packaging Experience with Automation][improving-packaging-experience-with-automation].
 
 Then I've attended the
-[Bring your upstream releases to Fedora Rawhide in one step](bring-your-upstream-releases-to-fedora-rawhide-in-one-step)
-led by [Tomáš Tomeček](ttomecek1). This talk was about the [packit tool](packit-tool) and the
-[packit service](packit-service). He presented how to automatically build an RPM package in [Copr](copr) for every
-pull reqeust in your Git Hub project.
+[Bring your upstream releases to Fedora Rawhide in one step][bring-your-upstream-releases-to-fedora-rawhide-in-one-step]
+led by [Tomáš Tomeček][ttomecek1]. This talk was about the [packit tool][packit-tool] and the
+[packit service][packit-service]. He presented how to automatically build an RPM package in [Copr][copr] for every
+pull request in your Git Hub project.
 
-Then [Michal Novotný](clime) shared his vision of the [rpkg](rpkg) being the go-to tool for working with DistGit,
+Then [Michal Novotný][clime] shared his vision of the [rpkg][rpkg] being the go-to tool for working with DistGit,
 unified across the whole realm of the RPM distributions. He named his talk
-[rpkg, the next generation packaging utility — call for feedback](rpkg-the-next-generation-packaging-utility-call-for-feedback).
+[rpkg, the next generation packaging utility — call for feedback][rpkg-the-next-generation-packaging-utility-call-for-feedback].
 
-There were many more, but unfortunatelly I couldn't be on ten places at the same time.
+There were many more, but unfortunately, I couldn't be at ten places at the same time.
 
 
 ## Containers
 
-My next primary focus was on [containers](containers) because there is a lot of containers-related work ahead of me
-in upcomming months. One of the technologies that I barely knew about is [podman](podman). However, thanks to the
-[Valentin Rothberg](rothberg) who deputized [Dan Walsh](rhatdan) in a talk
-[Replacing Docker with Podman](replacing-docker-with-podman) and then workshop
-[Containers Birds-of-a-Feather](containers-birds-of-a-feather) where I got answered my specific questions about
-migrating from [docker-compose](docker-compose), I am now pretty confident about migrating to podman.
+My next primary focus was on [containers][containers] because there is a lot of containers-related work ahead of me
+in the upcoming months. One of the technologies that I barely knew about is [podman][podman]. However, thanks to the
+[Valentin Rothberg][rothberg] who deputized [Dan Walsh][rhatdan] in a talk
+[Replacing Docker with Podman][replacing-docker-with-podman] and then workshop
+[Containers Birds-of-a-Feather][containers-birds-of-a-feather] where I got answered my specific questions about
+migrating from [docker-compose][docker-compose], I am now pretty confident about migrating to podman.
 
-Another very interesting and lifesaving lecture was *briefly* named
-[communishift: A OpenShift cluster for Fedora community managed applications](communishift-a-openshift-cluster-for-fedora-community-managed-applications)
-and led by [Kevin Fenzi](kevinfenzi1). The [fedora infrastructure](fedora-infrastructure) has launched a community
-openshift for hosting and self-managing Fedora-related services.
+Another very interesting and lifesaving lecture was *shortly* named
+[communishift: A OpenShift cluster for Fedora community managed applications][communishift-a-openshift-cluster-for-fedora-community-managed-applications]
+and led by [Kevin Fenzi][kevinfenzi1]. The [fedora infrastructure][fedora-infrastructure] has launched a community
+OpenShift for hosting and self-managing Fedora-related services. The point is to reduce the overload
+of the infra team.
 
-I didn't knew very much about [Fedora CoreOS](fedora-coreos) and its goal sounded very promising, so I've attended
-a lecture from lovely [Sinny Kumari](sinnykumari1) and [Jakub Cajka](jcajka1) to discover more.
+I didn't know very much about [Fedora CoreOS][fedora-coreos] and its goal sounded very promising, so I've attended
+a lecture from lovely [Sinny Kumari][sinnykumari1] and [Jakub Cajka][jcajka1] to discover more.
 
-The containers pannel was probably the most beneficial for me, too bad I couldn't catch more talks.
+The containers panel was probably the most beneficial for me, too bad I couldn't catch more talks.
+
+<div class="text-center img-row row">
+  <img src="/files/img/flock-dan-walsh-remote.jpg" alt="" />
+  <p><a href="https://flock2019.sched.com/speaker/rhatdan">Dan Walsh</a> giving his talk from across the world</p>
+</div>
 
 
 ## Modularity
 
-The last year I went to everything modularity-related, so this time I picked just one workshop -
-[Modularity & packager experience birds-of-a-feather](modularity-packager-experience-birds-of-a-feather).
+The last year I went to literally everything modularity-related, so this time I picked just one workshop -
+[Modularity & packager experience birds-of-a-feather][modularity-packager-experience-birds-of-a-feather].
 And I couldn't pick better as this was one of the most constructive discussions I've been part of (on such event).
-I believe that this was thanks to the [Adam Šamalík](asamalik)'s moderation of the whole workshop. The audience shouted
-every possible topic that they wanted to discuss, then all of use voted to figure out what are the most interesting
-topics for the most of us. We split the workshop into several fifteen minutes blocks dedicated one for each topic.
+I believe that this was thanks to [Adam Šamalík][asamalik]'s moderation of the whole workshop. The audience shouted
+every possible topic that they wanted to discuss, then all of us voted to figure out what were the most interesting
+topics for most of us. We split the workshop into several fifteen minutes blocks dedicated one for each topic.
 We strictly complied this rule and it paid off.
 
-Experts in this area such as Stephen Gallagher, Langdon White, Petr Šabata and Adam Samalik underwent trial by fire,
-and in my eyes, succeeded. Personally, I spent too much time on [modularity support for Copr](modularity-support-for-copr) and it turned out,
-that Neal Gompa did the same for [OBS](obs). Basically, Vít Ondruch captured all of our issues with a simple line -
-*MBS is a blackbox*. Which is accurate because nobody of us really knows what actions and in what order the [MBS](mbs)
-does during the build process. We demanded reverse engineering the MBS build process and properly documenting it.
+Experts in this area such as [Stephen Gallagher][stephen.gallagher.31], [Langdon White][langdon1], [Petr Šabata][contyk] and [Adam Samalik][asamalik] underwent a trial by fire,
+and in my eyes, succeeded. Personally, I spent too much time on [modularity support for Copr][modularity-support-for-copr] and it turned out,
+that [Neal Gompa][ngompa] did the same for [OBS][obs]. Basically, [Vít Ondruch][vondruch] captured all of our issues with a simple line -
+*MBS is a blackbox*. Which is accurate because nobody of us really knows what actions and in what order the [MBS][mbs]
+does during the build process. We demanded reverse engineering of the MBS build process and properly documenting it.
 Furthermore, I've expressed the fact, that running an own MBS instance for each third-party build system is a
-*bullsh\*t* and proposed to extract its functionality into reusable library or a series of smaller tools.
+*bullsh\*t* and proposed to extract its functionality into a reusable library or a series of smaller tools.
 
-We have discussed many more topics, but I didn't really took many notes about those, that didn't concern me.
+We have discussed many more topics, but I didn't really take many notes about those, that didn't concern me.
 
 
 ## Missed talks
 
-Since the conference proceeded in three to four panels in paralel and we haven't discovered time travel yet, there is
-an eminent probability of missing some lectures. Personally I regret missing
-[NeuroFedora: FOSS and open (neuro)science](neurofedora-foss-and-open-neuroscience),
-[State of Fedora Security](state-of-fedora-security),
-[Silverblue: On the way to the future of Fedora Workstation](silverblue-on-the-way-to-the-future-of-fedora-workstation),
-and [Future of release-monitoring.org](future-of-release-monitoringorg).
+Since the conference proceeded in three to four panels in parallel and we haven't discovered time travel yet, there is
+an imminent probability of missing some lectures. Personally, I regret missing
+[NeuroFedora: FOSS and open (neuro)science][neurofedora-foss-and-open-neuroscience],
+[State of Fedora Security][state-of-fedora-security],
+[Silverblue: On the way to the future of Fedora Workstation][silverblue-on-the-way-to-the-future-of-fedora-workstation],
+and [Future of release-monitoring.org][future-of-release-monitoringorg].
 
-I am looking forward to see the recordings.
+I am looking forward to seeing the recordings.
 
 
 ## Awesome people
 
-@TODO list people here
-- Parádní video od @tatica
-- Group photo
+[Matthew Miller][mattdm] stated this powerful message *"Fedora is not an operating system. We are Fedora"*. And I think the
+community is the main reason to attend a conference like Flock. It was great to see all the familiar faces and
+meet [Kevin Fenzi][kevinfenzi1], [Langdon White][langdon1], [Neal Gompa][ngompa], [Adam Samalik][asamalik], [Matthew Miller][mattdm] again, and make new
+friendships with [Luis Enrique Bazán De León][lbazan20], [Renata Gegaj][gegajrenata], Aniket Pradhan (aka MeWj0r) and many others.
+Hopefully, we will meet again.
+
+
+<div class="text-center img-row row">
+  <div class="col-xs-6 col-md-6">
+    <a href="https://www.flickr.com/photos/tatadbb/48529652412/in/album-72157710286583721/">
+      <img src="/files/img/flock-group-photo.jpg" alt="" />
+    </a>
+  </div>
+
+  <div class="embed-responsive embed-responsive-16by9 clearfix">
+    <iframe height="276" class="" src="https://www.youtube.com/embed/O1eHRoEps6I" style="height: 276px;"></iframe>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+    </div>
+  </div>
+
+  <!-- Holly shit, this is an ugly fix -->
+  <p style="margin-top: -205px">
+    Both the group photo and video were created by talented <a href="https://flock2019.sched.com/speaker/tatica">Maria Leandro</a>
+	See <a href="https://www.flickr.com/photos/tatadbb/albums/72157710286583721">her photo gallery from Flock 2019</a>
+  </p>
+</div>
 
 
 ## Next steps
 
-- Splitnout Copr docker  stack abychom měli jeden proces per kontejner
-- Testy v community openshiftu
-- Migrace Copru do openshiftu
-- Pro python už asi funguje automatické generování buildrequires
+During the conference, we settled on many things regarding Copr and its following development. We would like to
+establish a new CI to periodically deploy containers with the latest versions of Copr packages in
+the [communishift][communishift] and automatically run our [sanity tests suite][integration-tests] against it,
+to make sure that our development version works as expected.
+
+Also, we would like to migrate production Copr instances from Fedora OpenStack to OpenShift. To do that, we need to
+improve our [development stack][copr-development-stack] to be production-ready. That will involve separating it into more smaller containers
+providing just one service per container (i.e. getting rid of supervisord), and replacing docker-compose
+with something suitable for both the local development but also production deployment.
+
+Lastly, since Fedora 31, there is support for automatically generated BuildRequires for python packages. We are
+definitely going to experiment with that on Copr packages.
 
 
 
-@TODO images: Badges + tux, dan walsh, oficical logo (maybe tshirt)
-
-
-[flock]: #
-[packit-tool]: #
-[packit-service]: #
-[copr]: #
-[rpkg]: #
-[podman]: #
-[fedora-coreos]: #
-[obs]: #
-[modularity-support-for-copr]: #
-[mbs]: #
+[flock-to-fedora]: https://flocktofedora.org
+[packit-tool]: https://packit.dev
+[packit-service]: https://packit.dev/packit-as-a-service/
+[copr]: https://copr.fedorainfracloud.org
+[rpkg]: https://pagure.io/rpkg-util
+[podman]: https://podman.io
+[fedora-coreos]: https://fedoramagazine.org/introducing-fedora-coreos/
+[obs]: https://build.opensuse.org
+[modularity-support-for-copr]: http://frostyx.cz/posts/copr-modularity-in-retrospect
+[mbs]: https://pagure.io/fm-orchestrator
+[docker-compose]: https://github.com/docker/compose
+[fedora-infrastructure]: https://fedoraproject.org/wiki/Infrastructure
+[integration-tests]: https://docs.pagure.org/copr.copr/developer_documentation.html#integration-tests
+[copr-development-stack]: http://frostyx.cz/posts/copr-stack-dockerized
+[communishift]: https://fedoraproject.org/wiki/Infrastructure/Communishift?rd=Infrastructue/Communishift
 
 [ngompa]: https://flock2019.sched.com/speaker/ngompa
 [ignatenkobrain]: https://flock2019.sched.com/speaker/ignatenkobrain
@@ -152,6 +193,13 @@ I am looking forward to see the recordings.
 [sinnykumari1]: https://flock2019.sched.com/speaker/sinnykumari1
 [jcajka1]: https://flock2019.sched.com/speaker/jcajka1
 [asamalik]: https://flock2019.sched.com/speaker/asamalik
+[mattdm]: https://flock2019.sched.com/speaker/mattdm
+[lbazan20]: https://flock2019.sched.com/lbazan20
+[gegajrenata]: https://flock2019.sched.com/speaker/gegajrenata
+[langdon1]: https://flock2019.sched.com/langdon1
+[stephen.gallagher.31]: https://flock2019.sched.com/speaker/stephen.gallagher.31
+[contyk]: https://flock2019.sched.com/speaker/contyk
+[vondruch]: https://flock2019.sched.com/vondruch
 
 [packaging-and-automation]: https://flock2019.sched.com/overview/type/Packaging+and+Automation
 [containers]: https://flock2019.sched.com/overview/type/Containers
