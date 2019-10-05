@@ -86,3 +86,7 @@ ul.nav a:hover
     width: 100%;
     height: 100%;
 }
+
+.blockquote, .blockquote-footer {
+    font-size: 14px;
+}
