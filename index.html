@@ -6,8 +6,9 @@ title: Jakub Kadlčík
 {% include about/me.html %}
 <hr>
 
-{% include projects/tracer.html %}
+<a href="/posts" class="pull-right">Read all blog posts</a>
+<h2>Posts</h2>
+{% include posts.html limit=10 %}
 <hr>
 
-<h2>Posts</h2>
-{% include posts.html limit=5 %}
+{% include projects/tracer.html %}
