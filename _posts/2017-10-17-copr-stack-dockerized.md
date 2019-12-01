@@ -76,7 +76,7 @@ to stop the service from a pre-installed package and run a built-in server from 
 Alternatively, for distgit, we can use
 
     supervisorctl stop copr-dist-git
-    PYTHONPATH=/opt/copr/dist-git /opt/copr/dist-git/run/importer_runner.py
+    PYTHONPATH=/opt/copr/backend sudo --preserve-env=PYTHONPATH -u copr /opt/copr/backend/run/copr_run_build_dispatcher.py
 
 And lastly for backend
 
