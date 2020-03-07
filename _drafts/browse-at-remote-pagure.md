@@ -5,17 +5,11 @@ lang: en
 categories: dev emacs vim pagure
 ---
 
-<!--
-title: Emacs - Browse At Pagure
-title: Emacs M-x browse-at-remote
-title: M-x browse-at-remote for Pagure
--->
+TL;DR: Work in Emacs, select some lines, press `M-x browse-at-remote` to open it on pagure.io, and share the URL.
 
-Code in Emacs, make a visual selection, `M-x browse-at-remote` to open on pagure.io, share.
+Recently I have published an article about `:Gbrowse` command in Vim, that allows you to open a current file or line selection on a remote hosting platform, such as [GitHub][github], [GitLab][gitlab], etc. The command is provided by [tpope/vim-fugitive][vim-fugitive] plugin, you should definitely check it out. Other contributors already implemented support for various hosting sites, so I decided to go ahead and create [vim-fugitive-pagure][vim-fugitive-pagure] extension to support also [pagure.io][pagure.io].
 
-Recently I have published an [article][vim-gbrowse-support-for-pagure] about [tpope/vim-fugitive][vim-fugitive] plugin for Vim and its feature that I value the most. That is non-other than `:Gbrowse` command which allows you to easily open a current file or line selection in a web browser. Other contributors already implemented support for [GitHub][github], [GitLab][gitlab], [Bitbucket][bitbucket], and [Gitee][gitee], so I decided to ... and created [vim-fugitive-pagure][vim-fugitive-pagure] to support Pagure.
-
-This year's resolution for me was to migrate to Emacs and since that, the only thing I am missing is :Gbrowse feature. To be precise, there is a [browse-at-remote][browse-at-remote] package providing more than sufficient alternative, but Pagure support is missing. [Not anymore!][pr-63]
+One of the annual goals that I set for myself was to finally migrate to Emacs. Everything is going well, the only thing that I am missing since then is the `:Gbrowse` feature. To be precise, there is a [browse-at-remote][browse-at-remote] package providing more than sufficient alternative, but Pagure support is missing. Well, [not anymore][pr-63]!
 
 
 ## Usage
@@ -38,6 +32,7 @@ The package is available on [MELPA][on-melpa].
 
 
 
+[pagure.io]: https://pagure.io/
 [vim-gbrowse-support-for-pagure]: http://frostyx.cz/posts/vim-gbrowse-support-for-pagure
 [vim-fugitive]: https://github.com/tpope/vim-fugitive
 [github]: https://github.com/tpope/vim-rhubarb
