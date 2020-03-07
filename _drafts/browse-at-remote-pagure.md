@@ -31,8 +31,10 @@ While working with your code in Emacs, select one or more lines and run `M-x bro
 
 The package is available on [MELPA][on-melpa].
 
-	(use-package browse-at-remote
-	  :ensure t)
+``` lisp
+(use-package browse-at-remote
+  :ensure t)
+```
 
 
 

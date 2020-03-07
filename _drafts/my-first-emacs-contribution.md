@@ -41,22 +41,30 @@ For new users, this concept is initially very hard to grasp and needs to progres
 
 First, we will need [Cask][cask], which is a project management tool for Emacs projects (packages). Please see the [installation manual][cask-installation-manual]. It is a bit disapointing there are no official packages for linux distributions. We need to definitelly repent from our sins and create cask package for Fedora. But until then, we need to go with:
 
-	curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
-	cask upgrade-cask
-	export PATH="$HOME/.cask/bin:$PATH"
+```bash
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+cask upgrade-cask
+export PATH="$HOME/.cask/bin:$PATH"
+```
 
 Clone a package that you are interested and change your working directory:
 
-	git clone https://github.com/rmuslimov/browse-at-remote
-	cd browse-at-remote
+```bash
+git clone https://github.com/rmuslimov/browse-at-remote
+cd browse-at-remote
+```
 
 And install all the project dependencies:
 
-	cask install
+```bash
+cask install
+```
 
 Hopefully the project has at least some unit tests. In my case, author used [ERT][ert] library. I don't know how many alternatives are there but it seems like a go-to option. You can simply run all the tests with:
 
-	cask exec ert-runner
+```bash
+cask exec ert-runner
+```
 
 Now, lets proceed with some [test-driven development][tdd] until the desired feature is finished.
 
@@ -64,17 +72,23 @@ Now, lets proceed with some [test-driven development][tdd] until the desired fea
 
 Let's see the feature in action. Up until this point you probably included the package in your `init.el` like this:
 
-	(use-package browse-at-remote
-	  :ensure t)
+```lisp
+(use-package browse-at-remote
+  :ensure t)
+  ```
 
 Temporarily remove it and load the enhanced package from your local storage:
 
-	(add-to-list 'load-path (expand-file-name "~/git/browse-at-remote"))
-	(require 'browse-at-remote)
+```lisp
+(add-to-list 'load-path (expand-file-name "~/git/browse-at-remote"))
+(require 'browse-at-remote)
+```
 
 And reload your Emacs configuration by pressing:
 
-	M-x load-file RET
+```
+M-x load-file RET
+```
 
 You should be done now. If not, repeat a necessary subset of previous steps.
 
