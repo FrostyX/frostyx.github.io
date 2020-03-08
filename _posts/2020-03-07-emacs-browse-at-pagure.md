@@ -11,11 +11,6 @@ Recently I have published an article about `:Gbrowse` command in Vim, that allow
 
 One of the annual goals that I set for myself was to finally migrate to Emacs. Everything is going well, the only thing that I am missing since then is the `:Gbrowse` feature. To be precise, there is a [browse-at-remote][browse-at-remote] package providing more than sufficient alternative, but Pagure support is missing. Well, [not anymore][pr-63]!
 
-<div class="alert alert-info" role="alert">
-  The pull request
-  <a href="https://github.com/rmuslimov/browse-at-remote/pull/63">browse-at-remote/pull/63</a>
-  is not merged yet, please upvote if it works for you.
-</div>
 
 ## Usage
 
