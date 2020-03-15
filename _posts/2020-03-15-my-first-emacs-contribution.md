@@ -21,7 +21,7 @@ This year I finally dared to migrate from Vim to Emacs - utilizing [Evil][evil] 
 
 Even though I was using Vim for almost ten years and have a highly customized and personalized configuration with a lot of enabled plugins, the migration was quite smooth. A general rule of thumb is, for every possible Vim plugin, there is a better or worse (still sufficient) Emacs alternative. The only hard thing is to find them. Maybe let's discuss this topic in another article.
 
-There is an exception to this rule though - one-man show plugins, particularly those you've written and maintain yourself. In my case, it is a [FrostX/vim-fugitive-pagure][vim-fugitive-pagure] plugin, which provides a [pagure.io][pagure] support for `:Gbrowse` command. I collaborate with my coworkers remotely and make frequent use of it. There ~~is~~ was no Emacs alternative so I missed the feature since migration. I finally decided to implement a [pagure.io][pagure] support for [browse-at-remote][browse-at-remote] and here follows what I learned from my first Emacs contribution.
+There is an exception to this rule though - one-man show plugins, particularly those you've written and maintain yourself. In my case, it is a [FrostX/vim-fugitive-pagure][vim-fugitive-pagure] plugin, which provides a [pagure.io][pagure] support for `:Gbrowse` command. I collaborate with my coworkers remotely and make frequent use of it. There ~~is~~ was no Emacs alternative so I missed the feature since migration. I finally [decided to implement][browse-at-pagure] a [pagure.io][pagure] support for [browse-at-remote][browse-at-remote] and here follows what I learned from my first Emacs contribution.
 
 <div class="alert alert-warning" role="alert">
 Disclaimer: As I repeatedly mentioned, this was my first experience with writing packages for Emacs, therefore this is not an authoritative manual of how things work and should be done.
@@ -111,3 +111,4 @@ or restarting the Emacs entirely. You should be done now. If not, repeat a neces
 [pagure]: https://pagure.io/
 [edebug]: https://www.gnu.org/software/emacs/manual/html_node/elisp/Edebug.html
 [how-to-use-debugger]: https://www.reddit.com/r/emacs/comments/fempfv/how_to_use_debugger/fjrdndo/?utm_source=share&utm_medium=web2x
+[browse-at-pagure]: http://frostyx.cz/posts/emacs-browse-at-pagure
