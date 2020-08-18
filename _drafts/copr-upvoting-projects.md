@@ -9,8 +9,8 @@ Let's take a minute of our time and upvote our favorite projects in
 Copr to appreciate the great work their maintainers put it.
 
 There are tens of thousands of projects in [Copr][copr] with vast
-differences in the quality of packages they provide and how they are
-maintained. Many of them are just testing projects without any
+differences in the quality of packages they provide and how well they
+are maintained. Many of them are just testing projects without any
 further purpose, others provide production-ready software valuable
 for many users. For a long time, we wanted to give projects some
 badge or a shiny plaque, that would reflect their popularity among
@@ -24,10 +24,11 @@ We do not want to define what upvote or downvote mean and rather let
 everyone to have their own interpretation of those words. If you like
 the project (for whatever reason - you may like the software it
 provides, it may be extraordinarily well maintained, you just want to
-support the project or anything else that is important for you),
-please give it thumbs up. If you feel negative about a project (it may
-be for example dangerous to enable it), don't be afraid to give thumbs
-down. The score will then reflect the general popularity of a project.
+support the project, or anything else that is important for you),
+please give it the thumbs up. If you feel negative about a project (it
+may be for example dangerous to enable it), don't be afraid to give
+the thumbs down. The score will then reflect the general popularity
+of a project.
 
 At this moment, Copr just shows the score in a project detail page,
 there are no features tied to it yet. They are definitely going to be
