@@ -5,20 +5,54 @@ lang: en
 categories: dev copr fedora howto
 ---
 
-http://frostyx.cz/posts/copr-stack-dockerized
-https://pagure.io/copr/copr/pull-request/1214
+
+A couple of years ago we decided to containerize our Copr development
+environment, so it is easy for new contributors to set it up and get
+started. Several improvements have happened since then and the original blog
+post [Copr stack dockerized!][copr-stack-dockerized] isn't up-to-date
+anymore. We are going to make that right.
+
+
+## What changed
+
+Just a quick side note, what happened since the original
+[Copr stack dockerized!][copr-stack-dockerized] blog post:
+
+- We don't use `supervisord` inside containers anymore. Instead, we spawn more
+  containers than before, each of them running just a single process
+- We don't run processes inside containers as root but as specific users instead
+- Copr backend got reworked to use [resalloc][resalloc], therefore a `resalloc`
+  container was added
+- We try to maintain compatibility with `podman`, which might be the next step
+  for our development environment
 
 
 ## Install
 
+<div class="alert alert-warning" role="alert">
+  There is no CI for testing Copr containers and therefore something might not
+  work as expected. Please try to
+  <a href="#troubleshooting">troubleshoot</a> first and eventually submit a
+  new <a href="https://pagure.io/copr/copr/issues">issue</a> or
+  <a href="https://pagure.io/copr/copr/pull-requests">pull-request</a>.
+</div>
+
+Getting started with Copr development should be as easy as possible. Make sure
+you have Docker [properly configured][fedora-docker], and `docker-compose`
+command installed. Then simply build, and run the stack. Once it's up and
+running, the database needs to be initialized.
+
 ```
 $ docker-compose up -d
-$ docker exec --user root -it copr_frontend_1 bash
+$ docker exec -it copr_frontend_1 bash
 bash-5.0$ init-database.sh
 ```
 
+At this moment, you should be able to open <http://127.0.0.1:5000/> in a web
+browser, log-in, create a project, and successfully build a package.
 
-## Cheat sheet
+
+## Cheatsheet
 
 How can I start everything?
 
@@ -50,32 +84,24 @@ How can I open a root shell in the container?
 docker exec --user root -it <name> bash
 ```
 
+How can I throw away all changes, that I made inside the container
 
-TODO services are not here anymore
-
-
-How can I see running services in the container?
-
-supervisorctl status
-How can I control services in the container?
-
-supervisorctl start/stop/restart all/<name>
-
-
-
-
-
-How can I throw away a changes, that I made inside the container
-
-    docker-compose up -d --force-recreate <service>
+```
+docker-compose up -d --force-recreate <service>
+```
 
 How can I drop the whole docker-compose environment
 
-    docker-compose down --rmi 'all'
-
+```
+docker-compose down --rmi 'all'
+```
 
 
 ## Running services from git
+
+Probably everyone has his own preferred way of testing changes. My workflow is
+described in the [previous blog post][my-personal-workflow]. Here is its updated
+version.
 
 ### Frontend
 
@@ -87,11 +113,15 @@ PYTHONPATH=/opt/copr/frontend/coprs_frontend /opt/copr/frontend/coprs_frontend/m
 
 ### Distgit
 
-TODO distgit
+```
+$ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
+$ docker exec -it copr_distgit_1 bash
+PYTHONPATH=/opt/copr/dist-git /usr/sbin/runuser -u copr-dist-git -g copr-dist-git -- /opt/copr/dist-git/run/importer_runner.py
+```
 
 ### Backend
 
-TODO build
+Backend has multiple containers, so it depends on what you changed. For build dispatcher:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
@@ -99,7 +129,7 @@ $ docker exec -it copr_backend-build_1 bash
 PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher builds
 ```
 
-TODO action
+Actions dispatcher:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-action
@@ -107,7 +137,7 @@ $ docker exec -it copr_backend-action_1 bash
 PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher actions
 ```
 
-TODO log
+Logger:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-log
@@ -118,11 +148,14 @@ PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/back
 
 ### Builder
 
-TODO builder
+In production, we spawn a new builder instance in Amazon AWS, but this is
+simplified for the local environment. Here we run a `builder` container use it
+for all builds without recycling. This is the easiest way to debug the
+`copr-rpmbuild` client tool.
 
 ```
 $ docker exec -it copr_backend-builder-1 bash
-TODO
+PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
 ```
 
 
@@ -132,8 +165,8 @@ TODO
 
 When running `copr-frontend` from git, the `data/openid_store`
 contains files that were created within the frontend container. The
-problem is accessing them from the host system or from a new container
-when the old one is dropped. Those doesn't have the user and group
+problem is accessing them from the host system or a new container
+when the old one is dropped. Those don't have the user and group
 available.
 
 ```
@@ -143,6 +176,7 @@ PermissionError: [Errno 13] Permission denied: "/opt/copr/frontend/data/openid_s
 It is safe to simply drop all generated data
 
 ```
+$ docker exec --user root -it copr_frontend_1 bash
 rm -rf /opt/copr/frontend/data/
 ```
 
@@ -160,3 +194,13 @@ bash-5.0$ alembic-3 upgrade head
 
 Alternativelly, for non-git `copr-frontend`, you might want to run
 migrations from `/usr/share/copr/coprs_frontend/`.
+
+
+
+[copr-stack-dockerized]: http://frostyx.cz/posts/copr-stack-dockerized
+[pr-1214]: https://pagure.io/copr/copr/pull-request/1214
+[resalloc]: https://github.com/praiskup/resalloc
+[fedora-docker]: https://developer.fedoraproject.org/tools/docker/about.html
+[copr-issues]: https://pagure.io/copr/copr/issues
+[copr-prs]: https://pagure.io/copr/copr/pull-requests
+[my-personal-workflow]: http://frostyx.cz/posts/copr-stack-dockerized#my-personal-workflow
