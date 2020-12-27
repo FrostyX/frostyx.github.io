@@ -84,13 +84,19 @@ How can I open a root shell in the container?
 docker exec --user root -it <name> bash
 ```
 
-How can I throw away all changes, that I made inside the container
+How can I throw away all changes, that I made inside the container?
 
 ```
 docker-compose up -d --force-recreate <service>
 ```
 
-How can I drop the whole docker-compose environment
+How can I drop a container and image for one service?
+
+```
+dco rm --stop <name> && docker rmi copr_<name>
+```
+
+How can I drop the whole docker-compose environment?
 
 ```
 docker-compose down --rmi 'all'
@@ -194,6 +200,26 @@ bash-5.0$ alembic-3 upgrade head
 
 Alternativelly, for non-git `copr-frontend`, you might want to run
 migrations from `/usr/share/copr/coprs_frontend/`.
+
+
+### Some dependencies are not installed
+
+When running a service from git, some dependencies might be missing. The most
+comfortable way to install them is to just upgrade the relevant Copr
+package. The following example is for `copr-frontend` but it can be done the
+same way for every other service.
+
+```
+$ docker exec --user root -it copr_frontend_1 bash
+dnf install tito
+cd /opt/copr/frontend/
+dnf builddep copr-frontend.spec
+tito build --rpm --test --install --rpmbuild-options=--nocheck
+```
+
+However, it is always possible that some dependency is not properly set in the
+specfile. In that case please submit a new [issue][copr-issues] or a
+[pull-request][copr-prs].
 
 
 
