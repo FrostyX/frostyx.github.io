@@ -7,20 +7,22 @@ categories: dev copr fedora howto
 
 
 A couple of years ago we decided to containerize our Copr development
-environment, so it is easy for new contributors to set it up and get
-started. Several improvements have happened since then and the original blog
-post [Copr stack dockerized!][copr-stack-dockerized] isn't up-to-date
-anymore. We are going to make that right.
+environment to make the onboarding of new contributors easier, and to have a
+unified development environment for all of our team members. Several
+improvements have happened since then and the original blog post
+[Copr stack dockerized!][copr-stack-dockerized] isn't up-to-date anymore. We are
+going to make that right.
 
 
 ## What changed
 
-Just a quick side note, what happened since the original
+Just a quick side note about what happened since the original
 [Copr stack dockerized!][copr-stack-dockerized] blog post:
 
-- We don't use `supervisord` inside containers anymore. Instead, we spawn more
-  containers than before, each of them running just a single process
-- We don't run processes inside containers as root but as specific users instead
+- We don't use `supervisord` inside the containers anymore. Instead, we spawn
+  more containers than before, each of them running just a single process
+- Within containers, we don't run processes as root anymore but use specific
+  users instead
 - Copr backend got reworked to use [resalloc][resalloc], therefore a `resalloc`
   container was added
 - We try to maintain compatibility with `podman`, which might be the next step
@@ -32,7 +34,7 @@ Just a quick side note, what happened since the original
 <div class="alert alert-warning" role="alert">
   There is no CI for testing Copr containers and therefore something might not
   work as expected. Please try to
-  <a href="#troubleshooting">troubleshoot</a> first and eventually submit a
+  <a href="#troubleshooting">troubleshoot</a> first, and eventually submit a
   new <a href="https://pagure.io/copr/copr/issues">issue</a> or
   <a href="https://pagure.io/copr/copr/pull-requests">pull-request</a>.
 </div>
@@ -106,8 +108,9 @@ docker-compose down --rmi 'all'
 ## Running services from git
 
 Probably everyone has his own preferred way of testing changes. My workflow is
-described in the [previous blog post][my-personal-workflow]. Here is its updated
-version.
+described in the [previous blog post][my-personal-workflow]. Here we can see its
+updated version.
+
 
 ### Frontend
 
@@ -198,7 +201,7 @@ bash-5.0$ cd /opt/copr/frontend/coprs_frontend/
 bash-5.0$ alembic-3 upgrade head
 ```
 
-Alternativelly, for non-git `copr-frontend`, you might want to run
+Alternatively, for non-git `copr-frontend`, you might want to run
 migrations from `/usr/share/copr/coprs_frontend/`.
 
 
