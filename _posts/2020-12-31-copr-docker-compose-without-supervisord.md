@@ -157,10 +157,10 @@ $ docker exec -it copr_backend-log_1 bash
 
 ### Builder
 
-In production, we spawn a new builder instance in Amazon AWS, but this is
-simplified for the local environment. Here we run a `builder` container use it
-for all builds without recycling. This is the easiest way to debug the
-`copr-rpmbuild` client tool.
+In production, we spawn new builder instances in Amazon AWS, but this is
+simplified for the development environment. Locally, we run a `builder`
+container and use it for all builds without recycling. This is the easiest way
+to debug the `copr-rpmbuild` client tool.
 
 ```
 $ docker exec -it copr_backend-builder-1 bash
@@ -172,7 +172,7 @@ $ docker exec -it copr_backend-builder-1 bash
 
 ### Permission denied for openid_store
 
-When running `copr-frontend` from git, the `data/openid_store`
+When running `copr-frontend` from git, the `data/openid_store` directory
 contains files that were created within the frontend container. The
 problem is accessing them from the host system or a new container
 when the old one is dropped. Those don't have the user and group
@@ -208,8 +208,8 @@ migrations from `/usr/share/copr/coprs_frontend/`.
 ### Some dependencies are not installed
 
 When running a service from git, some dependencies might be missing. The most
-comfortable way to install them is to just upgrade the relevant Copr
-package. The following example is for `copr-frontend` but it can be done the
+comfortable way to install them is to upgrade the relevant Copr package. The
+following example is for `copr-frontend` but it can be done the
 same way for every other service.
 
 ```
