@@ -8,6 +8,13 @@ updated: 2020-15-03
 
 Lately, I decided to dockerize the whole Copr stack and utilize it for development. It is quite nifty and just ridiculously easy to use. In this article, I want to show you how to run it, describe what is inside the containers and explain my personal workflow.
 
+
+<div class="alert alert-warning" role="alert">
+  This article is outdated, please read
+  <a href="/posts/copr-docker-compose-without-supervisord">Copr docker-compose without supervisord</a>
+</div>
+
+
 There are no prerequisites required, you only need to have [properly configured](https://developer.fedoraproject.org/tools/docker/about.html) docker and `docker-compose` command installed.
 
 
