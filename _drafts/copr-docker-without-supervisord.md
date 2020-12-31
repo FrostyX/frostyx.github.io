@@ -47,7 +47,7 @@ running, the database needs to be initialized.
 ```
 $ docker-compose up -d
 $ docker exec -it copr_frontend_1 bash
-bash-5.0$ init-database.sh
+[copr-fe@frontend /]$ init-database.sh
 ```
 
 At this moment, you should be able to open <http://127.0.0.1:5000/> in a web
@@ -117,7 +117,7 @@ updated version.
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d frontend
 $ docker exec -it copr_frontend_1 bash
-PYTHONPATH=/opt/copr/frontend/coprs_frontend /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
+[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
 ```
 
 ### Distgit
@@ -125,7 +125,7 @@ PYTHONPATH=/opt/copr/frontend/coprs_frontend /opt/copr/frontend/coprs_frontend/m
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
 $ docker exec -it copr_distgit_1 bash
-PYTHONPATH=/opt/copr/dist-git /usr/sbin/runuser -u copr-dist-git -g copr-dist-git -- /opt/copr/dist-git/run/importer_runner.py
+[root@distgit /]# PYTHONPATH=/opt/copr/dist-git /usr/sbin/runuser -u copr-dist-git -g copr-dist-git -- /opt/copr/dist-git/run/importer_runner.py
 ```
 
 ### Backend
@@ -135,7 +135,7 @@ Backend has multiple containers, so it depends on what you changed. For build di
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
 $ docker exec -it copr_backend-build_1 bash
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher builds
+[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher builds
 ```
 
 Actions dispatcher:
@@ -143,7 +143,7 @@ Actions dispatcher:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-action
 $ docker exec -it copr_backend-action_1 bash
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher actions
+[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher actions
 ```
 
 Logger:
@@ -151,7 +151,7 @@ Logger:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-log
 $ docker exec -it copr_backend-log_1 bash
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr_run_logger.py
+[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr_run_logger.py
 ```
 
 
@@ -164,7 +164,7 @@ for all builds without recycling. This is the easiest way to debug the
 
 ```
 $ docker exec -it copr_backend-builder-1 bash
-PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
+[root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
 ```
 
 
@@ -186,7 +186,7 @@ It is safe to simply drop all generated data
 
 ```
 $ docker exec --user root -it copr_frontend_1 bash
-rm -rf /opt/copr/frontend/data/
+[copr-fe@frontend /]$ rm -rf /opt/copr/frontend/data/
 ```
 
 ### Outdated database schema
@@ -197,8 +197,8 @@ migrations from the git repository.
 
 ```
 $ docker exec -it copr_frontend_1 bash
-bash-5.0$ cd /opt/copr/frontend/coprs_frontend/
-bash-5.0$ alembic-3 upgrade head
+[copr-fe@frontend /]$ cd /opt/copr/frontend/coprs_frontend/
+[copr-fe@frontend coprs_frontend]$ alembic-3 upgrade head
 ```
 
 Alternatively, for non-git `copr-frontend`, you might want to run
@@ -214,10 +214,10 @@ same way for every other service.
 
 ```
 $ docker exec --user root -it copr_frontend_1 bash
-dnf install tito
-cd /opt/copr/frontend/
-dnf builddep copr-frontend.spec
-tito build --rpm --test --install --rpmbuild-options=--nocheck
+[copr-fe@frontend /]$ dnf install tito
+[copr-fe@frontend frontend]$ cd /opt/copr/frontend/
+[copr-fe@frontend frontend]$ dnf builddep copr-frontend.spec
+[copr-fe@frontend frontend]$ tito build --rpm --test --install --rpmbuild-options=--nocheck
 ```
 
 However, it is always possible that some dependency is not properly set in the
