@@ -2,7 +2,7 @@
 layout: post
 title: Naučte se LaTeX za večer
 lang: cz
-categories: dev howto LaTeX
+tags: dev howto LaTeX
 ---
 
 

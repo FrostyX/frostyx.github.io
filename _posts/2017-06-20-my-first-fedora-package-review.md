@@ -2,7 +2,7 @@
 layout: post
 title: My first fedora package review
 lang: en
-categories: fedora howto packaging
+tags: fedora howto packaging
 ---
 
 Recently I've done my first fedora [package review](https://fedoraproject.org/wiki/Package_Review_Process) and this very short post is about usage of `fedora-review` tool.

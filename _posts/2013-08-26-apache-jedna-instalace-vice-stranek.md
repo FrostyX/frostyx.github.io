@@ -2,7 +2,7 @@
 layout: post
 title: Apache - jedna instalace, více stránek
 lang: cz
-categories: dev
+tags: dev
 ---
 
 

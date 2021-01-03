@@ -2,7 +2,7 @@
 layout: post
 title: Mé oblíbené XKCD
 lang: cz
-categories: fun
+tags: fun
 ---
 
 

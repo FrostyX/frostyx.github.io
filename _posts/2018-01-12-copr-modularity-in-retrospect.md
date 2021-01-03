@@ -2,7 +2,7 @@
 layout: post
 title: Copr Modularity in retrospect
 lang: en
-categories: copr fedora modularity
+tags: copr fedora modularity
 ---
 
 This article is about the journey that we made since the [Fedora modularity project](https://docs.pagure.org/modularity/) started and we decided to get involved and provide modularity features in [Copr](http://copr.fedoraproject.org/). It has been a long and difficult road and we are still not on its end because the whole modularity project is a living organism that is still evolving and changing. Though, we are happy to be part of it.

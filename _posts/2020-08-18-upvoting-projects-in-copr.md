@@ -2,7 +2,7 @@
 layout: post
 title: Upvoting projects in Copr
 lang: en
-categories: copr fedora
+tags: copr fedora
 ---
 
 Let's take a minute of our time and upvote our favorite projects in

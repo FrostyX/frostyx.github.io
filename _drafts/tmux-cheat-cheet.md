@@ -2,7 +2,7 @@
 layout: post
 title: Tmux - Cheat Cheet
 lang: en
-categories: howto
+tags: howto
 ---
 
 	# Panes switching

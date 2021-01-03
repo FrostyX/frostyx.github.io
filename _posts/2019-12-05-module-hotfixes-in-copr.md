@@ -2,7 +2,7 @@
 layout: post
 title: Module hotfixes in Copr
 lang: en
-categories: dev copr fedora modularity
+tags: dev copr fedora modularity
 ---
 
 The rise of Fedora Modularity helped us solve some difficulties, but at the same time brought a new set of unique problems. One of them is a need for `module_hotfixes` repositories.

@@ -2,7 +2,7 @@
 layout: post
 title: Emacs - Browse At Pagure
 lang: en
-categories: dev emacs vim pagure
+tags: dev emacs vim pagure
 ---
 
 TL;DR: Work in Emacs, select some lines, press `M-x browse-at-remote` to open it on pagure.io, and share the URL.

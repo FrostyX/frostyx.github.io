@@ -2,7 +2,7 @@
 layout: post
 title: Dropping copr-rpmbuild SCM support
 lang: en
-categories: dev copr fedora
+tags: dev copr fedora
 ---
 
 First of all, let me assure you that this **doesn't mean** dropping the [SCM method](https://docs.pagure.org/copr.copr/user_documentation.html#scm) from Copr itself. That is an awesome feature and will remain available. In this article, we are going to discuss only an interface for one of the Copr internal tools, `copr-rpmbuild`.

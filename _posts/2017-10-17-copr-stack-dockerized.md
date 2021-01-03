@@ -2,7 +2,7 @@
 layout: post
 title: Copr stack dockerized!
 lang: en
-categories: dev copr fedora howto
+tags: dev copr fedora howto
 updated: 2020-15-03
 ---
 

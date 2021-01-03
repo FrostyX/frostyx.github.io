@@ -2,7 +2,7 @@
 layout: post
 title: Modularity features in Mock
 lang: en
-categories: dev mock fedora modularity
+tags: dev mock fedora modularity
 ---
 
 

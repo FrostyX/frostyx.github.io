@@ -2,7 +2,7 @@
 layout: post
 title: Copr Rebuild Tools - Tito backend
 lang: en
-categories: copr fedora howto packaging
+tags: copr fedora howto packaging
 ---
 
 Did you read my [last post](http://frostyx.cz/posts/copr-rebuild-tools) about [Copr Rebuild Tools](https://github.com/fedora-copr/copr-rebuild-tools)? It is a handy tool for mass rebuilding packages in Copr. Sources of such packages could

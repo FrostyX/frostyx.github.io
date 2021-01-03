@@ -2,7 +2,7 @@
 layout: post
 title: Copr docker-compose without supervisord
 lang: en
-categories: dev copr fedora howto
+tags: dev copr fedora howto
 ---
 
 

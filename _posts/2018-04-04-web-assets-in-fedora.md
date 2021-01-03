@@ -2,7 +2,7 @@
 layout: post
 title: Web assets in Fedora
 lang: en
-categories: dev fedora
+tags: dev fedora
 ---
 
 [Web assets](https://fedoraproject.org/wiki/Packaging:Web_Assets) are any static files provided by a website to a browser that are required in order to render the site properly. Such files can be for example images, fonts, javascript and CSS code and so on. In this article we are going to focus on third-party assets like frontend frameworks or icon fonts and talk about how we usually ship them, explain why it is not a good idea and see how it can be done better.

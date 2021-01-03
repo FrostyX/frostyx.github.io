@@ -9,6 +9,5 @@
     layout: post
     title: Some example title
     lang: en
-    categories: dev copr fedora modularity
+    tags: dev copr fedora modularity
     ---
-

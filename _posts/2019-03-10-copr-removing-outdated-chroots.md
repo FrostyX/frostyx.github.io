@@ -2,7 +2,7 @@
 layout: post
 title: Copr - Removing outdated chroots
 lang: en
-categories: copr fedora
+tags: copr fedora
 ---
 
 Copr is going to remove build data from end-of-life chroots. Read this article to learn your new responsibilities in case you want to keep some software alive even for an EOL distribution.

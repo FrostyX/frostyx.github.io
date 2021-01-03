@@ -2,7 +2,7 @@
 layout: post
 title: Copr - Threads support for dist-git
 lang: en
-categories: copr fedora
+tags: copr fedora
 ---
 
 In recent experiments we tried to rebuild all packages from [PyPI](https://pypi.python.org) and [RubyGems](http://rubygems.org/) which show us some weak spots of [Copr](http://copr.fedoraproject.org/). There already were [few](https://lists.fedorahosted.org/archives/list/copr-devel@lists.fedorahosted.org/thread/OCODBMV56D6I32GGOVUGYG2AJG3IQGNF/) improvements done, however today we will talk about parallelizing Copr-dist-git.

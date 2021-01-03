@@ -2,7 +2,7 @@
 layout: post
 title: How to build modules in Copr
 lang: en
-categories: dev copr fedora modularity
+tags: dev copr fedora modularity
 ---
 
 In this article, I am going to explain the two ways how you can build modules in [Copr](http://copr.fedoraproject.org/). Hopefully, it will be interesting for both experienced users, which can submit their perfectly tailored modulemd file and build a module from it, as well as for beginners which could appreciate building modules without having to know anything about modulemd files.

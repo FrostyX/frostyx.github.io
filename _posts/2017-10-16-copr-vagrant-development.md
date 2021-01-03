@@ -2,7 +2,7 @@
 layout: post
 title: Copr - Vagrant development
 lang: en
-categories: dev copr fedora howto
+tags: dev copr fedora howto
 ---
 
 [OUTDATED] This article explains my local setup and personal workflow for developing [Copr](http://copr.fedoraproject.org/). This doesn't necessarily mean that it is the best way how to do it, but it is the way that suits best to my personal preferences. Other team members probably approach this differently.

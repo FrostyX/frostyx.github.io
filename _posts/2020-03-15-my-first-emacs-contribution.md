@@ -2,7 +2,7 @@
 layout: post
 title: My first Emacs contribution
 lang: en
-categories: dev emacs lisp workflow
+tags: dev emacs lisp workflow
 ---
 
 You may already notice, that I like to customize and improve the tools that I use daily, share the configuration with others and write blog posts about what I learned while doing it. On today's menu, Emacs and its packages.

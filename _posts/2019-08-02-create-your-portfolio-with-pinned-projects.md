@@ -2,7 +2,7 @@
 layout: post
 title: Create your portfolio with pinned projects
 lang: en
-categories: copr fedora
+tags: copr fedora
 ---
 
 Let others know what projects you are the proudest of and want to be recognized for. It is really easy to create a

@@ -2,7 +2,7 @@
 layout: post
 title: Copr &lt;3 Modularity
 lang: en
-categories: dev copr fedora
+tags: dev copr fedora
 ---
 
 

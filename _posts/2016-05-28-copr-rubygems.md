@@ -2,7 +2,7 @@
 layout: post
 title: Copr - Rubygems
 lang: en
-categories: copr fedora changelog howto
+tags: copr fedora changelog howto
 ---
 
 Recently [clime](https://github.com/clime) implemented support for building a RPM package directly from PyPI and Mirek performed very cool [experiment](http://miroslav.suchy.cz/blog/archives/2016/04/21/wip_rebuilding_all_pypi_modules_as_rpm_packages/index.html) of building the whole 79k packages on our dev servers. Today we have similar feature, but for the Ruby people. I hope that you are excited.

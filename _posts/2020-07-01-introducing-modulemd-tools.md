@@ -2,7 +2,7 @@
 layout: post
 title: Introducing modulemd-tools
 lang: en
-categories: dev copr fedora modularity
+tags: dev copr fedora modularity
 ---
 
 If you have been following news and innovations in the Fedora world for the past few years, the [Fedora Modularity][fedora-modularity] project couldn't escape your eye. It has been a subject of many discussions, opinions, and critique. I am pleased to tell you, that the biggest pain points (at least for me) are finally being addressed.

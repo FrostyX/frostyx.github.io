@@ -2,7 +2,7 @@
 layout: post
 title: Moje zkušenost s Korteho tréninkem
 lang: cz
-categories: powerlifting
+tags: powerlifting
 ---
 
 ## O co jde?
@@ -67,4 +67,3 @@ Nejsem profesionál a proto netuším, zda bych tento program profesionálům do
 ## Odkazy
 - <http://www.deepsquatter.com/strength/archives/korte.htm>
 - <http://powerlifting.ronnie.cz/c-6508-korteho-3-x-3-aneb-trenink-pro-ortodoxni-liftery-i.html>
-

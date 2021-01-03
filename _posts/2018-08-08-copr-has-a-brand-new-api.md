@@ -2,7 +2,7 @@
 layout: post
 title: Copr has a brand new API
 lang: en
-categories: dev copr fedora api
+tags: dev copr fedora api
 ---
 
 New Copr version is here and after several months of discussions and development, it finally brings a brand new API. In this article, we are going to see why it was needed, how it is better than previous API versions (i.e. why you should be happy about it) and try some code samples.

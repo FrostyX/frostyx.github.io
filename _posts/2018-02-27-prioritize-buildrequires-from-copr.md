@@ -2,7 +2,7 @@
 layout: post
 title: Prioritize BuildRequires from Copr
 lang: en
-categories: dev copr fedora
+tags: dev copr fedora
 updated: 2019-04-10
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Reproducible Copr builds
 lang: en
-categories: dev copr fedora
+tags: dev copr fedora
 ---
 
 Well, sort of. Has your package failed to build in [Copr](http://copr.fedoraproject.org/)? We introduce a new tool called `copr-rpmbuild` which allows you to reproduce it locally and make the debugging process much easier.

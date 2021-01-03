@@ -2,7 +2,7 @@
 layout: post
 title: Light - when xbacklight doesn't work
 lang: en
-categories: fedora
+tags: fedora
 ---
 
 Do you have any issues with controlling backlight on your laptop? Try `light`!

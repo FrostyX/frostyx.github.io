@@ -2,7 +2,7 @@
 layout: post
 title: Vimwiki diary template
 lang: en
-categories: fedora vim vimwiki diary org GTD
+tags: fedora vim vimwiki diary org GTD
 ---
 
 Vimwiki is a plugin for managing personal wiki in your Vim environment. It provides a simple way to organize notes and create links between them, manage todo lists, write a diary and have many other useful features. In this article, we are going to focus solely on the diary and how to make its usage much smoother.

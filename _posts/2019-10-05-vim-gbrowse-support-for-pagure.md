@@ -2,7 +2,7 @@
 layout: post
 title: Vim :Gbrowse support for Pagure
 lang: en
-categories: dev fedora vim plugin pagure
+tags: dev fedora vim plugin pagure
 ---
 
 <blockquote class="blockquote">

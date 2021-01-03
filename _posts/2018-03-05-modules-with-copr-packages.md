@@ -2,7 +2,7 @@
 layout: post
 title: Modules with Copr packages
 lang: en
-categories: dev copr fedora modularity
+tags: dev copr fedora modularity
 ---
 
 

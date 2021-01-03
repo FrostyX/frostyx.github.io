@@ -4,3 +4,6 @@ help:
 
 serve:
 	jekyll serve --drafts
+
+tags:
+	python ./tag_generator.py

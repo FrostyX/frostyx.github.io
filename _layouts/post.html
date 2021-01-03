@@ -11,8 +11,8 @@ layout: default
 	</span>
 
 	<span class="pull-right">
-	{% for category in page.categories %}
-		<button class="btn btn-default btn-xs">{{ category }}</button>
+	{% for tag in page.tags %}
+		<a class="btn btn-default btn-xs" href="/tag/{{ tag }}">{{ tag }}</a>
 	{% endfor %}
 
 	<a href="https://github.com/frostyx/frostyx.github.io/tree/master/{{ page.relative_path }}">

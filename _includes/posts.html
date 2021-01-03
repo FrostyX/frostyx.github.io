@@ -2,13 +2,21 @@
 	<thead><tr><th>Title</th><th>Created</th><th>Language</th><th>Tags</th></tr></thead>
 	<tbody>
 		{% for post in site.posts limit:include.limit %}
+
+		{% if include.tag %}
+			{% unless post.tags contains include.tag %}
+				{% continue %}
+			{% endunless %}
+		{% endif %}
+
+
 		<tr>
 			<td><a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">{{ post.title }}</a></td>
 			<td>{{ post.date | date: "%d. %m. %Y" }}</td>
 			<td>{{ post.lang }}</td>
 			<td>
-				{% for category in post.categories %}
-					<button class="btn btn-default btn-xs">{{ category }}</button>
+				{% for tag in post.tags %}
+					<a class="btn btn-default btn-xs" href="/tag/{{ tag }}">{{ tag }}</a>
 				{% endfor %}
 			</td>
 		</tr>

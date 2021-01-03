@@ -2,7 +2,7 @@
 layout: post
 title: Nahrávání obrazovky (včetně zvuku)
 lang: cz
-categories: desktop
+tags: desktop
 ---
 
 

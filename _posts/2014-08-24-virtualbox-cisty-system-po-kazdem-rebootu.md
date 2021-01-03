@@ -2,7 +2,7 @@
 layout: post
 title: Virtualbox - Čistý systém po každém rebootu
 lang: cz
-categories: virt
+tags: virt
 ---
 
 Z nějakých důvodů potřebujete použít windows? Pracujete na projektu, nebo využíváte technologii, která nemá podporu pro váš operační systém? Dost možná sáhnete po nějakém virtualizačním software. Já zvolil VirtualBox.

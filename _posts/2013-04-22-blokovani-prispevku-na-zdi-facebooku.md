@@ -2,7 +2,7 @@
 layout: post
 title: Blokování příspěvků na zdi Facebooku
 lang: cz
-categories: facebook
+tags: facebook
 ---
 
 

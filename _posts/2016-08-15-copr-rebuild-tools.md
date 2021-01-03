@@ -2,7 +2,7 @@
 layout: post
 title: Copr Rebuild Tools
 lang: en
-categories: dev copr fedora howto
+tags: dev copr fedora howto
 ---
 
 So we re-built whole [PyPI](https://pypi.python.org) and [RubyGems](http://rubygems.org/) as RPM packages. But how exactly we did it?

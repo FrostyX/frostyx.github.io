@@ -2,12 +2,12 @@
 layout: post
 title: Software tips for nerds
 lang: en
-categories: desktop fedora vim vimwiki
+tags: desktop fedora vim vimwiki
 ---
 
 This article should rather be called _What software I started using in 2019_ but I just didn't like that title. It is going to be the first post in a yearly series on this topic.
 
-Admittedly, I have unconventional preferences on the user interface of applications, that I use daily. It manifests itself in a strong Vim modal editing addiction, tiling window manager and not having a mouse on my desk. I figured, that this series might be useful for other weirdos like me. Also, it will be fun to look back and see the year by year progression. 
+Admittedly, I have unconventional preferences on the user interface of applications, that I use daily. It manifests itself in a strong Vim modal editing addiction, tiling window manager and not having a mouse on my desk. I figured, that this series might be useful for other weirdos like me. Also, it will be fun to look back and see the year by year progression.
 
 <div class="text-center img-row row">
   <a href="/files/img/2019-desktop.png">
@@ -124,7 +124,7 @@ I would say, it has the same exact features, but it is a Vim plugin.
 [buffers]: https://statico.github.io/vim3.html#buffers-buffers-buffers
 [nerdtree]: https://github.com/preservim/nerdtree
 [fzf-vim]: https://github.com/junegunn/fzf.vim
-[fzf-blog]: https://statico.github.io/vim3.html#fzf 
+[fzf-blog]: https://statico.github.io/vim3.html#fzf
 [shift-shift]: https://s3.amazonaws.com/media-p.slid.es/uploads/eliorboukhobza/images/959142/searcheverywhere.gif
 [statico]: https://github.com/statico
 [vim-after-11-years]: https://statico.github.io/vim.html

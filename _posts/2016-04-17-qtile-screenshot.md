@@ -2,7 +2,7 @@
 layout: post
 title: Qtile screenshot
 lang: en
-categories: desktop qtile
+tags: desktop qtile
 ---
 
 Do you like to share screenshots of your desktop? Do you use [Qtile](http://qtile.org)? Then keep reading!
