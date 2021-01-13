@@ -3,7 +3,7 @@ layout: post
 title: Copr stack dockerized!
 lang: en
 tags: dev copr fedora howto
-updated: 2020-15-03
+updated: 2020-03-15
 ---
 
 Lately, I decided to dockerize the whole Copr stack and utilize it for development. It is quite nifty and just ridiculously easy to use. In this article, I want to show you how to run it, describe what is inside the containers and explain my personal workflow.

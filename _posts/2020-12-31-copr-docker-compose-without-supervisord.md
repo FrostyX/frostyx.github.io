@@ -3,6 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
+updated: 2020-01-13
 ---
 
 
@@ -163,7 +164,7 @@ container and use it for all builds without recycling. This is the easiest way
 to debug the `copr-rpmbuild` client tool.
 
 ```
-$ docker exec -it copr_backend-builder-1 bash
+$ docker exec -it copr_builder_1 bash
 [root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
 ```
 
