@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2020-01-13
+updated: 2020-01-17
 ---
 
 
@@ -166,6 +166,13 @@ to debug the `copr-rpmbuild` client tool.
 ```
 $ docker exec -it copr_builder_1 bash
 [root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
+```
+
+### Database
+
+```
+$ docker exec -it copr_database_1 bash
+bash-4.2$ psql coprdb
 ```
 
 
