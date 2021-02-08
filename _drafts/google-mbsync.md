@@ -15,6 +15,9 @@ challenge was getting the freaking synchronization with Gmail
 working. Let me share my findings to ease you the pain a little.
 
 
+tl;dr: Jump to the last section [Gmail with 2FA](gmail-with-2FA)
+
+
 ## The obligatory intro on email clients
 
 If you use, or ever tried to use some of the mainstream email clients
@@ -204,7 +207,7 @@ All lof these can be workarounded and/or solved. Its just something to
 keep in mind.
 
 
-## Gmaill with plain password
+## Gmail with plain password
 
 Armored with a bulletproof patience and unending determination, we
 shall continue to `mbsync` configuration for Gmail. Now, if you think
@@ -255,7 +258,73 @@ able to display it again, so please copy-paste it somewhere and we
 will put it to the keyring in a minute.
 
 
+## Isn't 2FA like a 2FA
+
+The Google documentation about [App Paswords][app-password] explicitly
+says:
+
+> App Passwords can only be used with accounts that have 2-Step
+> Verification turned on.
+
+The statement is correct but it can be a bit misleading. In fact, this
+happened to be one of the biggest pain-points for me. My corporate
+email uses [Single-Sign-On][sso] authentication through
+[Kerberos][kerberos]. The login page looks like this.
+
+<div class="text-center img-row row">
+  <a href="/files/img/gmail-2fa-kerberos.png">
+    <img src="/files/img/gmail-2fa-kerberos-thumb.png"
+		 alt="Corporate Kerberos SSO" />
+  </a>
+</div>
+
+As you can see, my password consists of a "PIN", which is a persistent
+passphrase, followed by "TOKEN", a randomly generated short string
+from a small device, that I wear in my wallet. In my view, this was
+supposed to suffice the Google constraint, that only 2-Step verified
+accounts are allowed to use App Passwords. This is absolutely not
+true, though. Please follow the same exact steps that we did in the
+[Gmail with plain password](#gmail-with-plain-password) section.
+
+
 ## Gmail with 2FA
+
+We finally managed to jump through all the necessary hoops and
+tweaked our Google account. Now we can get back to `mbsync`
+configuration. Let's take the snippet from [Normal
+email](normal-email) and make just a couple of changes.
+
+```ssh
+IMAPStore gmail-remote
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs LOGIN
+User foo@gmail.com
+PassCmd "pass email/foo@gmail.com"
+
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/INBOX
+Subfolders Verbatim
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Create Both
+Expunge Both
+Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]/Bin"
+SyncState *
+```
+
+The only fields you need to modify are `User` and `PassCmd`. Your
+password is the generated App Password that we written from the yellow
+stripe in the previous section -
+[Gmail with plain password](gmail-with-plain-password). Don't forget
+to add it into the `pass` keychain.
+
+```
+pass insert email/foo@gmail.com
+```
 
 
 
@@ -282,3 +351,5 @@ will put it to the keyring in a minute.
 [app-password]: https://support.google.com/mail/answer/185833?hl=en
 [gmail]: #
 [gmail-2fa]: https://support.google.com/accounts/answer/185839
+[sso]: #
+[kerberos]: #
