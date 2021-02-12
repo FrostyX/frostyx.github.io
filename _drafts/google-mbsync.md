@@ -5,82 +5,73 @@ lang: en
 tags: fedora emacs mbsync email gmail howto
 ---
 
-In comparison to graphical email clients, configuring the terminal ones
-can be an unexpectedly painful experience. Not the client
-configuration itself but rather the synchronization with the
-server. Personally, I spent twenty hours getting my mail into Emacs
-(and previously into Mutt), and everything that you would expect to be
-a problem was just fine. The only thing that presented a real
-challenge was getting the freaking synchronization with Gmail
-working. Let me share my findings to ease the pain for you a little.
+In comparison to graphical email applications, configuring the command-line
+clients can be a needlessly painful experience. Not because of the client
+configuration itself but rather figuring out the proper IMAP settings for your
+account. Personally, I spent more hours on moving my mail into Emacs (and
+previously into [Mutt][mutt]), than I care to admit. And in the end, it turned
+out that the only real obstacle was figuring out, how to get the freaking
+synchronization with Gmail working. Let me share my findings to potentially ease
+the pain for you.
 
-
-tl;dr: Jump to the last section [Gmail with 2FA](gmail-with-2FA)
+TL;DR: Jump to the last section [Gmail with 2FA](#gmail-with-2fa)
 
 
 ## The obligatory intro on email clients
 
 If you use, or ever tried to use some of the mainstream email clients
-such as [Thunar][thunar], [Evolution][evolution], [Geary][geary], etc,
-or some of the mobile phone clients (I am not a mobile phone nerd, so
-I don't know which ones. I just have some Gmail _thingy_ there), you
+such as [Thunderbird][thunderbird], [Evolution][evolution], [Geary][geary],
+or some mobile phone client (I am not a mobile phone nerd, so
+I don't know any of them. I just have some Gmail _thingy_ there), you
 might have formed an idea what an email client is supposed to do - download
 your messages, index them, filter them, let you interactively work
-with them. And of course, allowing to send messages as well. There is
-nothing groundbreaking about this, right? That's just how email works
-and therefore what email clients are supposed to do.
+with them. And of course, allowing you to send messages as well. There is
+nothing groundbreaking about this, that's just how we use email,
+and therefore what we expect email clients to do.
 
 Command-line (or rather text-based) email clients do much less and
 delegate a lot of work to a series of other small tools (aka the
-[Unix philosophy][unix-philosophy]).
+[Unix philosophy][unix-philosophy]). Typically, we have a separate program for
+simply downloading the mail from a server. There are many options, such as
+`mbsync` from [isync][isync] package, [OfflineIMAP][offlineimap],
+[getmail][getmail], etc. Their only job is to download the mail and save it (one
+message per file) to your disk. This can be useful on its own, e.g. for
+backing-up your messages in case the email provider shuts down its business.
 
-Typically, we have a separate program for simply downloading the mail
-from a server. There are many options such as `mbsync` from
-[isync][isync] package, [OfflineIMAP][offlineimap],
-[getmail][getmail], etc. Its only job is to download the mail and save
-it (one message per file) to your disk. This alone has some benefits
-and can be used e.g. for backing-up your emails in case the mail
-provider shuts down its business. And while you can certainly open your
-messages in `vim` and read their content, it is not what we are after.
-
-Optionally, it's up to us to configure spam filter either on the
-server-side (e.g. in Gmail settings) or on the client by using
-[procmail][procmail], [Bogofilter][bogofilter], or
-[SpamAssasin][spamassasin].
-
-The next building block is indexing. This is generally not true for
-everybody but after many years of being subscribed to countless
-mailing lists, many of us have between tens of thousands and hundreds
-of thousands of messages in our inbox. Directory-based storages just ain't
-gonna cut it, we need some kind of database with indexes. For this, we
-can use tools like [Mu][mu], or [Notmuch][notmuch-reindex].
+Optionally, it's up to us to configure a spam filter either on the server-side
+(e.g. in Gmail settings) or on the client by using [procmail][procmail],
+[Bogofilter][bogofilter], or [SpamAssasin][spamassasin]. The next building block
+is indexing. This is generally not true for everybody but after years of
+countless mailing list subscribtions, many of us have our inboxes floded with
+thousands or hundreds of thousands of messages. Directory-based storages just
+ain't gonna cut it. We need some kind of a _real_ database with indexes. For
+this, we can use tools like [Mu][mu], or [Notmuch][notmuch-reindex].
 
 Finally, we are getting to the fun part, which is displaying, reading,
 and interacting with email. This is the most discussed and
 tutorial-covered link in the chain. And while exciting, and hacker-ish
 looking on screenshots, the configuration revolves mainly around color
 schemes and key bindings, which is quite intuitive and also not that
-big of a deal when using some default settings. Anyway, we can use the
+big of a deal when using some default settings. Anyway, we can pick from the
 following frontends - [Mu4e][mu4e], [Notmuch][notmuch], [Mutt][mutt],
-[NeoMutt][neomutt], [Gnus][gnus], [Alpine][apline], and probably a
-bunch of less-known clients. One would expect, that for sending the email,
-we would utilize some specialized tool (and we certainly can) but
-usually, it is handled by the frontend program.
+[NeoMutt][neomutt], [Gnus][gnus], [Alpine][alpine], and probably from a
+bunch of less-known clients as well. For sending email messages, one would
+expect to also utilize some specialized tool (and it certainly is possible) but
+usually, it is handled by the frontend program itself.
 
-As you noticed, there is a lot of interchangeable utilities, some of
-them optional, some of them even more optional. The categories I
-presented are not distinct and some tools overlap across multiple of
-them. It's up to you to put those lego blocks together and build your
-own email setup.
+As you noticed, there is a lot of small, interchangeable utilities in play. Some
+of them optional, some of them even more optional. The categories I
+presented are not strictly defined and some tools overlap across multiple
+categories. It's up to you to choose and put those lego blocks together and
+build your own email setup.
 
-Today we are going to talk about the very first category, which is
-downloading email messages to your computer. We are going to
-utilize `mbsync` command, and we are going to set it up for your
-enterprise 2FA Gmail account. Since the result is a bunch of files
-in a directory, and every cool blog post should have a screenshot of
-something, I am going to jump a few steps forward and show you how the
-end-game might look like, once you open the mail (that if you finish
-reading this article and manage to successfully download the mail first).
+Today we are going focus on the very first category, which is downloading email
+messages to your computer. We are going to utilize `mbsync` command, and we are
+going to set it up for your enterprise 2FA Gmail account. Since the result is a
+bunch of downloaded files (which is not very impressive), and every cool blog
+post should have at least one screenshot, I am going to jump a few steps forward
+and show you how the end-game might look like once you manage to successfully
+download your mail and open it in Emacs.
 
 <div class="text-center img-row row">
   <a href="/files/img/rougier-mu4e.png">
@@ -88,16 +79,16 @@ reading this article and manage to successfully download the mail first).
 		 alt="Mu4e configuration by @rougier" />
   </a>
   <p>
-	This is not my configuration. This beautiful screenshot is taken from
+	This beautiful configuration is not mine. The screenshot is taken from the
 	<a href="https://github.com/rougier/mu4e-dashboard">rougier/mu4e-dashboard</a>
 	repository.
   </p>
 </div>
 
 
-## Normal email
+## Less hostile provider than Gmail
 
-First, please install the `isync` package, so we get this out of our
+First, please install the `isync` package, so we can get this out of our
 way. Use the package manager provided by your GNU/Linux distribution, on
 Fedora I would do
 
@@ -106,10 +97,10 @@ dnf install isync
 ```
 
 Configuring multiple accounts in `mbsync` is trivial, and Gmail IMAP
-is a mess, so I would recommend setting up an account from a different
-provider (if you have this option) first, to learn how `mbsync`
-works. Create the following configuration file `~/.mbsyncrc` and
-insert the following settings.
+is a mess. Therefore, I would recommend setting up an account from a different
+email provider first (that is, if you have the option) and learn how `mbsync`
+works. Let's create the `~/.mbsyncrc` configuration file and insert the
+following settings.
 
 ```ssh
 IMAPStore foo-remote
@@ -128,42 +119,42 @@ Master :foo-remote:
 Slave :foo-local:
 Create Both
 Expunge Both
-Patterns * !spam
+Patterns *
 SyncState *
 ```
 
 A more complicated version of this snippet can be found on
-[ArchWiki][archwiki-mbsync], and it is also described on countless
-blogs ([1][mbsync-blog-1], [2][mbsync-blog-2], [3][mbsync-blog-3],
-[4][mbsync-blog-4], ...), so I am not going to describe the settings
-here. I would by paraphrasing the [manpage][mbsync-manpage] anyway.
-Let's just vaguely say, that the first section describes how to log-in
-to the email account provided by some third-party. The second
-section describes where and how to store the downloaded messages on
-our computer. The last section configures what should be synchronized
-between those two, he said while pretending that he understands it.
+[ArchWiki][archwiki-mbsync] and countless blogs
+([1][mbsync-blog-1], [2][mbsync-blog-2], [3][mbsync-blog-3],
+[4][mbsync-blog-4], ...), so I am not going to thoroughly describe the settings
+here. I would by paraphrasing the [manpage][mbsync-manpage] anyway. Let's just
+vaguely say, that the first section describes how to access your email account
+provided by some third-party. The second section describes how to store the
+downloaded messages on our computer. The last section configures what messages
+should be synchronized between those two, he said while pretending to understand
+it.
 
-Replace all `foo` symbols in the snippet with some short name of your
-email account, e.g. `personal`, `work`, `test`, and properly set the
+Replace all `foo` symbols in the snippet with some short label for your
+email account (e.g. `personal`, `work`, `test`, ...) and properly set the
 `Host`, `User`, and `Pass` values in the first section. Then you
 should be able to successfully run the following command
 
 ```shell
-# use the short email name you chose before
+# Use the short email label you chose before
 mbsync -V foo
 ```
 
-There is not going to be any successful messasge in that output, so
-don't be surprised. Seeing a bunch of `Opening` and `Synchronizing...`
-means that it works fine. To make sure see the mail directory
+There is not going to be any successful messasge in the output. Don't panic,
+seeing a bunch of `Opening` and `Synchronizing...` lines means that it works
+fine. To make sure, list the mail directory
 
 ```shell
 ls -1 ~/Mail
 ```
 
-Now because we don't want to store our super-secret email passwords in
-plaintext, we want to put it into some keychain and let `mbsync` how
-to get it. Don't even think about using the `gpg` command, that's more
+Because we don't want to store our super-secret email passwords in
+plaintext, we should stash them into some keychain and let `mbsync` how
+to get them. Don't even think about using the `gpg` command, that's more
 complicated than rocket science. Use [pass][pass] instead!
 
 ```shell
@@ -177,17 +168,17 @@ pass insert email/frostyx@foo.com
 pass email/frostyx@foo.com
 ```
 
-This is all that you need to know about `pass` (but it has some cool
+This is all you need to know about `pass` (although it has some amazing
 features such as storing passwords to git, which is worth checking
-out). Now, remove the `Pass` line from our `~/.mbsyncrc` config and
+out). Now, remove the `Pass` line from your `~/.mbsyncrc` config and
 use this one instead.
 
 ```ssh
 PassCmd "pass email/frostyx@foo.com"
 ```
 
-Make sure that `mbsync -V foo` still works, even with the password
-from the keychain.
+Make sure that `mbsync -V foo` still works, even when using a password from the
+keychain.
 
 
 ## Gmail IMAP sucks
@@ -295,7 +286,8 @@ true, though. Please follow the same exact steps that we did in the
 We finally managed to jump through all the necessary hoops and
 tweaked our Google account. Now we can get back to `mbsync`
 configuration. Let's take the snippet from the
-[Normal email](normal-email) and make just a couple of changes.
+[Less hostile provider than Gmail](#less-hostile-provider-than-gmail) and make
+just a couple of changes.
 
 ```ssh
 IMAPStore gmail-remote
@@ -331,18 +323,24 @@ pass insert email/foo@gmail.com
 
 
 
-[thunar]: #
-[evolution]: #
-[geary]: #
-[unix-philosophy]: #
-[isync]: #
-[offlineimap]: #
+[mutt]: http://www.mutt.org/
+[neomutt]: https://neomutt.org/
+[thunderbird]: https://www.thunderbird.net/en-US/
+[evolution]: https://wiki.gnome.org/Apps/Evolution
+[geary]: https://wiki.gnome.org/Apps/Geary
+[unix-philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
+[isync]: https://isync.sourceforge.io/
+[offlineimap]: http://www.offlineimap.org/
 [getmail]: https://wiki.archlinux.org/index.php/Getmail
 [mu]: https://www.djcbsoftware.nl/code/mu/mu4e/Indexing-your-messages.html
 [notmuch-reindex]: https://notmuchmail.org/manpages/notmuch-reindex-1/
-[procmail]: #
-[bogofilter]: #
-[spamassasin]: #
+[procmail]: https://linux.die.net/man/1/procmail
+[bogofilter]: https://bogofilter.sourceforge.io/
+[spamassasin]: https://spamassassin.apache.org/
+[mu4e]: https://www.djcbsoftware.nl/code/mu/mu4e.html
+[notmuch]: https://notmuchmail.org/
+[gnus]: https://www.gnu.org/software/emacs/manual/html_node/gnus/
+[alpine]: https://wiki.archlinux.org/index.php/alpine
 [archwiki-mbsync]: https://wiki.archlinux.org/index.php/Isync#Configuring
 [mbsync-manpage]: https://isync.sourceforge.io/mbsync.html
 [mbsync-blog-1]: https://people.kernel.org/mcgrof/replacing-offlineimap-with-mbsync
@@ -352,7 +350,7 @@ pass insert email/foo@gmail.com
 [pass]: https://www.passwordstore.org/
 [gmail-limit]: https://support.google.com/a/answer/1071518?hl=en
 [app-password]: https://support.google.com/mail/answer/185833?hl=en
-[gmail]: #
+[gmail]: https://gmail.com/
 [gmail-2fa]: https://support.google.com/accounts/answer/185839
-[sso]: #
-[kerberos]: #
+[sso]: https://en.wikipedia.org/wiki/Single_sign-on
+[kerberos]: https://web.mit.edu/kerberos/
