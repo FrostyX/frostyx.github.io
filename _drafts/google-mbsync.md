@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Synchronize 2FA Gmail with mbsync
+title: Synchronize your 2FA Gmail with mbsync
 lang: en
 tags: fedora emacs mbsync email gmail howto
 ---
@@ -42,7 +42,7 @@ Optionally, it's up to us to configure a spam filter either on the server-side
 (e.g. in Gmail settings) or on the client by using [procmail][procmail],
 [Bogofilter][bogofilter], or [SpamAssasin][spamassasin]. The next building block
 is indexing. This is generally not true for everybody but after years of
-countless mailing list subscribtions, many of us have our inboxes floded with
+countless mailing list subscriptions, many of us have our inboxes flooded with
 thousands or hundreds of thousands of messages. Directory-based storages just
 ain't gonna cut it. We need some kind of a _real_ database with indexes. For
 this, we can use tools like [Mu][mu], or [Notmuch][notmuch-reindex].
@@ -65,13 +65,13 @@ presented are not strictly defined and some tools overlap across multiple
 categories. It's up to you to choose and put those lego blocks together and
 build your own email setup.
 
-Today we are going focus on the very first category, which is downloading email
-messages to your computer. We are going to utilize `mbsync` command, and we are
-going to set it up for your enterprise 2FA Gmail account. Since the result is a
-bunch of downloaded files (which is not very impressive), and every cool blog
-post should have at least one screenshot, I am going to jump a few steps forward
-and show you how the end-game might look like once you manage to successfully
-download your mail and open it in Emacs.
+Today we are going to focus on the very first category, which is downloading
+email messages to your computer. We are going to utilize `mbsync` command, and
+we are going to set it up for your enterprise 2FA Gmail account. Since the
+result is a bunch of downloaded files (which is not very impressive), and every
+cool blog post should have at least one screenshot, I am going to jump a few
+steps forward and show you how the end-game might look like once you manage to
+successfully download your mail and open it in Emacs.
 
 <div class="text-center img-row row">
   <a href="/files/img/rougier-mu4e.png">
@@ -86,7 +86,7 @@ download your mail and open it in Emacs.
 </div>
 
 
-## Less hostile provider than Gmail
+## A less hostile provider than Gmail
 
 First, please install the `isync` package, so we can get this out of our
 way. Use the package manager provided by your GNU/Linux distribution, on
@@ -98,7 +98,7 @@ dnf install isync
 
 Configuring multiple accounts in `mbsync` is trivial, and Gmail IMAP
 is a mess. Therefore, I would recommend setting up an account from a different
-email provider first (that is, if you have the option) and learn how `mbsync`
+email provider first (that is if you have the option) and learn how `mbsync`
 works. Let's create the `~/.mbsyncrc` configuration file and insert the
 following settings.
 
@@ -144,7 +144,7 @@ should be able to successfully run the following command
 mbsync -V foo
 ```
 
-There is not going to be any successful messasge in the output. Don't panic,
+There is not going to be any successful message in the output. Don't panic,
 seeing a bunch of `Opening` and `Synchronizing...` lines means that it works
 fine. To make sure, list the mail directory
 
@@ -183,39 +183,37 @@ keychain.
 
 ## Gmail IMAP sucks
 
-Before moving to Gmail configuration, I would like to make a
+Before moving to the Gmail configuration, I would like to make a
 disclaimer - Gmail IMAP support has limitations, idiosyncrasies, and
-more scientifically, it just sucks. Please have patience.
+to be scientifically precise, it just sucks. Please have patience.
 
-- Each tag is represented as a folder and messages with multiple tags
+- Each tag is stored as a folder and messages with multiple tags
   will be downloaded multiple times, into each folder
 - The [daily download limit is 2500 MB][gmail-limit], so it may take
   several days for you to initially download your mail.
-- Your Gmail password **will not work**, An
-  [App Password][app-password] is required
-- This may be an issue on my side, but IMAP seems to have a delay and
-  shows emails only after a couple of minutes that they are already
-  visible in the web UI.
+- Your Gmail password **will not work**, an [App Password][app-password] is
+  required
+- Emails are visible in the web UI for a couple of minutes before they appear in
+  IMAP. This is either an issue on my side or there is some delay.
 
-All of these can be workarounded and/or solved. It's just something to
-keep in mind.
+All of these are minor inconveniences, that can be workarounded, solved, or
+lived with. It's just something to keep in mind.
 
 
 ## Gmail with a plain password
 
 Armored with bulletproof patience and unending determination, we
 shall continue to `mbsync` configuration for Gmail. Now, if you think
-"maybe I should try a personal Gmail account without 2FA, it is going to
-be easier. I don't know how would I put those one-time passwords in my
-config anyway", please smother the idea in this instant. It is not
-possible. Please repeat after me, it is not possible. I refused to
-believe it, tried over and over, failed miserably, over and over, and
+"perhaps I should try a personal Gmail account without 2FA, it is going to
+be easier", please smother the idea in this instant. **It is not
+possible**. Please repeat after me, it is not possible. I refused to
+believe, tried over and over, failed miserably, over and over, and
 ended up [configuring 2FA][gmail-2fa] anyway. Please save yourself the
-time and pain.
+time and the pain.
 
-Log-in on your [Gmail][gmail] account and click to your profile
+Log-in to your [Gmail][gmail] account and click to your profile
 picture in the top-right. Then continue to "Manage your Google
-Account". In the left menu, click on "Security". Turn on the 2-Step
+Account". In the left menu, click on "Security", and turn on the 2-Step
 Verification.
 
 <div class="text-center img-row row">
@@ -235,8 +233,8 @@ passwords" and you will be redirected to this.
   </a>
 </div>
 
-To create a new password click on "Select app" and change it to "Other
-(Custom name)", and name it however you want.
+To create a new password click on "Select app" and proceed with "Other
+(Custom name)" option. Use whatever name you want.
 
 
 <div class="text-center img-row row">
@@ -246,16 +244,15 @@ To create a new password click on "Select app" and change it to "Other
   </a>
 </div>
 
-Copy the generated password from the yellow stripe. This is the only
-time you will be able to see it. After closing this page, you won't be
-able to display it again, so please copy-paste it somewhere and we
-will put it to the keyring in a minute.
+After closing this page, you won't be able to display it again, so please
+write down the generated password. We will put it to the keyring in a minute.
 
 
 ## Isn't 2FA like a 2FA
 
-The Google documentation about [App Passwords][app-password] explicitly
-says:
+Just a small digression in case you skipped the previous section because you
+already have 2FA configured. The Google documentation about
+[App Passwords][app-password] explicitly says:
 
 > App Passwords can only be used with accounts that have 2-Step
 > Verification turned on.
@@ -272,22 +269,22 @@ email uses [Single-Sign-On][sso] authentication through
   </a>
 </div>
 
-As you can see, my password consists of a "PIN", which is a persistent
-passphrase, followed by "TOKEN", a randomly generated short string
-from a small device, that I wear in my wallet. In my view, this was
-supposed to suffice the Google constraint, that only 2-Step verified
-accounts are allowed to use App Passwords. This is absolutely not
-true, though. Please follow the same exact steps that we did in the
-[Gmail with plain password](#gmail-with-plain-password) section.
+As you can see, my password consists of a PIN, which is a persistent
+passphrase, followed by a TOKEN - a randomly generated short string
+from a small device, that I wear in my wallet. In my view, this counts as a
+2-Step verified account and should pass the constraint for using App
+Passwords. This is absolutely not true though. Please follow the same exact
+steps that we did in the
+[Gmail with a plain password](#gmail-with-a-plain-password) section.
 
 
 ## Gmail with 2FA
 
 We finally managed to jump through all the necessary hoops and
-tweaked our Google account. Now we can get back to `mbsync`
+tweaked our Google account. Now we can get back to the `mbsync`
 configuration. Let's take the snippet from the
-[Less hostile provider than Gmail](#less-hostile-provider-than-gmail) and make
-just a couple of changes.
+[Less hostile provider than Gmail](#a-less-hostile-provider-than-gmail) section
+and make just a couple of changes.
 
 ```ssh
 IMAPStore gmail-remote
@@ -311,10 +308,10 @@ Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]
 SyncState *
 ```
 
-The only fields you need to modify are `User` and `PassCmd`. Your
+The only fields that you need to modify are `User` and `PassCmd`. Your
 password is the generated App Password that we transcribed from the yellow
 stripe in the previous section -
-[Gmail with a plain password](gmail-with-a-plain-password). Don't forget
+[Gmail with a plain password](#gmail-with-a-plain-password). Don't forget
 to add it to the `pass` keychain.
 
 ```
