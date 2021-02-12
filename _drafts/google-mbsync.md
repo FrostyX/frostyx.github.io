@@ -7,7 +7,7 @@ tags: fedora emacs mbsync email gmail howto
 
 In comparison to graphical email applications, configuring the command-line
 clients can be a needlessly painful experience. Not because of the client
-configuration itself but rather figuring out the proper IMAP settings for your
+configuration itself but rather finding out the proper IMAP settings for your
 account. Personally, I spent more hours on moving my mail into Emacs (and
 previously into [Mutt][mutt]), than I care to admit. And in the end, it turned
 out that the only real obstacle was figuring out, how to get the freaking
@@ -24,7 +24,7 @@ such as [Thunderbird][thunderbird], [Evolution][evolution], [Geary][geary],
 or some mobile phone client (I am not a mobile phone nerd, so
 I don't know any of them. I just have some Gmail _thingy_ there), you
 might have formed an idea what an email client is supposed to do - download
-your messages, index them, filter them, let you interactively work
+your messages, index them, filter them, and let you interactively work
 with them. And of course, allowing you to send messages as well. There is
 nothing groundbreaking about this, that's just how we use email,
 and therefore what we expect email clients to do.
@@ -130,9 +130,9 @@ A more complicated version of this snippet can be found on
 here. I would by paraphrasing the [manpage][mbsync-manpage] anyway. Let's just
 vaguely say, that the first section describes how to access your email account
 provided by some third-party. The second section describes how to store the
-downloaded messages on our computer. The last section configures what messages
-should be synchronized between those two, he said while pretending to understand
-it.
+downloaded messages on our computer. Finally, the last section configures what
+messages should be synchronized between those two, he said while pretending to
+understand it.
 
 Replace all `foo` symbols in the snippet with some short label for your
 email account (e.g. `personal`, `work`, `test`, ...) and properly set the
@@ -187,14 +187,14 @@ Before moving to the Gmail configuration, I would like to make a
 disclaimer - Gmail IMAP support has limitations, idiosyncrasies, and
 to be scientifically precise, it just sucks. Please have patience.
 
-- Each tag is stored as a folder and messages with multiple tags
-  will be downloaded multiple times, into each folder
+- Each tag is stored as a folder, therefore messages with multiple tags
+  will be downloaded multiple times (into each folder)
 - The [daily download limit is 2500 MB][gmail-limit], so it may take
-  several days for you to initially download your mail.
+  several days for you to initially download your mail
 - Your Gmail password **will not work**, an [App Password][app-password] is
   required
 - Emails are visible in the web UI for a couple of minutes before they appear in
-  IMAP. This is either an issue on my side or there is some delay.
+  IMAP. This is either an issue on my side or there is some delay
 
 All of these are minor inconveniences, that can be workarounded, solved, or
 lived with. It's just something to keep in mind.
@@ -245,7 +245,7 @@ To create a new password click on "Select app" and proceed with "Other
 </div>
 
 After closing this page, you won't be able to display it again, so please
-write down the generated password. We will put it to the keyring in a minute.
+write down the generated password. We will put it to the keychain in a minute.
 
 
 ## Isn't 2FA like a 2FA
@@ -312,7 +312,7 @@ The only fields that you need to modify are `User` and `PassCmd`. Your
 password is the generated App Password that we transcribed from the yellow
 stripe in the previous section -
 [Gmail with a plain password](#gmail-with-a-plain-password). Don't forget
-to add it to the `pass` keychain.
+to stash it to the `pass` keychain.
 
 ```
 pass insert email/foo@gmail.com
