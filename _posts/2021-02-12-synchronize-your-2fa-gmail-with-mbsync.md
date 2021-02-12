@@ -3,6 +3,7 @@ layout: post
 title: Synchronize your 2FA Gmail with mbsync
 lang: en
 tags: fedora emacs mbsync email gmail howto
+updated:
 ---
 
 In comparison to graphical email applications, configuring the command-line
