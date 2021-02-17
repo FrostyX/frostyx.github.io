@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2020-01-17
+updated: 2020-02-17
 ---
 
 
@@ -155,7 +155,6 @@ $ docker exec -it copr_backend-log_1 bash
 [root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr_run_logger.py
 ```
 
-
 ### Builder
 
 In production, we spawn new builder instances in Amazon AWS, but this is
@@ -173,6 +172,16 @@ $ docker exec -it copr_builder_1 bash
 ```
 $ docker exec -it copr_database_1 bash
 bash-4.2$ psql coprdb
+```
+
+### CLI
+
+For testing the git version of `copr-cli` tool with git version of
+`python3-copr` package, we can use the following command.
+
+```
+$ cd cli
+$ PYTHONPATH=$HOME/git/copr/python ./copr --help
 ```
 
 
