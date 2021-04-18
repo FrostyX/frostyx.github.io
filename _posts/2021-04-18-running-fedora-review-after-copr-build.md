@@ -2,7 +2,7 @@
 layout: post
 title: Running fedora-review after Copr build
 lang: en
-tags: dev copr fedora fedora-review
+tags: dev copr fedora fedora-review packaging
 ---
 
 The single most requested feature in the last Copr RFE survey was support
