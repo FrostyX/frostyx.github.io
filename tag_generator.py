@@ -56,3 +56,5 @@ for tag in total_tags:
     f.write(write_str)
     f.close()
 print("Tags generated, count", total_tags.__len__())
+print("You should run:")
+print("    git add {}".format(os.path.join(tag_dir, "*.md")))
