@@ -50,6 +50,7 @@ The main monitor is designated for development.
 
 TODO screenshot
 
+
 ## Migration (my misconceptions)
 
 Due to my heavy addiction to Vim keybindings and modal editing, a
@@ -90,6 +91,7 @@ the same thing for Evil. Anyone wants to colaborate on that?
 So far, this whole thing may seem like a chore with no benefits. Well,
 buckle up.
 
+
 ## IDE on steroids
 
 During the last year, I was basically living in Emacs. It started with
@@ -114,6 +116,7 @@ experience is vastly different. No matter what, it feels like using a
 several single-purpose programs, each of them isolated in its own
 bubble and with no way of cooperating with each other.
 
+
 ## Literate config
 
 Since the operating system becames just a bootloader for Emacs (and
@@ -132,9 +135,38 @@ get the idea.
 
 TODO screenshot
 
+
 ## IRC with Vim keybindings
 
-## Org mode for tasks
+Weechat is an exceptionally good piece of software but to be honest I
+was aching to replace it for quite some time. There just wasn't a
+better alternative. My frustrations were caused solely by two pitfalls.
+
+Copy-pasting from Tmux + Weechat combo is god-awful and borderline
+psychotic. Imagine Weechat window vertically split into multiple
+panes. Since it is an application running in a single terminal
+window, the terminal has no perception of any separation, splits, or
+panes that are displayed within. Selecting a multi-line text with a
+mouse, therefore, isn't limited to the desired pane but rather to
+everything that stands in the way. The copied text then contains
+mixed messages from multiple chat windows, ASCII symbols that were
+used as separators, timestamps, and all.
+
+Apart from this, I was always uncomfortable with the Weechat's
+approach to generated configuration files. While it is generaly looked
+at as a feature allowing to configure Weechat from within itself,
+saving its current state, and eliminating the need to edit the
+configuration file in its written form. I never grew accustomed to
+this paradigm and prefer to edit configuration files by hand.
+
+Circe is in many aspects inspired by Weechat and inherits some of its
+traits, while eradicating the pitfalls beyond perfectly. Circe chat
+windows are standard Emacs buffers with full Vim emulation and shared
+registers with the whole ecosystem. Lisp configuration also surpases
+anything else we could wish for.
+
+TODO screenshot
+
 
 ## Email client, finally
 
