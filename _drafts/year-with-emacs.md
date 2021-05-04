@@ -170,7 +170,22 @@ TODO screenshot
 
 ## Email client, finally
 
-## RSS
+Accessing email in terminal was a recurring fantasy of mine ever since
+I started using GNU/Linux in 2008. Up until very recently, all my
+attempts of achieving this holy grail rendered futile.
+
+Finally, I could check this of my list thanks to a combination of
+mbsync and mu4e. There is nothing much to say. It is an email
+client. Inside of Emacs. But for some undefinable reasons, it is the
+greatest thing ever invented.
+
+The hardest part isn't the email client configuration itself but
+rather synchronization with IMAP (in the age of two-factor
+authentication). If you are interested, I wrote a whole article on
+this topic - [Synchronize your 2FA Gmail with mbsync][mbsync-blogpost]
+
+TODO screenshot
+
 
 ## Magit
 
@@ -182,3 +197,4 @@ TODO screenshot
 
 
 [vim-fugitive-pagure]: #
+[mbsync-blogpost]: http://frostyx.cz/posts/synchronize-your-2fa-gmail-with-mbsync
