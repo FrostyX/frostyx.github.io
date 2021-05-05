@@ -189,7 +189,24 @@ TODO screenshot
 
 ## Magit
 
-## Database
+Magit is one of the tools that I would refuse to believe that I might
+enjoy using. What's the point with `git diff`, `git add` and `git
+commit` comamnds already hard-wired in my muscle memory in such a
+manner, that executing them reminds more of an involuntary spasm
+rather then typing words.
+
+Yet, I am forever hooked to Magit now. One shall never stage a whole
+file before checking its `git diff` (because of possible unwanted
+changes). That's two commands per file, all the time. Whereas Magit
+provides a compact view of files and their changes at once. Staging a
+whole file or its chunks is then a matter of pressing one key.
+
+Committing, pushing, Iterating over a series of commits, blaming,
+rebasing, everything is a bit more convinient. I still use the `git`
+command for more complicated operations though.
+
+TODO screenshot
+
 
 ## Emacs in browser
 
