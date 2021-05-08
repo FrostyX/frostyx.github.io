@@ -46,11 +46,21 @@ world but about them later.
 On my triple-monitor setup, two of them are dedicated to maximized
 Emacs frames. This is how my PIM screen looks like.
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/emacs-pim-frame.png">
+    <img src="/files/img/emacs-pim-frame-thumb.png"
+		 alt="My side monitor dedicated to PIM" />
+  </a>
+</div>
 
 The main monitor is designated for development.
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/emacs-dev-frame.png">
+    <img src="/files/img/emacs-dev-frame-thumb.png"
+		 alt="My main monitor that I use for development" />
+  </a>
+</div>
 
 The goal was to make the setup identical with
 [my previous Vim configuration][vim-setup].
@@ -139,7 +149,22 @@ with a thorough code samples coverage. Quite literaly because it can
 be exported as a web page or stylized PDF. See
 [my config on GitHub][emacs-config] to get the idea.
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/emacs-config-source.png">
+    <img src="/files/img/emacs-config-source.png"
+		 alt="The whole Emacs configuration can be an Org document" />
+  </a>
+</div>
+
+The Org configuration file renders beautifully on GitHub and possibly other Git
+forges.
+
+<div class="text-center img-row row">
+  <a href="/files/img/emacs-config-web.png">
+    <img src="/files/img/emacs-config-web.png"
+		 alt="The config is beautifully rendered on GitHub" />
+  </a>
+</div>
 
 
 ## IRC with Vim keybindings
@@ -173,7 +198,12 @@ windows are standard Emacs buffers with full Vim emulation and shared
 registers with the whole ecosystem. Lisp configuration also surpases
 anything else we could wish for.
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/circe.png">
+    <img src="/files/img/circe.png"
+		 alt="Circe IRC client" />
+  </a>
+</div>
 
 
 ## Email client, finally
@@ -192,7 +222,12 @@ rather synchronization with IMAP (in the age of two-factor
 authentication). If you are interested, I wrote a whole article on
 this topic - [Synchronize your 2FA Gmail with mbsync][mbsync-blogpost]
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/mu4e.png">
+    <img src="/files/img/mu4e.png"
+		 alt="Mu4e mail client" />
+  </a>
+</div>
 
 
 ## Magit
@@ -213,7 +248,12 @@ Committing, pushing, Iterating over a series of commits, blaming,
 rebasing, everything is a bit more convinient. I still use the `git`
 command for more complicated operations though.
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/magit.png">
+    <img src="/files/img/magit.png"
+		 alt="Magit" />
+  </a>
+</div>
 
 
 ## Emacs in browser
@@ -244,7 +284,12 @@ On the contrary, I think Emacs lags behind Neovim in this scenario,
 which is able to transform the textarea into a Neovim instance
 directly in the web browser thanks to [Firenvim][firenvim].
 
-TODO screenshot
+<div class="text-center img-row row">
+  <a href="/files/img/edit-with-emacs.png">
+    <img src="/files/img/edit-with-emacs.png"
+		 alt="Magit" />
+  </a>
+</div>
 
 
 
