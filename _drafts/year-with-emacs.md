@@ -5,9 +5,10 @@ lang: en
 tags: dev fedora emacs vim
 ---
 
-After a decade of exclusively using Vim for all my text editting, I
-decided to explore the other side of the barricade and see what the
-ethernal adversary is doing. Ever since that day, I live in Emacs.
+After a decade of exclusively using
+[Vim for all my text editting][vim-for-everything], I decided to
+explore the other side of the barricade and see what the ethernal
+adversary is doing. Ever since that day, I live in [Emacs][emacs].
 
 
 ## Why?
@@ -18,12 +19,13 @@ claim know Vim in its full depth but many people such as myself get to
 the point where the learning curve slows to a deadly pace and new tips
 just slightly adjust your approach when solving obscure scenarios. The
 only real game-changer yet to be conquered was plugins development. I
-[tried][vim-fugitive-pagure] but I dislike VimL as a language for
-writing code and thus I have no intention in doing so.
+[tried][vim-fugitive-pagure] but I dislike [VimL][viml] as a language
+for writing code and thus I have no intention in doing so.
 
-On the other hand, I am fascinated by functional paradigm and Lisp in
-particular. This alone, was a strong enough hook for migrating to
-Emacs. I won't hit the ceiling regarding custom package development.
+On the other hand, I am fascinated by [functional paradigm][functional]
+and [Lisp][lisp] in particular. This alone, was a strong enough hook for
+migrating to Emacs. I won't hit the ceiling regarding custom package
+development.
 
 Also, I came to realize, that my Vim workflow is different than for
 the most other users (at least in my social circle). Everyone seems to
@@ -32,8 +34,8 @@ though a project and then opening the intended file in Vim, editting
 and closing. I do the same thing when it comes to searching things
 within a project but I have a separate terminal for that. When it
 comes to Vim, I start it once, do everything from within, and then
-close it after six months when a new Fedora is released and I need to
-upgrade. If it reminds you of something, its Emacs.
+close it after six months when a new [Fedora is released][fedora-releases]
+and I need to upgrade. If it reminds you of something, its Emacs.
 
 There was a couple other features that mildly lured me into the Emacs
 world but about them later.
@@ -50,12 +52,15 @@ The main monitor is designated for development.
 
 TODO screenshot
 
+The goal was to make the setup identical with
+[my previous Vim configuration][vim-setup].
+
 
 ## Migration (my misconceptions)
 
 Due to my heavy addiction to Vim keybindings and modal editing, a
 non-negotiable requisite was a decent Vim emulator inside of
-Emacs. As it turned out, Evil is not only a great name but also a
+Emacs. As it turned out, [Evil][evil] is not only a great name but also a
 great piece of software. However, it is often marketed in a way, that
 you don't have to learn Emacs key bindings at all. This was a big
 selling point for me, that turned out to not be true.
@@ -68,10 +73,10 @@ Venn diagram where one circle represents the whole Emacs and its
 subset, inner circle representing the text editting, which is covered
 by Evil. Naturally, for its complement, there cannot be any Vim
 keybinds because Vim doesn't support such things. Don't worry
-though. You can get far with learning M-x for running commands, M-:
+though. You can get far with learning `M-x` for running commands, `M-:`
 for elisp evaluation, and custom key bindings.
 
-Another unpleasant surprise was that my .vimrc was completely useles
+Another unpleasant surprise was that my [.vimrc][vimrc] was completely useles
 for the migration. For some reason I expected Evil to parse and apply
 my current Vim configuration (e.g. ...) and even use the Vim plugins I
 had installed. You can laugh at me now. That, of course, is not
@@ -85,7 +90,7 @@ TODO plugins migration table
 For the migrating the Vim configuration itself, you will need to read
 the manual (or my Emacs config) because it is not possible to cover
 here. However, I still think it would be pretty amazing if we could
-write some package that would parse .vimrc and print elisp code doing
+write some package that would parse `.vimrc` and print elisp code doing
 the same thing for Evil. Anyone wants to colaborate on that?
 
 So far, this whole thing may seem like a chore with no benefits. Well,
@@ -111,9 +116,9 @@ needing the system clipboard. It's all in the Vim/Evil registers, so
 yanking and pasting like a true gentleman.
 
 For the past ten years, I was trying to achieve such setup using a
-combination of Tmux, Vim, Mutt, Weechat, and other tools but the
-experience is vastly different. No matter what, it feels like using a
-several single-purpose programs, each of them isolated in its own
+combination of [Tmux][tmux], [Vim][vim], [Mutt][mutt], [Weechat][weechat], and
+other tools but the experience is vastly different. No matter what, it feels
+like using a several single-purpose programs, each of them isolated in its own
 bubble and with no way of cooperating with each other.
 
 
@@ -122,27 +127,28 @@ bubble and with no way of cooperating with each other.
 Since the operating system becames just a bootloader for Emacs (and
 maybe a web browser), it means that every _application_ is used and
 configured within Emacs. Luckily for us, it has the best configuration
-apparatus ever invented. Remember the literate programming paradigm,
+apparatus ever invented. Remember the
+[literate programming paradigm][literate-programming],
 that was only briefly noted in school programming curriculum as a
 slow, retarded cousin of procedural, and object-oriented paradigms? It
 turns out to be pretty fucking awesome after all.
 
-Emacs configuration can be written in Org mode document and can look
+Emacs configuration can be written in [Org mode][org-mode] document and can look
 like a book explaining various features, settings and customizations,
 with a thorough code samples coverage. Quite literaly because it can
-be exported as a web page or stylized PDF. See my config on GitHub to
-get the idea.
+be exported as a web page or stylized PDF. See
+[my config on GitHub][emacs-config] to get the idea.
 
 TODO screenshot
 
 
 ## IRC with Vim keybindings
 
-Weechat is an exceptionally good piece of software but to be honest I
-was aching to replace it for quite some time. There just wasn't a
+[Weechat][weechat-homepage] is an exceptionally good piece of software but to be
+honest I was aching to replace it for quite some time. There just wasn't a
 better alternative. My frustrations were caused solely by two pitfalls.
 
-Copy-pasting from Tmux + Weechat combo is god-awful and borderline
+~~Copy-pasting from Tmux + Weechat combo is god-awful and borderline
 psychotic. Imagine Weechat window vertically split into multiple
 panes. Since it is an application running in a single terminal
 window, the terminal has no perception of any separation, splits, or
@@ -150,16 +156,18 @@ panes that are displayed within. Selecting a multi-line text with a
 mouse, therefore, isn't limited to the desired pane but rather to
 everything that stands in the way. The copied text then contains
 mixed messages from multiple chat windows, ASCII symbols that were
-used as separators, timestamps, and all.
+used as separators, timestamps, and all.~~ Copy-pasting from Tmux + Weechat is
+quite alright if you are aware of
+[rectangle selection][tmux-rectangle-selection].
 
-Apart from this, I was always uncomfortable with the Weechat's
-approach to generated configuration files. While it is generaly looked
-at as a feature allowing to configure Weechat from within itself,
-saving its current state, and eliminating the need to edit the
-configuration file in its written form. I never grew accustomed to
-this paradigm and prefer to edit configuration files by hand.
+Apart from this, I was always uncomfortable with the
+[Weechat's approach to generated configuration files][weechat-configs].
+While it is generaly looked at as a feature allowing to configure Weechat from
+within itself, saving its current state, and eliminating the need to edit the
+configuration file in its written form. I never grew accustomed to this paradigm
+and prefer to edit configuration files by hand.
 
-Circe is in many aspects inspired by Weechat and inherits some of its
+[Circe][circe] is in many aspects inspired by Weechat and inherits some of its
 traits, while eradicating the pitfalls beyond perfectly. Circe chat
 windows are standard Emacs buffers with full Vim emulation and shared
 registers with the whole ecosystem. Lisp configuration also surpases
@@ -170,12 +178,12 @@ TODO screenshot
 
 ## Email client, finally
 
-Accessing email in terminal was a recurring fantasy of mine ever since
+Accessing email in terminal was a recurring nerd-fantasy of mine ever since
 I started using GNU/Linux in 2008. Up until very recently, all my
 attempts of achieving this holy grail rendered futile.
 
 Finally, I could check this of my list thanks to a combination of
-mbsync and mu4e. There is nothing much to say. It is an email
+[mbsync][mbsync] and [mu4e][mu4e]. There is nothing much to say. It is an email
 client. Inside of Emacs. But for some undefinable reasons, it is the
 greatest thing ever invented.
 
@@ -189,7 +197,7 @@ TODO screenshot
 
 ## Magit
 
-Magit is one of the tools that I would refuse to believe that I might
+[Magit][magit] is one of the tools that I would refuse to believe that I might
 enjoy using. What's the point with `git diff`, `git add` and `git
 commit` comamnds already hard-wired in my muscle memory in such a
 manner, that executing them reminds more of an involuntary spasm
@@ -210,8 +218,63 @@ TODO screenshot
 
 ## Emacs in browser
 
+As a software enginner, I frequently engage in technical discussion on
+various git forge sites (such as [GitHub][github], [Pagure.io][pagure]) and
+[Reddit][reddit]. Consequently, I write comments containing pieces of code on
+daily basis (either being code reviews and suggestions, bug
+reproducers, or a proposed solutions).
+
+My workflow would usually involve firing up the good ol' text editor,
+pre-formatted the code there and then copy-pasteed it into the comment
+text area. Ommiting this step, and editing the code directly in the
+web browser is sometimes bearable but especially adjusting whitespace
+sucks that much, that you eventually end up spawning a text editor and
+regretting you didn't do it in the first place.
+
+[Edit with Emacs][edit-with-emacs] is a handy convinience tool that
+provides a key binding to make a temporary Emacs frame with the
+contents of your text area. After you are done, it pipes the output
+back to the browser.
+
+There is nothing special about this functionality in regards to Emacs
+and surely there is a plugin out there doing this with any text
+editor.
+
+On the contrary, I think Emacs lags behind Neovim in this scenario,
+which is able to transform the textarea into a Neovim instance
+directly in the web browser thanks to [Firenvim][firenvim].
+
+TODO screenshot
 
 
 
-[vim-fugitive-pagure]: #
+[vim-for-everything]: /posts/software-tips-for-nerds#vim-for-everything
+[emacs]: https://www.gnu.org/software/emacs/
+[viml]: https://learnvimscriptthehardway.stevelosh.com/
+[vim-fugitive-pagure]: /posts/vim-gbrowse-support-for-pagure
+[functional]: https://xkcd.com/1270/
+[lisp]: https://lisp-lang.org/
+[fedora-releases]: https://en.wikipedia.org/wiki/Fedora_version_history#Version_history
+[vim-setup]: /files/img/2019-desktop.png
+[evil]: https://github.com/emacs-evil/evil
+[vimrc]: https://github.com/FrostyX/dotfiles/blob/master/.vimrc
+[tmux]: /posts/software-tips-for-nerds#tmux
+[weechat]: /posts/software-tips-for-nerds#weechat
+[mutt]: http://www.mutt.org/
+[vim]: https://github.com/vim/vim
+[literate-programming]: https://en.wikipedia.org/wiki/Literate_programming
+[org-mode]: https://orgmode.org/
+[emacs-config]: https://github.com/FrostyX/dotfiles/blob/master/.emacs.d/frostyx.org
+[weechat-homepage]: https://weechat.org/
+[weechat-configs]: https://weechat.org/files/doc/devel/weechat_faq.en.html#editing_config_files
+[circe]: https://github.com/jorgenschaefer/circe
+[tmux-rectangle-selection]: https://superuser.com/a/693990
+[mbsync]: https://wiki.archlinux.org/title/isync
+[mu4e]: https://www.djcbsoftware.nl/code/mu/mu4e.html
+[magit]: https://magit.vc/
 [mbsync-blogpost]: http://frostyx.cz/posts/synchronize-your-2fa-gmail-with-mbsync
+[edit-with-emacs]: https://github.com/stsquad/emacs_chrome
+[github]: https://github.com/
+[pagure]: https://pagure.io/
+[reddit]: https://reddit.com/
+[firenvim]: https://github.com/glacambre/firenvim
