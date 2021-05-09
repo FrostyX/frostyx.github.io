@@ -95,7 +95,28 @@ work. Most of the popular Vim plugins has an authentic Emacs clones.
 
 To spare some time, see this plugin migration table.
 
-TODO plugins migration table
+{:.table .table-striped}
+| Vim plugin                             | Emacs alternative                     | Note                                 |
+| -------------------------------------- | ------------------------------------- | ------------------------------------ |
+| [Vundle.vim][vundle]                   | [use-package][use-package]            | Emacs has a built-in package manager |
+| [vim-fugitive][fugitive]               | [magit][magit]                        |                                      |
+| [vim-rhubarb][rhubarb]                 | [browse-at-remote][browse-at-remote]  |                                      |
+| [vim-sleuth][sleuth]                   | [dtrt-indent][dtrt]                   |                                      |
+| [vim-fugitive-pagure][fugitive-pagure] | [browse-at-remote][browse-at-remote]  |                                      |
+| [nerdtree][nerdtree]                   | [neotree][neotree]                    | Use [dired][dired] instead, trust me |
+| [fzf.vim][fzf]                         | [helm][helm]                          | Much more then just fzf              |
+| [tcomment_vim][tcomment]               | [evil-commentary][commentary]         |                                      |
+| [matchit][matchit]                     | [evil-matchit][evil-matchit]          |                                      |
+| [delimitMate][delimitmate]             | [smartparens][smartparens]            |                                      |
+| [Vim-Jinja2-Syntax][jinja2]            | [jinja2-mode][jinja2-mode]            |                                      |
+| [vim-markdown][markdown]               | [markdown-mode][markdown-mode]        |                                      |
+| [syntastic][syntastic]                 | [company-mode][company-mode]          |                                      |
+| [vimwiki][vimwiki]                     | [org-mode][org-mode]                  |                                      |
+| [goyo.vim][goyo]                       | [writeroom][writeroom]                |                                      |
+| [base16-vim][base16]                   | [base16-theme][base16-theme]          |                                      |
+| [vim-css-color][css-color]             | [rainbow-mode][rainbow-mode]          |                                      |
+
+
 
 For the migrating the Vim configuration itself, you will need to read
 the manual (or my Emacs config) because it is not possible to cover
@@ -323,3 +344,38 @@ directly in the web browser thanks to [Firenvim][firenvim].
 [pagure]: https://pagure.io/
 [reddit]: https://reddit.com/
 [firenvim]: https://github.com/glacambre/firenvim
+
+[vundle]: https://github.com/VundleVim/Vundle.vim
+[fugitive]: https://github.com/tpope/vim-fugitive
+[rhubarb]: https://github.com/tpope/vim-rhubarb
+[sleuth]: https://github.com/tpope/vim-sleuth
+[fugitive-pagure]: https://github.com/FrostyX/vim-fugitive-pagure
+[nerdtree]: https://github.com/preservim/nerdtree
+[fzf]: https://github.com/junegunn/fzf.vim
+[tcomment]: https://github.com/junegunn/fzf.vim
+[matchit]: https://github.com/adelarsq/vim-matchit
+[delimitmate]: https://github.com/Raimondi/delimitMate
+[jinja2]: https://github.com/Glench/Vim-Jinja2-Syntax
+[markdown]: https://github.com/plasticboy/vim-markdown
+[syntastic]: https://github.com/vim-syntastic/syntastic
+[vimwiki]: https://github.com/vimwiki/vimwiki
+[goyo]: https://github.com/junegunn/goyo.vim
+[base16]: https://github.com/chriskempson/base16-vim
+[css-color]: https://github.com/ap/vim-css-color
+
+[use-package]: https://github.com/jwiegley/use-package
+[magit]: https://github.com/magit/magit
+[browse-at-remote]: https://github.com/rmuslimov/browse-at-remote
+[dtrt]: https://github.com/jscheid/dtrt-indent
+[neotree]: https://github.com/jaypei/emacs-neotree
+[dired]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Dired.html
+[helm]: https://github.com/emacs-helm/helm
+[commentary]: https://github.com/linktohack/evil-commentary
+[evil-matchit]: https://github.com/redguardtoo/evil-matchit
+[smartparens]: https://github.com/Fuco1/smartparens
+[jinja2-mode]: https://github.com/paradoxxxzero/jinja2-mode
+[markdown-mode]: https://github.com/jrblevin/markdown-mode
+[company-mode]: https://github.com/company-mode/company-mode
+[writeroom]: https://github.com/joostkremers/writeroom-mode
+[base16-theme]: https://github.com/belak/base16-emacs
+[rainbow-mode]: https://elpa.gnu.org/packages/rainbow-mode.html
