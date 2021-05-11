@@ -2,7 +2,7 @@
 layout: post
 title: Software tips for nerds
 lang: en
-tags: desktop fedora vim vimwiki
+tags: desktop fedora vim vimwiki software
 ---
 
 This article should rather be called _What software I started using in 2019_ but I just didn't like that title. It is going to be the first post in a yearly series on this topic.
