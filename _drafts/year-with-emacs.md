@@ -1,8 +1,8 @@
 ---
 layout: post
-title: A Year with Emacs
+title: A year with Emacs
 lang: en
-tags: dev fedora emacs vim
+tags: dev fedora emacs vim workflow software
 ---
 
 After a decade of exclusively using
@@ -11,39 +11,38 @@ explore the other side of the barricade and see what the eternal
 adversary is doing. Ever since that day, I live in [Emacs][emacs].
 
 
-## Why?
+## Motivation
 
 Why would I commit such a heinous crime? After ten years, I came close
-to hitting my peak knowledge about VIm. Of course, nobody can truly
-claim to know Vim in its full depth but many people such as myself get to
-the point where the learning curve slows to a deadly pace and new tips
-just slightly adjust your approach when solving obscure scenarios. The
-only real game-changer yet to be conquered was plugins development. I
-[tried][vim-fugitive-pagure] but I dislike [VimL][viml] as a language
-for writing code and thus I have no intention of doing so.
+to hitting my peak knowledge about VIm. Of course, nobody can claim to truly
+know Vim in its full depth but I got to the point where the learning
+curve slowed to a deadly pace and new tricks just slightly adjust your approach
+when solving obscure scenarios. The only real game-changer yet to be conquered
+was plugins development. I [tried][vim-fugitive-pagure] but I dislike
+[VimL][viml] as a language for writing code and thus I have no intention of
+doing so.
 
-On the other hand, I am fascinated by [functional paradigm][functional]
-and [Lisp][lisp] in particular. This alone, was a strong enough hook for
-migrating to Emacs. I won't hit the ceiling regarding custom package
-development.
+On the other hand, I am fascinated by the
+[functional programming paradigm][functional] and [Lisp][lisp] in
+particular. This alone, was a strong enough impulse for migrating to Emacs. I won't
+hit the ceiling regarding custom package development.
 
 Also, I came to realize, that my Vim workflow is different than for
 most other users (at least in my social circle). Everyone seems to
-have a shell-centric approach, find-ing, grep-ing, cat-ing their way
+have a shell-centric approach, _find-ing_, _grep-ing_, _cat-ing_ their way
 through a project, and then opening the intended file in Vim, editing,
-and closing. I do the same thing when it comes to searching things
-within a project but I have a separate terminal for that. When it
-comes to Vim, I start it once, do everything from within, and then
-close it after six months when a new [Fedora is released][fedora-releases]
-and I need to upgrade. If it reminds you of something, it's Emacs.
+and closing. I do the same thing when it comes to searching within a project but
+I do it in a separate terminal. When it comes to Vim, I start it once, do
+everything from within, and then close it after six months when a new [Fedora is
+released][fedora-releases] and I need to upgrade. If it reminds you of
+something, it's Emacs.
 
-There were a couple of other features that mildly lured me into the Emacs
-world but about them later.
+There is also a couple of tempting Emacs features but about them later.
 
 
 ## Preview
 
-On my triple-monitor setup, two of them are dedicated to maximized
+On my triple-monitor setup, two of the screens are dedicated to maximized
 Emacs frames. This is how my PIM screen looks like.
 
 <div class="text-center img-row row">
@@ -62,38 +61,35 @@ The main monitor is designated for development.
   </a>
 </div>
 
-The goal was to make the setup identical to
+The goal was to make the development setup identical to
 [my previous Vim configuration][vim-setup].
 
 
-## Migration (my misconceptions)
+## Misconceptions
 
 Due to my heavy addiction to Vim keybindings and modal editing, a
 non-negotiable requisite was a decent Vim emulator inside of
 Emacs. As it turned out, [Evil][evil] is not only a great name but also a
 great piece of software. However, it is often marketed in a way, that
 you don't have to learn Emacs key bindings at all. This was a big
-selling point for me, that turned out to not be true.
+selling point for me, that however, turned out not to be true.
 
 Yes, Evil is probably the best Vim emulator out there and provides
 support for every Vim feature that I know of. The thing we need to
-realize is that Emacs has a much broader scope than text editing. It is
-more of an application platform rather than just an editor. Think of a
-Venn diagram where one circle represents the whole Emacs and its
-subset, inner circle representing the text editing, which is covered
-by Evil. Naturally, for its complement, there cannot be any Vim
-keybindings because Vim doesn't support such things. Don't worry
-though. You can get far with learning `M-x` for running commands, `M-:`
-for Elisp evaluation, and custom key bindings.
+realize is that Emacs has a much broader scope than just text editing. It is
+more of an application platform rather than an editor. Naturally, there
+cannot be any Vim keybindings for things that are beyond its abilities.
+Don't worry though. You can get far enough by learning `M-x` for running commands,
+`M-:` for Elisp evaluation, and by defining custom key bindings.
 
 Another unpleasant surprise was that my [.vimrc][vimrc] was completely useless
 for the migration. For some reason I expected Evil to parse and apply
-my current Vim configuration (e.g. ...) and even use the Vim plugins I
+my current Vim configuration, and even use the Vim plugins I
 had installed. You can laugh at me now. That, of course, is not
 possible but in the end, it cost me just a couple extra days of fieldwork. Most
 of the popular Vim plugins have authentic Emacs clones.
 
-To spare some time, see this plugin migration table.
+Here is a migration table based on the plugins that I use.
 
 {:.table .table-striped}
 | Vim plugin                             | Emacs alternative                     | Note                                 |
@@ -118,11 +114,11 @@ To spare some time, see this plugin migration table.
 
 
 
-For migrating the Vim configuration itself, you will need to read
+For migrating the Vim settings themselves, you will need to read
 the manual (or my Emacs config) because it is not possible to cover
 here. However, I still think it would be pretty amazing if we could
-write some package that would parse `.vimrc` and print Elisp code doing
-the same thing for Evil. Anyone wants to collaborate on that?
+write some package that would parse `~/.vimrc` and print Elisp code for doing
+the same thing in Evil. Anyone wants to collaborate on that?
 
 So far, this whole thing may seem like a chore with no benefits. Well,
 buckle up.
@@ -130,25 +126,27 @@ buckle up.
 
 ## IDE on steroids
 
-During the last year, I was basically living in Emacs. It started with
-writing code but then Emacs quickly became my RSS aggregator, task
-manager, IRC client, Email client and kept consuming all standalone
-programs. They all share the same configuration language, keybindings,
-theme, etc. Thanks to Evil (and some customs), those keybindings
-happen to be Vim-like. I love this great paradox that thanks to Emacs,
-I have more Vim in my life.
+During the last year, I was basically living in Emacs.
+At first, it replaced only my IDE but then Emacs quickly became my RSS
+aggregator, task manager, IRC client, Email client and kept consuming all
+standalone programs. All of them now share the same configuration language,
+keybindings, theme, etc. Thanks to Evil, those keybindings happen to be
+Vim-like.
+
+I love this great paradox that thanks to Emacs, I have more Vim in my
+life.
 
 As a consequence, all of these _applications_ are integrated together
-and it possible to seamlessly create tasks based on emails, paste
+and it is possible to seamlessly create tasks based on emails, paste
 short pieces of code into IRC, viewing a git history and jumping to
-the changed files, sending a SQL query to a coworker via email, the
-possibilities are endless. Without ever touching a mouse or even
-needing the system clipboard. It's all in the Vim/Evil registers, so
+the changed files, sending a SQL query to a coworker via email (the
+possibilities are endless) without ever touching a mouse or even
+needing the system clipboard. It's all in the Vim/Evil registers, so only
 yanking and pasting like a true gentleman.
 
 For the past ten years, I was trying to achieve such a setup using a
 combination of [Tmux][tmux], [Vim][vim], [Mutt][mutt], [Weechat][weechat], and
-other tools but the experience is vastly different. No matter what, it feels
+other tools but the experience was vastly different. No matter what, it felt
 like using several single-purpose programs, each of them isolated in its own
 bubble and with no way of cooperating with each other.
 
@@ -160,15 +158,15 @@ maybe a web browser), it means that every _application_ is used and
 configured within Emacs. Luckily for us, it has the best configuration
 apparatus ever invented. Remember the
 [literate programming paradigm][literate-programming],
-which was only briefly noted in school programming curriculum as a
-slow, retarded cousin of procedural, and object-oriented paradigms? It
-turns out to be pretty fucking awesome after all.
+which was only briefly noted in a school curriculum as a slow, retarded cousin
+of procedural and object-oriented paradigms? It turns out to be pretty fucking
+awesome after all.
 
 Emacs configuration can be written in an [Org-mode][org-mode] document and can
 look like a book explaining various features, settings, and customizations, with
-thorough code sample coverage. Quite literally because it can be exported as a
-web page or stylized PDF. See [my config on GitHub][emacs-config] to get the
-idea.
+thorough code sample coverage. Quite literally because the document can be
+exported as a web page or stylized PDF. See [my config on GitHub][emacs-config]
+to get the idea.
 
 <div class="text-center img-row row">
   <a href="/files/img/emacs-config-source.png">
@@ -184,6 +182,30 @@ forges.
   <a href="/files/img/emacs-config-web.png">
     <img src="/files/img/emacs-config-web.png"
 		 alt="The config is beautifully rendered on GitHub" />
+  </a>
+</div>
+
+
+## Email client, finally
+
+Accessing email in the terminal was a recurring nerd-fantasy of mine ever since
+I started using GNU/Linux in 2008. Up until very recently, all my
+attempts of achieving this holy grail rendered futile.
+
+Finally, I could cross this off my list thanks to a combination of
+[mbsync][mbsync] and [mu4e][mu4e]. There is nothing much to say. It is an email
+client. Inside of Emacs. But for some undefinable reason, it is the greatest
+thing ever invented.
+
+The hardest part isn't the email client configuration itself but
+rather synchronization with IMAP (in the age of two-factor
+authentication). If you are interested, I wrote a whole article on
+this topic - [Synchronize your 2FA Gmail with mbsync][mbsync-blogpost]
+
+<div class="text-center img-row row">
+  <a href="/files/img/mu4e.png">
+    <img src="/files/img/mu4e.png"
+		 alt="Mu4e mail client" />
   </a>
 </div>
 
@@ -208,7 +230,7 @@ quite alright if you are aware of
 
 Apart from this, I was always uncomfortable with
 [Weechat's approach to generated configuration files][weechat-configs].
-While it is generally looked at as a feature allowing to configure Weechat from
+Even though it is generally looked at as a feature allowing to configure Weechat from
 within itself, saving its current state, and eliminating the need to edit the
 configuration file in its written form. I never grew accustomed to this paradigm
 and prefer to edit configuration files by hand.
@@ -227,33 +249,9 @@ anything else we could wish for.
 </div>
 
 
-## Email client, finally
-
-Accessing email in the terminal was a recurring nerd-fantasy of mine ever since
-I started using GNU/Linux in 2008. Up until very recently, all my
-attempts of achieving this holy grail rendered futile.
-
-Finally, I could check this out of my list thanks to a combination of
-[mbsync][mbsync] and [mu4e][mu4e]. There is nothing much to say. It is an email
-client. Inside of Emacs. But for some undefinable reasons, it is the
-greatest thing ever invented.
-
-The hardest part isn't the email client configuration itself but
-rather synchronization with IMAP (in the age of two-factor
-authentication). If you are interested, I wrote a whole article on
-this topic - [Synchronize your 2FA Gmail with mbsync][mbsync-blogpost]
-
-<div class="text-center img-row row">
-  <a href="/files/img/mu4e.png">
-    <img src="/files/img/mu4e.png"
-		 alt="Mu4e mail client" />
-  </a>
-</div>
-
-
 ## Magit
 
-[Magit][magit] is one of the tools that I would refuse to believe that I might
+[Magit][magit] is one of the tools that I would refuse to believe I might
 enjoy using. What's the point with `git diff`, `git add`, and `git
 commit` commands already hard-wired in my muscle memory in such a
 manner, that executing them resembles more of an involuntary spasm
@@ -265,7 +263,7 @@ changes). That's two commands per file, all the time. Whereas Magit
 provides a compact view of files and their changes at once. Staging a
 whole file or its chunks is then a matter of pressing one key.
 
-Committing, pushing, Iterating over a series of commits, blaming,
+Committing, pushing, iterating over a series of commits, blaming,
 rebasing, everything is a bit more convenient. I still use the `git`
 command for more complicated operations though.
 
@@ -285,25 +283,23 @@ various git forge sites (such as [GitHub][github], [Pagure.io][pagure]), and
 daily basis (either being code reviews and suggestions, bug
 reproducers, or proposed solutions).
 
-My workflow would usually involve firing up the good ol' text editor,
-pre-formatted the code there, and then copy-pasted it into the comment
-text area. Omitting this step, and editing the code directly in the
-web browser is sometimes bearable but especially adjusting whitespace
-sucks that much, that you eventually end up spawning a text editor and
+My workflow usually involved firing up the good ol' text editor,
+pre-formatting the code, and copy-pasting it into the
+comment. Omitting this step and editing the code directly in the
+web browser is doable but especially adjusting whitespace
+sucks so much, that you eventually end up spawning a text editor and
 regretting you didn't do it in the first place.
 
 [Edit with Emacs][edit-with-emacs] is a handy convenience tool that
 provides a key binding to make a temporary Emacs frame with the
-contents of your text area. After you are done, it pipes the output
+contents of your textarea. After you are done, it pipes the output
 back to the browser.
 
 There is nothing special about this functionality in regards to Emacs
-and surely there is a plugin out there doing this with any text
-editor.
-
-On the contrary, I think Emacs lags behind Neovim in this scenario,
-which is able to transform the textarea into a Neovim instance
-directly in the web browser thanks to [Firenvim][firenvim].
+and there surely is a plugin compatible with any text editor. On the contrary, I
+think Emacs lags behind Neovim in this scenario, which is able to transform a
+textarea into a Neovim instance directly in the web browser thanks to
+[Firenvim][firenvim].
 
 <div class="text-center img-row row">
   <a href="/files/img/edit-with-emacs.png">
