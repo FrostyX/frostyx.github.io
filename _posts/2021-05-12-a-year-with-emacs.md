@@ -348,7 +348,7 @@ textarea into a Neovim instance directly in the web browser thanks to
 [fugitive-pagure]: https://github.com/FrostyX/vim-fugitive-pagure
 [nerdtree]: https://github.com/preservim/nerdtree
 [fzf]: https://github.com/junegunn/fzf.vim
-[tcomment]: https://github.com/junegunn/fzf.vim
+[tcomment]: https://github.com/tomtom/tcomment_vim
 [matchit]: https://github.com/adelarsq/vim-matchit
 [delimitmate]: https://github.com/Raimondi/delimitMate
 [jinja2]: https://github.com/Glench/Vim-Jinja2-Syntax
