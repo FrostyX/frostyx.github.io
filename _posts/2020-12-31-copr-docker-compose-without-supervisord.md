@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2021-03-20
+updated: 2021-09-12
 ---
 
 
@@ -46,6 +46,8 @@ command installed. Then simply build, and run the stack. Once it's up and
 running, the database needs to be initialized.
 
 ```
+$ git clone https://pagure.io/copr/copr.git
+$ cd copr
 $ docker-compose up -d
 $ docker exec -it copr_frontend_1 bash
 [copr-fe@frontend /]$ init-database.sh
