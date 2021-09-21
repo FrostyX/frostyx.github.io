@@ -21,11 +21,11 @@ personal workflow for updating RHEL packages.
 ## Fedora vs RHEL packaging
 
 Apart from different hostnames, service names, and a great focus on
-quality assurance, there is only one difference relevant to
-the topic at hand. That is, package sources tarball is never being
-changed within an RHEL major release. While this may sound
-insignificant, it is the only reason for this whole article, so let me
-elaborate.
+quality assurance, there is only one difference relevant to the topic
+at hand. That is, in the majority of cases (unless there is a good
+reason to do so), the package sources tarball is not being changed
+within an RHEL major release. While this may sound insignificant, it
+is the only reason for this whole article, so let me elaborate.
 
 We have an imaginary upstream project `foo` in version `1.0`. This
 project gets packaged into Fedora as `foo-1.0-1` (i.e. package name is
