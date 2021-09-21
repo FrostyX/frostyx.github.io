@@ -36,11 +36,11 @@ difference.
 
 Updating this package is when it gets tricky. Upstream publishes
 version `1.1`. In Fedora, we take the new upstream sources as they
-are, and build a package `foo-1.1-1` on top of them. In RHEL, we never
-change the sources. Instead, we create a patch (or series of patches)
-that modifies the original sources into the newly published
-ones. Therefore the new package in RHEL will be `foo-1.0-2` (the
-version number remains the same, release is incremented).
+are, and build a package `foo-1.1-1` on top of them. In RHEL, we want
+to avoid changing the sources. Instead, we create a patch (or series
+of patches) that modifies the original sources into the newly
+published ones. Therefore the new package in RHEL will be `foo-1.0-2`
+(the version number remains the same, release is incremented).
 
 We can choose to do all this patching labor manually or let
 [Tito][tito] help us.
@@ -87,9 +87,8 @@ git fetch --all
 
 Go and see what is the version (ignore the release number) of our
 package in RHEL, and point the `main` branch to the Tito tag
-associated with this version. Point the `main` branch to the latest
-tag. For example, if the package name is `foo` and its version is
-`1.5-3`, run the following command.
+associated with this version. For example, if the package name is
+`foo` and its version is `1.5-3`, run the following command.
 
 ```bash
 git reset --hard foo-1.5-1
@@ -215,7 +214,7 @@ tito release rhel
 ```
 
 When asked if you want to edit the commit message, proceed with
-yes. You must reference a ticket demanding this update, e.g.
+yes. You must reference a ticket requesting this update, e.g.
 
 ```
 Resolves rhbz#123456
