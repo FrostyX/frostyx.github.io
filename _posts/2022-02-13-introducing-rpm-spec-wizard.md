@@ -21,15 +21,17 @@ film, you wouldn't like me very much.
 While those are great learning resources, they can be a little bit too
 overwhelming for a first-time contributor. That is why we created
 [RPM Spec Wizard][rpm-spec-wizard]. It is an interactive guide that
-you can simply open, and step by step, provide information that it asks
-for.
+you can simply open, and step by step, input the information that it
+asks for.
 
+<br>
 <div class="text-center img-row row">
   <a href="https://xsuchy.github.io/rpm-spec-wizard/"
      title="RPM Spec Wizard">
     <img src="/files/img/rpm-spec-wizard.png">
   </a>
 </div>
+<br>
 
 No previous knowledge is required, every slide provides an explanation
 and links to an appropriate section in the documentation. If you are
