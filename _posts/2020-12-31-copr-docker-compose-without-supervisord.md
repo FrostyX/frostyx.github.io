@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2021-09-12
+updated: 2022-04-20
 ---
 
 
@@ -13,6 +13,15 @@ unified development environment for all of our team members. Several
 improvements have happened since then and the original blog post
 [Copr stack dockerized!][copr-stack-dockerized] isn't up-to-date anymore. We are
 going to make that right.
+
+## TL;DR
+
+- [Frontend](#frontend)
+- [DistGit](#distgit)
+- [Backend](#backend)
+- [Builder](#builder)
+- [Database](#database)
+- [CLI](#cli)
 
 
 ## What changed
@@ -140,7 +149,7 @@ Backend has multiple containers, so it depends on what you changed. For build di
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
 $ docker exec -it copr_backend-build_1 bash
-[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher builds
+[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g obsrun -- /usr/bin/copr-run-dispatcher builds
 ```
 
 Actions dispatcher:
@@ -167,7 +176,7 @@ alway be that easy to debug. Using `ipdb` might not always be possible.
 To perform a single build:
 
 ```
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr-backend-process-build --build-id 37 --chroot fedora-33-x86_64
+PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g obsrun -- /opt/copr/backend/run/copr-backend-process-build --build-id 37 --chroot fedora-33-x86_64
 ```
 
 To perform a single action:
