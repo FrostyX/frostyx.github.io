@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2022-04-20
+updated: 2022-07-21
 ---
 
 
@@ -19,6 +19,7 @@ going to make that right.
 - [Frontend](#frontend)
 - [DistGit](#distgit)
 - [Backend](#backend)
+- [Keygen](#keygen)
 - [Builder](#builder)
 - [Database](#database)
 - [CLI](#cli)
@@ -189,6 +190,15 @@ To perform a single createrepo command:
 
 ```
 PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- copr-repo /var/lib/copr/public_html/results/@copr/copr/fedora-rawhide-x86_64/
+```
+
+### Keygen
+
+```
+$ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d keygen-httpd
+$ docker exec -it copr_keygen-httpd_1 bash
+[root@keygen-httpd ~]# cd /opt/copr/keygen/src
+[root@keygen-httpd src]# FLASK_APP=copr_keygen flask run --host 0.0.0.0 --port 5003
 ```
 
 ### Builder
