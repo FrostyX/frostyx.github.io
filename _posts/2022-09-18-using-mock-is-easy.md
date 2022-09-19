@@ -43,7 +43,10 @@ sudo usermod -a -G mock $USER
 
 Mock takes an SRPM and produces an RPM package for a given Fedora
 version and architecture. If you don't have an SRPM package yet, you
-need to build it from a spec file first.
+need to build it from a spec file first. If you downloaded an SRPM
+package from the internet or already built it, you can skip this
+step.
+
 
 ```
 rpmbuild -bs /path/to/your/foo.spec
