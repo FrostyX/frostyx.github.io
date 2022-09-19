@@ -37,7 +37,6 @@ it with `sudo` and instead add yourself to the `mock` group.
 
 ```
 sudo usermod -a -G mock $USER
-newgrp mock
 ```
 
 ## Usage
