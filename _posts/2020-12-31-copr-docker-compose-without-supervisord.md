@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2022-07-21
+updated: 2022-11-13
 ---
 
 
@@ -130,7 +130,7 @@ updated version.
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d frontend
 $ docker exec -it copr_frontend_1 bash
-[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
+[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
 ```
 
 ### Distgit
@@ -138,7 +138,7 @@ $ docker exec -it copr_frontend_1 bash
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
 $ docker exec -it copr_distgit_1 bash
-[root@distgit /]# PYTHONPATH=/opt/copr/dist-git /usr/sbin/runuser -u copr-dist-git -g copr-dist-git -- /opt/copr/dist-git/run/importer_runner.py
+[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common /opt/copr/dist-git/run/importer_runner.py
 ```
 
 ### Backend
@@ -150,7 +150,7 @@ Backend has multiple containers, so it depends on what you changed. For build di
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
 $ docker exec -it copr_backend-build_1 bash
-[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g obsrun -- /usr/bin/copr-run-dispatcher builds
+[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /usr/bin/copr-run-dispatcher builds
 ```
 
 Actions dispatcher:
@@ -158,7 +158,7 @@ Actions dispatcher:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-action
 $ docker exec -it copr_backend-action_1 bash
-[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /usr/bin/copr-run-dispatcher actions
+[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /usr/bin/copr-run-dispatcher actions
 ```
 
 Logger:
@@ -166,7 +166,7 @@ Logger:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-log
 $ docker exec -it copr_backend-log_1 bash
-[root@backend /] # PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr_run_logger.py
+[copr@backend-log /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr_run_logger.py
 ```
 
 #### Commands
@@ -177,19 +177,19 @@ alway be that easy to debug. Using `ipdb` might not always be possible.
 To perform a single build:
 
 ```
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g obsrun -- /opt/copr/backend/run/copr-backend-process-build --build-id 37 --chroot fedora-33-x86_64
+[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr-backend-process-build --build-id 3522428 --chroot fedora-35-x86_64
 ```
 
 To perform a single action:
 
 ```
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- /opt/copr/backend/run/copr-backend-process-action --task-id 331002
+[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr-backend-process-action --task-id 331002
 ```
 
 To perform a single createrepo command:
 
 ```
-PYTHONPATH=/opt/copr/backend /usr/sbin/runuser -u copr -g copr -- copr-repo /var/lib/copr/public_html/results/@copr/copr/fedora-rawhide-x86_64/
+[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common copr-repo /var/lib/copr/public_html/results/@copr/copr/fedora-rawhide-x86_64/
 ```
 
 ### Keygen
