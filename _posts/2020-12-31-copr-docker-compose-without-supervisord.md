@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2022-11-13
+updated: 2022-11-14
 ---
 
 
@@ -138,7 +138,13 @@ $ docker exec -it copr_frontend_1 bash
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
 $ docker exec -it copr_distgit_1 bash
-[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common /opt/copr/dist-git/run/importer_runner.py
+[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common PATH=/opt/copr/dist-git/run:$PATH /opt/copr/dist-git/run/copr-run-dispatcher imports
+```
+
+To perform a single import:
+
+```
+[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common /opt/copr/dist-git/run/copr-distgit-process-import --build-id 3522437
 ```
 
 ### Backend
