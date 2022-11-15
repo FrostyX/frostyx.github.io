@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2022-11-14
+updated: 2022-11-15
 ---
 
 
@@ -251,11 +251,11 @@ available.
 PermissionError: [Errno 13] Permission denied: "/opt/copr/frontend/data/openid_store/associations/https-id.fedoraproject.org-b'ahW3p5yqmHART1i9_lWSDz825NY'-b'VOcKQaT5MFkyT4oYgexUGGSA8zI'"
 ```
 
-It is safe to simply drop all generated data
+Update the owner of the generated data
 
 ```
 $ docker exec --user root -it copr_frontend_1 bash
-[copr-fe@frontend /]$ rm -rf /opt/copr/frontend/data/
+[root@frontend /]$ chown copr-fe:copr-fe -R /opt/copr/frontend/data
 ```
 
 ### Outdated database schema
