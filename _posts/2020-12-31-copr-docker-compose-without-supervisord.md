@@ -156,7 +156,7 @@ Backend has multiple containers, so it depends on what you changed. For build di
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
 $ docker exec -it copr_backend-build_1 bash
-[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /opt/copr/backend/run/copr-run-dispatcher builds
+[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /run-backend --sign-host keygen-signd /opt/copr/backend/run/copr-run-dispatcher builds
 ```
 
 Actions dispatcher:
@@ -164,7 +164,7 @@ Actions dispatcher:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-action
 $ docker exec -it copr_backend-action_1 bash
-[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /usr/bin/copr-run-dispatcher actions
+[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /run-backend --sign-host keygen-signd /usr/bin/copr-run-dispatcher actions
 ```
 
 Logger:
