@@ -17,9 +17,9 @@ Thousands of new packages are added to Fedora every year and approximately half
 of them are reviewed using the `fedora-review` tool. Every year, a couple of
 hundred packages are created using a spec file generator
 (e.g. [rust2rpm][rust2rpm]) and reviewers often shortcut the process using their
-own simplified checklist. The rest of the packages are not being reviewed via the
-`fedora-review` tool for reasons that I can only speculate. You can check
-[how I obtained the data][chart-readme].
+own [simplified checklist][simplified-checklist]. The rest of the packages are
+not being reviewed via the `fedora-review` tool for reasons that I can only
+speculate. You can check [how I obtained the data][chart-readme].
 
 
 <div class="text-center img">
@@ -84,3 +84,4 @@ developing it.
 [fedora-review]: https://pagure.io/FedoraReview
 [fedora-review-service]: https://github.com/FrostyX/fedora-review-service
 [rust2rpm]: https://pagure.io/fedora-rust/rust2rpm
+[simplified-checklist]: https://bugzilla.redhat.com/show_bug.cgi?id=2150616#c1
