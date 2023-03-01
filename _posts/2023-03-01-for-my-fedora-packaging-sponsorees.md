@@ -9,6 +9,12 @@ You have just been sponsored to the Fedora `packager` group and your
 review ticket was formally granted the `fedora-review+` flag?
 
 
+## Fedora profile
+
+See your [Fedora Accounts][fedora-accounts] profile. You should be a
+member of `packager`, `fedorabugs`, and `fedora-contributor` groups.
+
+
 ## Finishing the review
 
 Go back to the [Package Review Process][package-review-contributor]
@@ -114,3 +120,4 @@ You can also reach out to other packagers on
 [fedora-packaging-list]: https://lists.fedoraproject.org/archives/list/packaging@lists.fedoraproject.org/
 [fedora-devel-list]: https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/
 [fedora-devel-irc]: https://web.libera.chat/?channels=#fedora-devel
+[fedora-accounts]: https://accounts.fedoraproject.org
