@@ -94,3 +94,7 @@ ul.nav a:hover
 blockquote {
     font-size: 14px;
 }
+
+blockquote li {
+    margin-left: -25px;
+}
