@@ -15,6 +15,7 @@ Notes:
 - My package-review-tools project
 - Fedora package review in Copr
 - 30 minutes per day, only one ticket each day
+- Screenshot from https://fedoraproject.org/PackageReviewStatus/reviewers.html
 
 
 Doesn't work:
