@@ -75,22 +75,83 @@ only the best of reasons for doing so.
 
 ## Problems with distro hopping
 
-- Benefit is not as high as imagined
-- Not needed for adding repos, changing WM, or customizations
-- Not satisfying, people chase the first high and get addicted
-- Always moving laterally
-- No deeper knowledge
-- Distro is not the end game
-- No added value
-- IMHO not truely learning
-    - package managers are the same, just different syntax
+It seems to me that my fellow distro hoppers has similarly shallow reasons. The
+grass is simply always greener on the other side. Please let me elaborate on why
+I think it is not worth your time.
+
+One of the major problems is that it won't probably teach you as much as you
+think. When you migrate from Slackware, to Debian, Void Linux, and then to
+Gentoo, you will get your hands on various [init systems][init-systems]. Namely,
+SysVinit, Systemd, runit, and OpenRC. But is this knowledge useful and have you
+trully learned something in the first place? Admitedly, you can compare the user
+experience of each of those systems, which may prove itself useful when creating
+a new init system. But besides that, you learned to say "hello" in Japanese,
+French, and Portugese while never planning to visit those countries. The same
+goes for [package managers][package-managers]. Switching from RPM to APT,
+Pacman, or Portage teaches you different syntax for doing the same thing, while
+any of them are transferable. And the end result is always the same, you learn
+how to search, install, and remove packages. My grandma knows how to do
+that. The problem is, you are always moving only laterally.
+
+Another major problem is that the mere fact of distro hopping doesn't create any
+value for anybody and therefore isn't satisfying. Afterall, nobody cares that
+you can use your customized system if you don't use it for anything and its
+whole point of existence is to exist. I know, you will tell me, that we do it
+because we like the challenge. But that isn't truely satisfying either, that's
+why we chase the next high so soon afterward. We are addicts, basically.
+
+My point is that GNU/Linux distributions, window managers, text editors, and
+programming languages are not the end game. They are only tools to be used for
+achieving the end game. There is only one exception and that is if you are a
+developer or maintainer of such tools. And YOU can be that person.
+
+Last but not least, difference between some distributions is so miniscule that
+reinstalling the whole system because of it is a lunacy in my book. If some
+distribution only enables a third-party repository, uses a different window
+manager, or a different theme, you can do that on your current distribution. And
+you'll probably get much more out of it.
 
 
 ## Get involved
 
-- Packaging
-- Review packages
-- Send PRs for window managers and other tooling
+Okay, so what to do when you are enthusiastic about GNU/Linux distributions (or
+potentially window managers, text editors, or programming languages)? Well
+that's simple my dear nerd. Start contributing to one. There are tons of work
+that need to be done, volunteers are more than welcome, and you can bet your
+contributions will make people's lives easier.
+
+At the core of every GNU/Linux distribution is its packaging
+ecosystem. The major distributions offer 20k-50k packages in the main
+repositories and whatever number of packages in additional third party
+repositories. That may sound like a lot but important pieces of software are
+missing wherever you look. Remember what applications you needed to install by
+clonning their git repository and running some obscure `make && make install`
+variant. Package them, it's not that dificult. Did you get some of your packages
+into the official repositories? There was probably a review process
+involved. Try to touch it from the other end, review somebody else's package. By
+then, you form some opinions on how to improve some of the processes, pitch them
+to others. There is always a next level.
+
+Every software has bugs. More popular it is, more of them gets reported. And you
+wouldn't believe how few developers work on major projects like package
+managers, window managers, and various desktop components. Let me be completely
+random here, DNF5 has ~200 open issues, Qtile has ~150 open issues, Neovim has
+~1500 open issues. If you use them, some of the issues certainly affect you as
+well. Pick the one which annoys you the most, get intimate with it (learn
+everything you can about it), submit a pull request with a fix. Be the hero that
+people need.
+
+Is fixing the bug beyond your abilities? Do not despair, there are other things
+you can do. One of the most time consuming tasks for developers is to figure
+out, how to reproduce the issue. If you can figure this out for them, they will
+be genuenly thankful. It is also the best way to stack the odds in the favor
+that somebody will fix the issue.
+
+Free and open-source software is used all over the world by all kinds of
+people. Many of them not speaking English. Consider helping with translating
+your distribution to languages that you speak.
+
+
 - Localization
 - Testing
     - Fedora test days
@@ -108,3 +169,10 @@ only the best of reasons for doing so.
 - Finding a job
 - Define the future
 - Giving back to the community
+
+
+[init-systems]: #
+[package-managers]: #
+[dnf5-issues]: https://github.com/rpm-software-management/dnf5/issues
+[qtile-issues]: https://github.com/qtile/qtile/issues
+[neovim-issues]: https://github.com/neovim/neovim/issues
