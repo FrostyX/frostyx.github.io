@@ -1,6 +1,5 @@
 ---
 layout: post
-#title: Stop distro hopping, do this instead
 title: Stop distro hopping for great good
 lang: en
 tags: linux fedora dev packaging localization testing writing help
@@ -10,8 +9,8 @@ I spend a lot of time on Reddit, Mastodon, and Youtube and
 frequently come accross people switching from one GNU/Linux
 distribution to another. Asking for recommendations. Of course,
 they are free to do whatever they want and assess their reasons
-for hopping by their own ...
-I'd like to recommend an alternative which I think is more
+for hopping by their own judgement. Even though I will probable be heavily
+downvoted for this, I'd like to recommend an alternative which I think is more
 meaningful.
 
 
@@ -151,24 +150,44 @@ Free and open-source software is used all over the world by all kinds of
 people. Many of them not speaking English. Consider helping with translating
 your distribution to languages that you speak.
 
+Software engineers usually despise writing so documentation and wiki pages are
+often outdated, incomplete, or never existed in the first place. Whenever you
+have to figure out how to do something instead of following instructions, be the
+one who writes them. The person trying to achieve the same thing in the future
+will thank you. Maybe the person will be you. If you prefer writing on your own
+terms, start a blog.
 
-- Localization
-- Testing
-    - Fedora test days
-    - Bug reproducing
-- Help newbies on IRC/Matrix/Mailing list
-- Write documentation
-    - There are missing pages or sections
-- Write blog posts
-- Do graphics
+Another thing that software engineers are particularly bad at is graphics. We
+suck at choosing colorschemes for our websites, creating logos for our projects,
+and making things visually appealing in general. If you have an artistic spirit
+in you, this is a perfect opportunity to contribute.
 
 
 ## What's in it for you?
 
-- Being productive, having impact and meaning in life
-- Finding a job
-- Define the future
-- Giving back to the community
+Helping others is fine and all but what's in it for you?
+
+Put the list of ten distributions that you used in your resume and nobody will
+care. No more than if you have listed one. For the recruiter it will simply mean
+"Linux experience, checked. Next question ...". However, put the list of ten
+projects that you contributed to in your resume, and you have something to talk
+about for the next hour. I never had to jump through any hoops on job inteviews
+such as hand-written coding on the whiteboard, implementing assigments under the
+terror of a stopwatch, or never-ending homeworks. We could simply talk about my
+past and current projects because there is a lot of code on my My GitHub profile
+and many articles on my blog.
+
+It may sound cheesy to you as it did to me but many great minds of our time
+agree serving and helping others is deeply satisfying endeavor which gives your
+life a meaning. I am no philosopher but my experience support this theory. If
+this sounds ridiculous to you, just try it.
+
+Free and open-source projects are shaped by their contributors. Often there is
+no governing body, no corporate interests, no lizzard people pulling the
+strings behind the scene. Things are usually done the way there are because some
+random person did it that way. If you propose better or different solution, you
+can shape the project for the better of everybody, including yourself.
+
 
 
 [init-systems]: #
