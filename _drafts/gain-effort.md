@@ -53,41 +53,28 @@ for my personal projects.
 
 ## Labels
 
-I've decided to setup the following labels for symbolizing the
-estimated effort.
+I've decided to go with `effort/low`, `effort/medium`, and `effort/high` for
+representing the estimated effort and `gain/low`, `gain/medium`, and `gain/high`
+for representing the imagined gain. This way it is straightforward to pick the
+next task to work on - whatever is `effort/low AND gain/high`.
 
-{:.table .table-striped}
-| Label           | What does it mean?   |
-|-----------------|---------------|
-| `effort/low`    | task that is easy/short |
-| `effort/medium` | task that is medium complex / difficult |
-| `effort/high`   | task that is complex/long/difficult |
+It would be annoying to set them up for each repository manually.
 
-And the following labels to represent the imagined gain.
-
-{:.table .table-striped}
-| Label         | What does it mean?   |
-|---------------|---------------|
-| `gain/low`    | Tasks that gets us little / isn't very important / makes only 1 person or few happy |
-| `gain/medium` | Task that gets us some / is somewhat important / makes some people happy |
-| `gain/high`   | Task that gets us a lot / is important / makes many people happy |
-
-This way it is straightforward to pick the next task to work on -
-whatever is `effort/low AND gain/high`.
+{% gist 3c9b673ff7c32295604aef58bb2c2ce7 %}
 
 
-## GitHub
+## Quick wins
 
-In GitHub repositories, it is trivial to filter such tickets. However,
+It is trivial to filter such tickets within a GitHub repository. However,
 what is far more interesting is searching such tickets accross all your
-repositories at once. For that, we can use the [gh][gh] commandline
-tool:
+repositories at once. For that, we can use the [gh][gh] commandline tool:
 
 ```bash
 gh search issues \
     -R frostyx/tracer \
     -R frostyx/fedora-review-service \
     -R frostyx/dotfiles \
+    -R frostyx/helm-ement \
     -R rpm-software-management/tito \
     --label effort/low \
     --label gain/high
@@ -104,6 +91,29 @@ to generate a GitHub search query and open it in the web browser.
 
 TODO Screenshot
 Alt: [Go to the GitHub search page][gh-search]
+
+
+## Not triaged issues
+
+It is a good idea to periodically check what issues slipped through the cracks
+and weren't given any gain or effort tags.
+
+```bash
+gh search issues \
+    -R frostyx/tracer \
+    -R frostyx/fedora-review-service \
+    -R frostyx/dotfiles \
+    -R frostyx/helm-ement \
+    -R rpm-software-management/tito \
+    --state open \
+    -- \
+    -label:effort/low \
+    -label:effort/medium \
+    -label:effort/high\
+    -label:gain/low \
+    -label:gain/medium \
+    -label:gain/high
+```
 
 
 
