@@ -3,7 +3,7 @@ layout: post
 title: Synchronize your 2FA Gmail with mbsync
 lang: en
 tags: fedora emacs mbsync email gmail howto
-updated:
+updated: 2024-01-21
 ---
 
 In comparison to graphical email applications, configuring the command-line
@@ -224,8 +224,9 @@ Verification.
   </a>
 </div>
 
-Now we need to generate an [App Password][app-password]. Click on "App
-passwords" and you will be redirected to this.
+Now we need to generate an [App Password][app-password]. Click on
+"2-Step Verification", then at the bottom of the page, you will find
+"App passwords" section. When opening it, you will see this.
 
 <div class="text-center img-row row">
   <a href="/files/img/gmail-app-passwords.png">
@@ -234,8 +235,7 @@ passwords" and you will be redirected to this.
   </a>
 </div>
 
-To create a new password click on "Select app" and proceed with "Other
-(Custom name)" option. Use whatever name you want.
+Use whatever app name you want and click "Create".
 
 
 <div class="text-center img-row row">
