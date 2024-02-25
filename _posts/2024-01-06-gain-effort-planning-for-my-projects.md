@@ -3,6 +3,7 @@ layout: post
 title: Gain/Effort planning for my projects
 lang: en
 tags: workflow github planning prioritization
+updated: 2024-02-26
 ---
 
 My open-source journey got to the stage, where the backlog grows much faster
@@ -70,10 +71,12 @@ command-line tool:
 ```bash
 gh search issues \
     -R frostyx/tracer \
+    -R frostyx/fedora-sponsors \
     -R frostyx/fedora-review-service \
     -R frostyx/dotfiles \
     -R frostyx/helm-ement \
     -R rpm-software-management/tito \
+    -R rpm-software-management/fedora-distro-aliases \
     --state open \
     --label effort/low \
     --label gain/high
@@ -107,10 +110,12 @@ and weren't given any gain or effort tags.
 ```bash
 gh search issues \
     -R frostyx/tracer \
+    -R frostyx/fedora-sponsors \
     -R frostyx/fedora-review-service \
     -R frostyx/dotfiles \
     -R frostyx/helm-ement \
     -R rpm-software-management/tito \
+    -R rpm-software-management/fedora-distro-aliases \
     --state open \
     -- \
     -label:effort/low \
