@@ -5,28 +5,30 @@ lang: en
 tags: fedora copr
 ---
 
-Sometimes it is hard to debug failed Copr builds. Maybe they fail
-only on a specific architecture and you don't have an s390x mainframe
-in your spare bedroom, maybe there are Copr-specific conditions in your package,
-or maybe the Copr builders aren't beefy enough to build it. You can now connect
-to the builder virtual machine using SSH and run any commands you want to debug
-the problem.
+Sometimes it can be hard to debug failed [Copr][copr] builds. Maybe they fail
+only on a specific architecture and you don't have an [s390x mainframe][ibm-z]
+in your spare bedroom, maybe there are [Copr-specific conditions][copr-macros]
+in your package, or maybe the Copr builders aren't beefy enough to build it. You
+can [now][release-notes] connect to the builder virtual machine using SSH and
+run any commands you want to debug the problem.
+
 
 ## Wait! What?
 
 It may be hard to believe but it is true. You can simply click a button to
-resubmit a build with enabled SSH access to the builder, specify your public SSH
-key, and then connect as root. No bureaucracy, no special permissions, and no
-prerequisites. As far as I know, this is an unprecedented feature in the
-build-system world. Please correct me if I am wrong and there are any other
-build systems that allow this.
+resubmit a build with enabled SSH access to the builder, specify your
+[public SSH][ssh-keys] key, and then connect as root. No bureaucracy, no special
+permissions, and no prerequisites. As far as I know, this is an unprecedented
+feature in the build-system world. Please correct me if I am wrong and there are
+any other build systems that allow this.
 
 
 ## How it works
 
-Submit a build any way you want and wait until it finishes. It doesn't matter
-if it failed or succeeded. If something went wrong and it requires debugging
-within the Copr infrastructure, click the `Resubmit and allow SSH` button.
+Submit a build [any way you want][build-source-types] and wait until it
+finishes. It doesn't matter if it fails or succeeds. If something went wrong and
+it requires debugging within the Copr infrastructure, click the
+`Resubmit and allow SSH` button.
 
 
 <div class="text-center img-row row">
@@ -38,10 +40,10 @@ within the Copr infrastructure, click the `Resubmit and allow SSH` button.
 <br>
 
 
-You will be redirected to the familiar page for resubmitting builds which is in
-Copr for years. Upon closer inspection, you will notice some changes. At the
-top, there are basic instructions on how to interact with the builder, and in
-the form, you can specify your public SSH keys. Multiple keys are allowed,
+You will be redirected to the familiar page for resubmitting builds which has
+been in Copr for years. Upon closer inspection, you will notice some changes. At
+the top, there are basic instructions on how to interact with the builder, and
+in the form, you can specify your public SSH keys. Multiple keys are allowed,
 just separate them with a new line.
 
 If you don't know what your or your coworker's keys are, there are a few ways to
@@ -52,8 +54,8 @@ find out.
 - Check anyone's public key in FAS - <https://accounts.fedoraproject.org/user/frostyx>
 
 If your project provides multiple chroots, ideally submit this build only for
-one of them. Then wait until the build is running and the following text appears
-in the `backend.log`.
+one of them. Then wait until the build starts running and the following text
+appears in the `backend.log`.
 
 ```
 Deployed user SSH key for frostyx
@@ -69,7 +71,7 @@ The instructions are self-explanatory. From your computer, run:
 ssh root@44.203.44.XXX
 ```
 
-You are greeted with a MOTD, please make sure to read it.
+You are greeted with a [MOTD][motd], please make sure to read it.
 
 ```
 You have been entrusted with access to a Copr builder.
@@ -86,11 +88,12 @@ https://docs.pagure.org/copr.copr/user_documentation.html#what-i-can-build-in-co
 You can display more help on how to use the builder by running copr-builder:
 ...
 ```
-If for some reason you can't see it, please manually run `copr-builder help`.
+If for some reason you can't see the message, please manually run
+`copr-builder help`.
 
 
 You are now `root`. _Remember, with great power comes great responsibility --
-Uncle Ben_
+[Uncle Ben][great-power]_
 
 
 ## Limitations
@@ -100,7 +103,7 @@ Uncle Ben_
   builder is also assigned to a unique sandbox preventing it from being re-used
   by any other build, even from the same user
 - To avoid wasting resources, only two builders with SSH access can be allocated
-  for one user at once
+  for one user at the same time
 - The builder is automatically terminated after 1 hour unless you prolong
   its lifespan. The maximum limit is 48 hours
 - Some builders are available only through an IPv6 address and you can't choose
@@ -115,19 +118,21 @@ Uncle Ben_
 
 It is obvious that this feature is still in its infancy and there is a big room
 for improvement. Ideally, your public key should automatically fetched from FAS,
-and the form input should support special syntax for allowing somebody's keys
-based on their FAS or GitHub username, e.g. `FAS:msuchy GitHub:praiskup`. There
-is currently no support for this feature in the API, `python3-copr`, and
-`copr-cli` but it is definitely on the roadmap. We also want to soften some
-hard edges around searching the builder IP address and integrate it into the
-user interface.
+and the form input should support special syntax for allowing keys based on FAS
+or GitHub username, e.g. `FAS:msuchy GitHub:praiskup`. There is currently no
+support for this feature in the API, `python3-copr`, and `copr-cli` but it is
+definitely on the roadmap. We also want to soften some hard edges around
+searching the builder IP address and integrate it into the user interface.
 
 As always, happy building. Or should I say debugging?
 
 
 
-
-
-
-
+[copr]: https://copr.fedorainfracloud.org/
 [copr-macros]: https://docs.pagure.org/copr.copr/user_documentation.html#rpm-macros
+[motd]: https://en.wikipedia.org/wiki/Message_of_the_day
+[ibm-z]: https://en.wikipedia.org/wiki/IBM_Z#/media/File:IBM_Z14_(36084219181).jpg
+[release-notes]: https://docs.pagure.org/copr.copr/release-notes/2024-03-07.html
+[ssh-keys]: https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
+[build-source-types]: https://docs.pagure.org/copr.copr/user_documentation.html#build-source-types
+[great-power]: https://www.youtube.com/watch?v=guuYU74wU70
