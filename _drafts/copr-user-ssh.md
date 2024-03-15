@@ -8,9 +8,10 @@ tags: fedora copr
 Sometimes it can be hard to debug failed [Copr][copr] builds. Maybe they fail
 only on a specific architecture and you don't have an [s390x mainframe][ibm-z]
 in your spare bedroom, maybe there are [Copr-specific conditions][copr-macros]
-in your package, or maybe the Copr builders aren't beefy enough to build it. You
-can [now][release-notes] connect to the builder virtual machine using SSH and
-run any commands you want to debug the problem.
+in your package, or maybe the Copr builders aren't beefy enough to build it.
+To make the debugging process as pain-free as possible, Copr
+[now][release-notes] allows connecting to the builder virtual machines using SSH
+and running any commands you need.
 
 
 ## Wait! What?
@@ -19,15 +20,16 @@ It may be hard to believe but it is true. You can simply click a button to
 resubmit a build with enabled SSH access to the builder, specify your
 [public SSH][ssh-keys] key, and then connect as root. No bureaucracy, no special
 permissions, and no prerequisites. As far as I know, this is an unprecedented
-feature in the build-system world. Please correct me if I am wrong and there are
-any other build systems that allow this.
+feature in the build-system world.
+
+Please let us know your thoughts once you try it.
 
 
 ## How it works
 
 Submit a build [any way you want][build-source-types] and wait until it
-finishes. It doesn't matter if it fails or succeeds. If something went wrong and
-it requires debugging within the Copr infrastructure, click the
+finishes. It doesn't matter whether it fails or succeeds. If something went
+wrong and it requires debugging within the Copr infrastructure, click the
 `Resubmit and allow SSH` button.
 
 
@@ -104,8 +106,11 @@ You are now `root`. _Remember, with great power comes great responsibility --
   by any other build, even from the same user
 - To avoid wasting resources, only two builders with SSH access can be allocated
   for one user at the same time
-- The builder is automatically terminated after 1 hour unless you prolong
-  its lifespan. The maximum limit is 48 hours
+- Because of the previous two points, Copr cannot automatically enable SSH
+  access when the build fails. The build needs to be manually resubmitted with
+  SSH access enabled
+- The builder machine is automatically terminated after 1 hour unless you
+  prolong its lifespan. The maximum limit is 48 hours
 - Some builders are available only through an IPv6 address and you can't choose
   which one you get. If you can't connect, cancel the build and try again, or
   use a machine with working IPv6 as a proxy. To check if IPv6 works on your
