@@ -3,6 +3,7 @@ layout: post
 title: LSP for Vim Boomers
 lang: en
 tags: video vim lsp python
+updated: 2024-05-23
 ---
 
 There are many great videos and articles about configuring NeoVim LSP
@@ -57,7 +58,7 @@ augroup END
 
 ### Appendix
 
-#### 1.
+#### 1. Pre-configured servers
 
 There is a plugin not mentioned in the video called
 [vim-lsp-settings][vim-lsp-settings]. It features a long list of
@@ -72,7 +73,7 @@ cd ~/.vim/pack/vendor/start
 git clone https://github.com/prabirshrestha/vim-lsp.git
 ```
 
-#### 2.
+#### 2. Performance
 
 A [Reddit comment][comment] suggests that the following configuration
 line can noticeably boost the LSP performance.
@@ -81,7 +82,16 @@ line can noticeably boost the LSP performance.
 let g:lsp_use_native_client = 1
 ```
 
+#### 3. Alternative LSP plugin
+
+A possible alternative to [vim-lsp][vim-lsp] might be
+[yegappan/lsp][yegappan/lsp]. It should have a similarly easy
+configuration and it may be slightly faster. However, it requires Vim
+9 and higher.
+
 
 [video]: https://www.youtube.com/watch?v=-aIPEOxUCUY
 [vim-lsp-settings]: https://github.com/mattn/vim-lsp-settings
 [comment]: https://www.reddit.com/r/vim/comments/1cyh7rs/comment/l5astyh/?utm_source=share&utm_medium=web2x&context=3
+[vim-lsp]: https://github.com/prabirshrestha/vim-lsp
+[yegappan/lsp]: https://github.com/yegappan/lsp
