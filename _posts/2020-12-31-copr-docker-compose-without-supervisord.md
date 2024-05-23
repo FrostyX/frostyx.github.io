@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2024-01-28
+updated: 2024-05-23
 ---
 
 
@@ -231,8 +231,7 @@ For testing the git version of `copr-cli` tool with git version of
 `python3-copr` package, we can use the following command.
 
 ```
-$ cd cli
-$ PYTHONPATH=$HOME/git/copr/python ./copr --help
+$ PYTHONPATH=$HOME/git/copr/cli/:$HOME/git/copr/python/ $HOME/git/copr/cli/copr --help
 ```
 
 
