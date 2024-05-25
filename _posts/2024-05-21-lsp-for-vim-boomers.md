@@ -3,7 +3,7 @@ layout: post
 title: LSP for Vim Boomers
 lang: en
 tags: video vim lsp python
-updated: 2024-05-23
+updated: 2024-05-25
 ---
 
 There are many great videos and articles about configuring NeoVim LSP
@@ -75,23 +75,36 @@ git clone https://github.com/prabirshrestha/vim-lsp.git
 
 #### 2. Performance
 
-A [Reddit comment][comment] suggests that the following configuration
-line can noticeably boost the LSP performance.
+A [Reddit comment][comment-1] suggests that the following configuration line can
+noticeably boost the LSP performance.
 
 ```vim
 let g:lsp_use_native_client = 1
 ```
 
-#### 3. Alternative LSP plugin
+#### 3. Alternative LSP plugins
 
 A possible alternative to [vim-lsp][vim-lsp] might be
 [yegappan/lsp][yegappan/lsp]. It should have a similarly easy
 configuration and it may be slightly faster. However, it requires Vim
-9 and higher.
+9 and higher. Another alternative is [ALE][ale] which should provide a
+faster autocomplete according to [this Reddit comment][comment-2]. Example
+configuration:
+
+```vim
+set omnifunc=ale#completion#OmniFunc
+nnoremap K <cmd>ALEHover<CR>
+nnoremap <leader>gd <cmd>ALEGoToDefinition<CR>
+nnoremap <leader>gr <cmd>ALEFindReferences<CR>
+nnoremap <leader>ca <cmd>ALECodeAc
+let g:ale_completion_enabled = 1
+```
 
 
 [video]: https://www.youtube.com/watch?v=-aIPEOxUCUY
 [vim-lsp-settings]: https://github.com/mattn/vim-lsp-settings
-[comment]: https://www.reddit.com/r/vim/comments/1cyh7rs/comment/l5astyh/?utm_source=share&utm_medium=web2x&context=3
+[comment-1]: https://www.reddit.com/r/vim/comments/1cyh7rs/comment/l5astyh/?utm_source=share&utm_medium=web2x&context=3
 [vim-lsp]: https://github.com/prabirshrestha/vim-lsp
 [yegappan/lsp]: https://github.com/yegappan/lsp
+[ale]: https://github.com/dense-analysis/ale
+[comment-2]: https://www.reddit.com/r/vim/comments/1cyh7rs/comment/l5lbpxj/?utm_source=share&utm_medium=web2x&context=3
