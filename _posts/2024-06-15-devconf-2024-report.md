@@ -5,7 +5,7 @@ lang: en
 tags: fedora report devconf
 ---
 
-This year's [DevConf][devconf] was a blast and the best time I had on a
+This year's [DevConf][devconf] was a blast and the best time I had at a
 conference probably since [2019 Flock in Budapest][flock]. Thank you all who
 make events like these happen.
 
@@ -31,7 +31,7 @@ contributions from the community. What I realized afterward:
   are too far removed from me.
 - Even if I was feeling philanthropic and wanted to spend my vacation hacking on
   OpenSSL, I have no idea which of the 2k issues in their tracker would be a
-  good fit for me.
+  good fit.
 
 Two takeaways for me. First, I think we should try to reach contributors only
 one level up and one level down from our project. Also, I would like to pick
@@ -65,7 +65,7 @@ After lunch, I finally got the opportunity to meet and chat with
 about [rpm-spec-language-server][rpm-lsp]. His lightning talk was on the same
 topic - [Creating a Language Server for RPM Spec Files][rpm-lsp-talk]. Cudos for
 doing a live demo with a mic in one hand. Also, it was nice to see somebody else
-to use Emacs.
+use Emacs.
 
 ## Day 2
 
@@ -109,7 +109,7 @@ On the [Self-hosting/homelab meetup][self-hosting], I learned about new
 interesting ways how to over-engineer my 200€ ThinkCentre running from behind
 the couch. Specifically, I am planning to take a look at
 [healthchecks.io][healthchecks], [Borg][borg], [gethomepage.dev][gethomepage],
-and some service for push notifications like [ntfy][ntfy] or [gotify][gotify].
+and some services for push notifications like [ntfy][ntfy] or [gotify][gotify].
 
 <div class="text-center img-row row">
   <a href="/files/img/wife-acceptance-factor.png"
