@@ -75,7 +75,7 @@ previous day.
 
 <div class="text-center img-row row">
   <a href="/files/img/social-battery.png"
-     title="Imporant consideration for home server - The Wife Acceptance Factor">
+     title="">
     <img src="/files/img/social-battery.png">
   </a>
 </div>
