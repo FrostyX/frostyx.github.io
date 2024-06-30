@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2024-05-23
+updated: 2024-06-30
 ---
 
 
@@ -46,8 +46,8 @@ Just a quick side note about what happened since the original
   There is no CI for testing Copr containers and therefore something might not
   work as expected. Please try to
   <a href="#troubleshooting">troubleshoot</a> first, and eventually submit a
-  new <a href="https://pagure.io/copr/copr/issues">issue</a> or
-  <a href="https://pagure.io/copr/copr/pull-requests">pull-request</a>.
+  new <a href="https://github.com/fedora-copr/copr/issues">issue</a> or
+  <a href="https://github.com/fedora-copr/copr/pulls">pull-request</a>.
 </div>
 
 Getting started with Copr development should be as easy as possible. Make sure
@@ -56,7 +56,7 @@ command installed. Then simply build, and run the stack. Once it's up and
 running, the database needs to be initialized.
 
 ```
-$ git clone https://pagure.io/copr/copr.git
+$ git clone https://github.com/fedora-copr/copr.git
 $ cd copr
 $ docker-compose up -d
 $ docker exec -it copr_frontend_1 bash
