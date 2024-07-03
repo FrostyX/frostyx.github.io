@@ -69,6 +69,7 @@ a dependency on a non-existing project (due to typos for example).
   <tr><th style="min-width:120px;">Difficulty:</th><td>Easy</td></tr>
   <tr><th>Required skills:</th><td>Python</td></tr>
   <tr><th>Ticket:</th><td><a href="https://github.com/fedora-copr/copr/issues/2629">fedora-copr/copr#2629</a></td></tr>
+  <tr><th>Contributor:</th><td><a href="https://fosstodon.org/@ProfessorCode">@ProfessorCode</a></td></tr>
 </table>
 
 Through the [Copr CLI][copr-cli] utility, it is possible to delete an existing
@@ -99,6 +100,7 @@ prefer light or dark mode of the website.
   <tr><th style="min-width:120px;">Difficulty:</th><td>Medium</td></tr>
   <tr><th>Required skills:</th><td>Python, HTML</td></tr>
   <tr><th>Ticket:</th><td><a href="https://github.com/fedora-copr/copr/issues/304">fedora-copr/copr#304</a></td></tr>
+  <tr><th>Contributor:</th><td><a href="https://github.com/jaitjacob">@jaitjacob</a></td></tr>
 </table>
 
 Copr provides integration with Git forges like [GitHub][github],
