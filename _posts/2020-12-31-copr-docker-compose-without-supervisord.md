@@ -215,7 +215,7 @@ to debug the `copr-rpmbuild` client tool.
 
 ```
 $ docker exec -it copr_builder_1 bash
-[root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ python3 /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
+[root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ python3 /opt/copr/rpmbuild/main.py --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64 --chroot fedora-rawhide-x86_64
 ```
 
 ### Database
