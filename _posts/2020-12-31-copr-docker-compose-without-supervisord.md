@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2024-06-30
+updated: 2024-08-21
 ---
 
 
@@ -130,7 +130,7 @@ updated version.
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d frontend
 $ docker exec -it copr_frontend_1 bash
-[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
+[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
 ```
 
 ### Distgit
@@ -138,13 +138,13 @@ $ docker exec -it copr_frontend_1 bash
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
 $ docker exec -it copr_distgit_1 bash
-[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common PATH=/opt/copr/dist-git/run:$PATH /opt/copr/dist-git/run/copr-run-dispatcher-dist-git imports
+[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common PATH=/opt/copr/dist-git/run:$PATH python3 /opt/copr/dist-git/run/copr-run-dispatcher-dist-git imports
 ```
 
 To perform a single import:
 
 ```
-[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common /opt/copr/dist-git/run/copr-distgit-process-import --build-id 3522437
+[copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common python3 /opt/copr/dist-git/run/copr-distgit-process-import --build-id 3522437
 ```
 
 ### Backend
@@ -172,7 +172,7 @@ Logger:
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-log
 $ docker exec -it copr_backend-log_1 bash
-[copr@backend-log /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr_run_logger.py
+[copr@backend-log /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common python3 /opt/copr/backend/run/copr_run_logger.py
 ```
 
 #### Commands
@@ -183,13 +183,13 @@ alway be that easy to debug. Using `ipdb` might not always be possible.
 To perform a single build:
 
 ```
-[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr-backend-process-build --build-id 3522428 --chroot fedora-35-x86_64
+[copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common python3 /opt/copr/backend/run/copr-backend-process-build --build-id 3522428 --chroot fedora-35-x86_64
 ```
 
 To perform a single action:
 
 ```
-[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common /opt/copr/backend/run/copr-backend-process-action --task-id 331002
+[copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common python3 /opt/copr/backend/run/copr-backend-process-action --task-id 331002
 ```
 
 To perform a single createrepo command:
@@ -215,7 +215,7 @@ to debug the `copr-rpmbuild` client tool.
 
 ```
 $ docker exec -it copr_builder_1 bash
-[root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
+[root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ python3 /opt/copr/rpmbuild/main.py --chroot fedora-rawhide-x86_64 --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64
 ```
 
 ### Database
