@@ -7,10 +7,10 @@ tags: ruff python dev github
 
 [Static analysis tools][static-analysis-tools] have their limitations but
 regardless they help us quickly discover many types of bugs. That is not a
-controversial take. What may be disputed is whether enabling them is worth the
-effort and I would say it most definitely is.  In this article we are going to
-take a look at how to report problems only for new code, lowering the barrier to
-entry to the minimum.
+controversial take. What may be disputed is whether enabling them for large
+projects with a long-standing history is worth the effort and I would say it
+most definitely is.  In this article will take a look at how to report problems
+only for new code, lowering the barrier to entry to the minimum.
 
 
 ## The dilemma
@@ -38,15 +38,15 @@ newly introduced problems.
 ## Reporting only new problems
 
 There is a tool called [csdiff][csdiff] which takes two lists of defects
-(formatted errors from static analysis tools) and prints only defects that
-changed. This can be understood either as fixed or newly added defects,
-depending on whether they appear in the first or second list.
+(formatted errors from static analysis tools), compares them, and prints only
+defects that newly appeared or that are missing from the second list. This can
+be understood either as newly added or fixed defects.
 
 We created a tool called [vcs-diff-lint][vcs-diff-lint] which does the obvious
 thing. It runs [pylint][pylint], [mypy][mypy], and [ruff][ruff] for the `main`
 branch of your git repository, and then runs them again for your current
 branch. There we have our two lists of defects which get internally passed to
-csdiff. The output looks like this.
+`csdiff`. The output looks like this.
 
 ```
 $ vcs-diff-lint
@@ -79,7 +79,8 @@ problems as comments directly in your "Files changed" section.
   </a>
 </div>
 
-Please follow the [installation instructions][install-action] here.
+Please follow the [installation instructions][install-action] here or take a
+look at [our setup][github-action-example] as an example.
 
 
 ## Ruff support
@@ -100,12 +101,12 @@ Speaking about differential static analysis, you may have already heard about
 [diff-cover][diff-cover]. It has many more contributors and GitHub stars so why
 would I recommend trying `vcs-diff-lint` instead?
 
-- `diff-cover` doesn't provide a GitHub action
 - `diff-cover` runs static analysis for the whole project but reports only
   problems for lines changed by the patch. This can't fundamentally catch
   problems caused by the changed code but lying outside of it. For example when
   you add a parameter to a function definition but forget to update all of its
   calls
+- `diff-cover` doesn't provide a GitHub action
 - `vcs-diff-lint` supports `ruff` and `ruff` is cool now
 
 
@@ -117,6 +118,7 @@ would I recommend trying `vcs-diff-lint` instead?
 [csdiff]: https://github.com/csutils/csdiff
 [vcs-diff-lint]: https://github.com/fedora-copr/vcs-diff-lint
 [github-action]: https://github.com/fedora-copr/vcs-diff-lint-action
+[github-action-example]: https://github.com/fedora-copr/copr/blob/main/.github/workflows/python-diff-lint.yml
 [install-tool]: https://github.com/fedora-copr/vcs-diff-lint
 [install-action]: https://github.com/fedora-copr/vcs-diff-lint-action
 [release]: https://github.com/fedora-copr/vcs-diff-lint/releases/tag/vcs-diff-lint-6.1-1
