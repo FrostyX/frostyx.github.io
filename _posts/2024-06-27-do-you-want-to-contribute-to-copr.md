@@ -3,6 +3,7 @@ layout: post
 title: Do you want to contribute to Copr?
 lang: en
 tags: fedora copr
+updated: 2024-10-04
 ---
 
 I had a realization at [this year's DevConf][devconf]. Even if people want to
@@ -49,12 +50,13 @@ collaborate with us on any of them. We will get you started and make sure you
 have all the information you need.
 
 
-### 1. External repository validation
+### 1. External repository validation <i class="fa fa-check"></i>
 
 <table style="margin-bottom:10px;">
   <tr><th style="min-width:120px;">Difficulty:</th><td>Trivial</td></tr>
   <tr><th>Required skills:</th><td>Python</td></tr>
   <tr><th>Ticket:</th><td><a href="https://github.com/fedora-copr/copr/issues/1178">fedora-copr/copr#1178</a></td></tr>
+  <tr><th>Contributor:</th><td><a href="https://github.com/jaitjacob">@jaitjacob</a></td></tr>
 </table>
 
 Copr projects can depend on other projects. It is possible to specify such a
