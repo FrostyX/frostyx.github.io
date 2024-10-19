@@ -41,6 +41,13 @@ feasible to maintain the code for so few users. Modularity has also been
   </div>
 </div>
 
+Additionally, one of our larger goals for the upcoming years is to start using
+[Pulp as a storage for all Copr build results][pulp-epic]. This requires
+rewriting several parts of the backend code. Factoring in reimplementation for
+module builds would result in many development hours wasted for very little
+benefit. All projects with modules will remain in the current storage until the
+Modularity is finally dropped.
+
 
 ## Schedule
 
@@ -76,3 +83,4 @@ sure they don't rely on this feature.
 [matrix]: https://matrix.to/#/#buildsys:fedoraproject.org
 [mailing-list]: https://lists.fedorahosted.org/archives/list/copr-devel@lists.fedorahosted.org/
 [github-issues]: https://github.com/fedora-copr/copr/issues
+[pulp-epic]: https://github.com/fedora-copr/copr/issues/2533
