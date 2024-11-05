@@ -3,6 +3,7 @@ layout: post
 title: Copr Modularity, the End of an Era
 lang: en
 tags: copr fedora modularity
+updated: 2024-11-05
 ---
 
 Our team has put a lot of effort into the possibility of
@@ -10,8 +11,9 @@ Our team has put a lot of effort into the possibility of
 [many iterations and rewrites from scratch][modularity-retrospect] as the
 concepts, requirements, and goals of [Fedora Modularity][fedora-modularity] kept
 changing. This will be my last article about this topic because we are planning
-to drop Modularity and all of its functionality from Copr. The only exception
-are [Module hotfixes][module-hotfixes], which are staying for good.
+to drop Modularity and all of its functionality from Copr. The only exceptions
+are [Module hotfixes][module-hotfixes] and [module dependencies][module-deps],
+which are staying for good (until they are supported by Mock and DNF).
 
 
 ## Why?
@@ -78,6 +80,7 @@ rely on this feature.
 [modularity-retrospect]: https://frostyx.cz/posts/copr-modularity-in-retrospect
 [fedora-modularity]: https://docs.pagure.org/modularity/
 [module-hotfixes]: https://frostyx.cz/posts/module-hotfixes-in-copr
+[module-deps]: https://docs.pagure.org/copr.copr/user_documentation.html#modularity
 [modularity-end-fedora]: https://fedoraproject.org/wiki/Changes/RetireModularity
 [rhel-9-support]: https://access.redhat.com/support/policy/updates/errata
 [matrix]: https://matrix.to/#/#buildsys:fedoraproject.org
