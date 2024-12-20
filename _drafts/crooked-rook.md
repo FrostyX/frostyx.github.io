@@ -105,7 +105,83 @@ recommends black to move from `c7` to `c5` and expect white to retaliate with
 
 ## Gleam, Elixir, and the BEAM
 
-TODO
+One of my goals for this project was to learn Gleam, which is a new addition to
+the BEAM family of languages, preceeded by Erlang and Elixir. The main purpose
+of these languages is to be used for building massively distributed,
+high-availability systems. So I will be the first one to admit that this project
+doesn't exactly fit the use-case. Who knows, maybe I plan to build some
+distributed system in the future and use this project to learn the languages.
+
+The BEAM is a virtual machine for running Erlang bytecode in the same sense
+that JVM is a virtual machine for Java, and .NET is a ~virtual machine~ platform
+for C#. And just as Java, Clojure and Scala compile to the JVM bytecode, C#,
+Visual Basic, and F# compile to the .NET bytecode, Erlang, Elixir, and Gleam
+compile to the BEAM bytecode. Allowing us to share code accross languages.
+
+The main part of this project will be written in Gleam but we will use Elixir
+interop for some peripherals. Starting with one of them right now.
+
+To control Stockfish we can use Elixir ports, which is the best interface for
+interacting with STDIN-based programs that I've ever seen.
+
+```elixir
+defmodule Stockfish do
+  def new_game do
+    port = Port.open({:spawn, "stockfish"}, [:binary])
+    Port.command(port, "uci\n")
+    Port.command(port, "isready\n")
+    Port.command(port, "ucinewgame\n")
+    port
+  end
+end
+```
+
+We can start our game this easily. At the, we are returning the port, so we can
+pass it to other functions. To implement a `move` funciton for example.
+
+```elixir
+defmodule Stockfish do
+  ...
+
+  def move(game, position, history) do
+    moves =
+      history
+      |> Enum.concat([position])
+      |> Enum.join(" ")
+    Port.command(game, "position startpos moves #{moves}\n")
+  end
+end
+```
+
+You wouldn't believe how easy it is to use this from Gleam through
+externals. Since Gleam is statically typed, we need to tell it the shape of our
+Elixir functions.
+
+```
+import gleam/erlang/port.{type Port}
+
+@external(erlang, "Elixir.Stockfish", "new_game")
+fn new_game() -> Port
+
+@external(erlang, "Elixir.Stockfish", "move")
+fn move(game: Port, position: String, history: List(String)) -> Nil
+```
+
+For illustrative purposes, we are going to avoid the domain specific type
+masturbation and stick with strings and lists. In the actual implementation,
+we'll likely want to avoid exposing the `Port` directly, and create custom types
+for `Position` and `History`.
+
+TODO position is not the ideal name. It would be better to use move but thats
+the name of our function.
+
+Now we can use them in Gleam.
+
+```
+TODO better code with pipes
+let game = Game(new_game(), [], white)
+move(game.port, position, game.history)
+```
 
 ## Morse code
 
@@ -122,3 +198,5 @@ https://pypi.org/project/stockfish/
 https://github.com/morse-talk/morse-talk
 https://www.youtube.com/watch?v=iSMpTmibeDw
 https://lichess.org/api
+https://en.wikipedia.org/wiki/Common_Intermediate_Language
+https://tour.gleam.run/advanced-features/externals/
