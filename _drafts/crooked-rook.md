@@ -185,9 +185,42 @@ move(game.port, position, game.history)
 
 ## Morse code
 
-TODO
+There were available several packages for encoding and decoding Morse code but I
+decided to write my own called Morsey. I don't expect any rapid development of
+the Morse code alphabet, causing this reinvention of the wheel to be the final
+blow to my personal life, putting me on a hamster wheel of perpetual maintenance
+of my Open Source software. And look, we already got a star from the one and
+only Hayleigh Thompson.
+
+```gleam
+import gleam/io
+import morsey
+
+let text = "Hello world!"
+case morsey.encode(text) {
+  Ok(symbols) ->
+    io.println("Morse code for " <> text <> " is " <> morsey.to_string(symbols))
+  Error(morsey.InvalidCharacter(char)) ->
+    io.println_error("Invalid character: " <> char)
+}
+
+// And the output will be:
+// .... . .-.. .-.. --- / .-- --- .-. .-.. -.. -.-.--
+```
+
+We can see several Gleam features in this example. It doesn't have exceptions
+but works with errors as values. It also leans heavily towards pattern
+matching. There isn't if-else statement in the language. The pattern matching is
+also exhaustive, otherwise I would definitelly forget to handle the error
+case. I love all of these features. The one I quite dislike is that for the sake
+of simplicity, Gleam doesn't support string formatting.
+
 
 ## Hardware
+
+TODO
+
+## Websockets
 
 TODO
 
@@ -200,3 +233,4 @@ https://www.youtube.com/watch?v=iSMpTmibeDw
 https://lichess.org/api
 https://en.wikipedia.org/wiki/Common_Intermediate_Language
 https://tour.gleam.run/advanced-features/externals/
+https://github.com/hayleigh-dot-dev
