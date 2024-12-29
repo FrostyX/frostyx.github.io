@@ -1,17 +1,20 @@
 ---
 layout: post
 title: Cheating in chess via remotely controlled toys
+title: Shoving a chess AI up your butt
+title: Deploying a chess engine up your butt
+title: Shoving a chess engine up your butt
 lang: en
-tags: chess morse gleam elixir
+tags: chess morse gleam elixir meme
 ---
 
 In the Lex Fridman Podcast [episode #327][episode-327], Levy Rozman (aka
-[GothamChess][GothamChess]) explained a scandal, alleging chess grandmaster Hans
-Niemann of cheating at a tournament. Supposedly it was done through a remotely
-controlled device inserted into his backside, allowing him to receive the next
-best move encoded in Morse code vibrations. And because I am obviously twelve
-years old, I thought it would be really funny to implement this. By the way,
-[Ron Sijm][RonSijm] is likely as immature as me, because he
+[GothamChess][GothamChess]) explained a scandal, alleging a chess grandmaster
+Hans Niemann of cheating at a tournament. Supposedly, it was done through a
+remotely controlled device inserted into his backside, allowing him to receive
+the next best move encoded in Morse code vibrations. And because I am evidently
+twelve years old, I thought it would be really funny to implement this. By the
+way, [Ron Sijm][RonSijm] is likely as immature as me, because he
 [beat me to it][buttfish].
 
 Disclaimer: I am not endorsing cheating in chess or any other sport, I don't
@@ -47,10 +50,10 @@ field, receiving intelligence through his anal cavity, and the operator behind
 the computer monitor, querying a chess engine through the interface we will
 create.
 
-Joking aside, I could probably crank out a working solution in Python under an
-hour just by gluing [inquirer][inquirer], [stockfish][python-stockfish],
+Joking aside, I could probably crank out a working solution in Python in under
+an hour just by gluing [inquirer][inquirer], [stockfish][python-stockfish],
 [morse-talk][morse-talk], and [buttplug-py][buttplugpy] together. But where
-would be the fun in that. That's why I am going to learn a new programming
+would be the fun in that? That's why I am going to learn a new programming
 language on this project.
 
 
@@ -58,7 +61,7 @@ language on this project.
 
 There are several chess engines to choose from, such as [Stockfish][stockfish],
 [AlphaZero][alphazero], [Lc0][lc0], [Shredder][shredder], etc. Some of them
-giving us an option to run them locally or spawning an instance
+giving us a choice between running them locally or spawning an instance
 [through lichess.org][lichess-api]. I randomly picked Stockfish out of the hat
 because it is an open-source project, and it is easy to run locally.
 
@@ -66,47 +69,42 @@ Chess grandmasters average around 2600 Elo rating, and according to Gary
 Linscott, [Stockfish performs at 3600 Elo][stockfish-elo]. Don't worry that it
 won't beat our opponents.
 
-To keep things simple, we can say that chess engines are services running in a
+To keep things simple, we can say that chess engines are services running in the
 background (and liken them to Unix daemons). They don't have any graphical
 interfaces or CLI tools for interacting with them. At least not tools in the
 conventional sense. Instead, third-party programs can communicate with chess
 engines through the [Universal Chess Interface][uci] (UCI).
 
-```
-$ stockfish
-...
-
-uci
-id name Stockfish 17
-id author the Stockfish developers (see AUTHORS file)
-...
-uciok
-
-isready
-readyok
-
-isready
-readyok
-
-ucinewgame
-
-position startpos moves a2a3 h7h6 b2c3
-
-go depth 15
-...
-bestmove e2e4 ponder c7c5
-```
+<div class="highlight"><pre class="highlight"><code><span class="nc">$ stockfish</span>
+<span class="">...</span>
+<span class=""></span>
+<span class="s2">uci</span>
+<span class="">id name Stockfish 17</span>
+<span class="">id author the Stockfish developers (see AUTHORS file)</span>
+<span class="">...</span>
+<span class="">uciok</span>
+<span class=""></span>
+<span class="s2">isready</span>
+<span class="">readyok</span>
+<span class=""></span>
+<span class="s2">ucinewgame</span>
+<span class=""></span>
+<span class="s2">position startpos moves a2a3 h7h6 b2b3</span>
+<span class=""></span>
+<span class="s2">go depth 15</span>
+<span class="">...</span>
+<span class="">bestmove d7d5 ponder c1b2</span></code></pre></div>
 
 As you can see, Stockfish provides a painfully bad REPL and UCI arms as with a
-set of usable commands. There is no tab completion, no help, no command
+set of usable commands. There is no TAB completion, no help, no command
 history, no syntax highlighting, no prompt to distinguish between commands and
-their output. For easier understanding, I rendered the inputs red and their
-outputs blue, but in the terminal they are all the same color.
+their output, and so on. For better readability, I rendered the inputs red, but
+in the terminal, everything is the same color.
 
 In this session, we started the game, white moved from `a2` to `a3`, black moved
-from `h7` to `h6`, then again white moved from `b2` to `c3`. Stockfish then
-recommends black to move from `c7` to `c5` and expect white to retaliate with
-`c7` to `c5`.
+from `h7` to `h6`, then again white moved from `b2` to `b3`. Stockfish then
+recommends black to move from `d7` to `d5` and expect white to retaliate with
+`c1` to `b2`.
 
 
 ## Gleam, Elixir, and the BEAM
@@ -129,7 +127,7 @@ across the related languages.
 The main part of this project will be written in Gleam, but we will use Elixir
 interop for some peripherals. Starting with one of them right now. To control
 Stockfish we can use [Elixir ports][elixir-ports], which is the best abstraction
-for interacting with STDIN-based programs that I've ever seen.
+for interacting with stdin-based programs that I've ever seen.
 
 ```elixir
 defmodule Stockfish do
@@ -150,21 +148,21 @@ implement a `move` function for example.
 defmodule Stockfish do
   ...
 
-  def move(game, position, history) do
+  def move(port, position, history) do
     moves =
       history
       |> Enum.concat([position])
       |> Enum.join(" ")
-    Port.command(game, "position startpos moves #{moves}\n")
+    Port.command(port, "position startpos moves #{moves}\n")
   end
 end
 ```
 
-You wouldn't believe how easy it is to use this from Gleam through
+You wouldn't believe how easy it is to use this code from Gleam through
 [externals][gleam-externals]. Since Gleam is statically typed, we need to tell
 the compiler the shape of our Elixir functions, but that's all.
 
-```gleam
+```javascript
 import gleam/erlang/port.{type Port}
 
 @external(erlang, "Elixir.Stockfish", "new_game")
@@ -174,14 +172,14 @@ fn new_game() -> Port
 fn move(game: Port, position: String, history: List(String)) -> Nil
 ```
 
-For illustrative purposes, we are going to avoid the domain specific type
+For illustrative purposes, we are going to avoid the domain-specific type
 masturbation and stick with lists and strings. In the actual implementation,
 we'll likely want to avoid exposing the `Port` directly, and create custom types
 for `Position` and `History`.
 
 Now we can use the functions in Gleam.
 
-```gleam
+```javascript
 new_game() |> move("a2a3", [])
 ```
 
@@ -190,14 +188,14 @@ new_game() |> move("a2a3", [])
 Several packages for encoding and decoding Morse code were available, but I
 decided to write my own called [Morsey][morsey]. I don't expect any rapid
 development in the Morse code department, causing this reinvention of the wheel
-to be the final blow to my personal life that puts me on a hamster wheel of
-perpetual maintenance of my Open Source projects. And look, we already got a
-star from the one and only [Hayleigh Thompson][hayleigh].
+to be the final blow to my personal life, and putting me on a hamster wheel of
+perpetual maintenance of my Open Source projects.
 
-The source code is available in [FrostyX/morsey][morsey] repository and the
-usage looks like this.
+The source code is available in [FrostyX/morsey][morsey] repository, and look,
+we already got a star from the one and only [Hayleigh Thompson][hayleigh]. The
+package can be used like this:
 
-```gleam
+```javascript
 import gleam/io
 import morsey
 
@@ -216,7 +214,7 @@ case morsey.encode(text) {
 We can see several Gleam features in this example. It doesn't have exceptions
 and instead returns errors as values. It leans heavily towards pattern
 matching, there is not even an if-else statement in the language. The pattern
-matching is exhaustive, otherwise I would definitely forget to handle the
+matching is exhaustive, otherwise, I would definitely forget to handle the
 error case. I love all of these features. The one I quite dislike, however, is
 that for the sake of simplicity, Gleam doesn't support string formatting.
 
@@ -230,7 +228,7 @@ possible to buy in Czech Republic. It paired with my phone within seconds, so I
 started celebrating an easy victory, just to waste the rest of the day trying to
 pair the device with my computer.
 
-Here is the ten-thousand foot view. A toy communicates with your computer via Bluetooth LE. Some manufacturers
+Here is the ten-thousand-foot view. A toy communicates with your computer via Bluetooth LE. Some manufacturers
 require [pairing before use][pairing], some don't. You don't use the system
 Bluetooth manager to connect to the device. Clients like
 [buttplug-py][buttplugpy], [buttplug-js][buttplugjs], [etc][buttplug-libraries],
@@ -253,7 +251,7 @@ almost embarrassing that in fifteen years of programming, I have never used
 websockets, and this was my first exposure.
 
 An example session can look like this
-(It only shows messages sent from the client to the server. The responses were
+(The snippet only shows messages from the client to the server. The responses were
 omitted).
 
 ```
@@ -266,10 +264,10 @@ $ ~/.cargo/bin/websocat ws://127.0.0.1:12345/
 [{"StopDeviceCmd": {"DeviceIndex": 0, "Id": 5}}]
 ```
 
-I created a Gleam package with high-level interface around this, called
+I created a Gleam package with a high-level interface around this, called
 [Bummer][bummer]. Its usage is fairly simple.
 
-```gleam
+```javascript
 import bummer
 
 case bummer.connect("ws://127.0.0.1:12345/") {
@@ -304,8 +302,8 @@ Throughout this blog post, we've seen code snippets for communicating
 with Stockfish, converting text to Morse code, and controlling intimate toys
 via websockets. The last missing piece is vibrating a Morse code sequence.
 
-```gleam
-fn vibrate(socket: bummer.Connection, morse: morsey.Sequence) -> Nil {
+```javascript
+fn vibrate(socket: bummer.Connection, sequence: morsey.Sequence) -> Nil {
   // International Morse Code
   // 1. The length of a dot is one unit.
   // 2. A dash is three units.
@@ -313,7 +311,7 @@ fn vibrate(socket: bummer.Connection, morse: morsey.Sequence) -> Nil {
   // 4. The space between letters is three units.
   // 5. The space between words is seven units.
   let interval = 200
-  case morse {
+  case sequence {
     [] -> Nil
     [first, ..rest] -> {
       case first {
@@ -344,7 +342,7 @@ result in significantly shorter
 messages.
 
 The other limitation is having a human relay between the player and the chess
-engine. I am sure there are AI models capable of observing a chess board and
+engine. I am sure there are AI models capable of observing a chessboard and
 recognizing all the figures and their positions. The whole system could be
 autonomous with the exception of the human player.
 
