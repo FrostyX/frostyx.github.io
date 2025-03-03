@@ -108,7 +108,7 @@ docker-compose up -d --force-recreate <service>
 How can I drop a container and image for one service?
 
 ```
-dco rm --stop <name> && docker rmi copr_<name>
+docker rm --stop <name> && docker rmi copr_<name>
 ```
 
 How can I drop the whole docker-compose environment?
