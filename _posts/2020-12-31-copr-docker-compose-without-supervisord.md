@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2024-08-21
+updated: 2025-03-03
 ---
 
 
@@ -59,7 +59,7 @@ running, the database needs to be initialized.
 $ git clone https://github.com/fedora-copr/copr.git
 $ cd copr
 $ docker-compose up -d
-$ docker exec -it copr_frontend_1 bash
+$ docker exec -it copr-frontend-1 bash
 [copr-fe@frontend /]$ init-database.sh
 ```
 
@@ -129,7 +129,7 @@ updated version.
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d frontend
-$ docker exec -it copr_frontend_1 bash
+$ docker exec -it copr-frontend-1 bash
 [copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
 ```
 
@@ -137,7 +137,7 @@ $ docker exec -it copr_frontend_1 bash
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d distgit
-$ docker exec -it copr_distgit_1 bash
+$ docker exec -it copr-distgit-1 bash
 [copr-dist-git@distgit /]$ PYTHONPATH=/opt/copr/dist-git:/opt/copr/common PATH=/opt/copr/dist-git/run:$PATH python3 /opt/copr/dist-git/run/copr-run-dispatcher-dist-git imports
 ```
 
@@ -155,7 +155,7 @@ Backend has multiple containers, so it depends on what you changed. For build di
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-build
-$ docker exec -it copr_backend-build_1 bash
+$ docker exec -it copr-backend-build-1 bash
 [copr@backend-build /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /run-backend --sign-host keygen-signd /opt/copr/backend/run/copr-run-dispatcher-backend builds
 ```
 
@@ -163,7 +163,7 @@ Actions dispatcher:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-action
-$ docker exec -it copr_backend-action_1 bash
+$ docker exec -it copr-backend-action-1 bash
 [copr@backend-action /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common PATH=/opt/copr/backend/run:$PATH /run-backend --sign-host keygen-signd /usr/bin/copr-run-dispatcher-backend actions
 ```
 
@@ -171,7 +171,7 @@ Logger:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d backend-log
-$ docker exec -it copr_backend-log_1 bash
+$ docker exec -it copr-backend-log-1 bash
 [copr@backend-log /]$ PYTHONPATH=/opt/copr/backend:/opt/copr/common python3 /opt/copr/backend/run/copr_run_logger.py
 ```
 
@@ -202,7 +202,7 @@ To perform a single createrepo command:
 
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d keygen-httpd
-$ docker exec -it copr_keygen-httpd_1 bash
+$ docker exec -it copr-keygen-httpd-1 bash
 [root@keygen-httpd /]# PYTHONPATH=/opt/copr/keygen/src FLASK_APP=copr_keygen flask run --host 0.0.0.0 --port 5003
 ```
 
@@ -214,14 +214,14 @@ container and use it for all builds without recycling. This is the easiest way
 to debug the `copr-rpmbuild` client tool.
 
 ```
-$ docker exec -it copr_builder_1 bash
+$ docker exec -it copr-builder-1 bash
 [root@builder /]# PYTHONPATH=/opt/copr/rpmbuild/ python3 /opt/copr/rpmbuild/main.py --task-url http://frontend:5000/backend/get-build-task/123-fedora-rawhide-x86_64 --chroot fedora-rawhide-x86_64
 ```
 
 ### Database
 
 ```
-$ docker exec -it copr_database_1 bash
+$ docker exec -it copr-database-1 bash
 bash-4.2$ psql coprdb
 ```
 
@@ -252,7 +252,7 @@ PermissionError: [Errno 13] Permission denied: "/opt/copr/frontend/data/openid_s
 Update the owner of the generated data
 
 ```
-$ docker exec --user root -it copr_frontend_1 bash
+$ docker exec --user root -it copr-frontend-1 bash
 [root@frontend /]$ chown copr-fe:copr-fe -R /opt/copr/frontend/data
 ```
 
@@ -263,7 +263,7 @@ This might happen for various reasons, for example when trying to run
 migrations from the git repository.
 
 ```
-$ docker exec -it copr_frontend_1 bash
+$ docker exec -it copr-frontend-1 bash
 [copr-fe@frontend /]$ cd /opt/copr/frontend/coprs_frontend/
 [copr-fe@frontend coprs_frontend]$ alembic-3 upgrade head
 ```
@@ -280,7 +280,7 @@ following example is for `copr-frontend` but it can be done the
 same way for every other service.
 
 ```
-$ docker exec --user root -it copr_frontend_1 bash
+$ docker exec --user root -it copr-frontend-1 bash
 [copr-fe@frontend /]$ dnf install tito
 [copr-fe@frontend frontend]$ cd /opt/copr/frontend/
 [copr-fe@frontend frontend]$ dnf builddep copr-frontend.spec
