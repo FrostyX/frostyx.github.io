@@ -4,7 +4,7 @@ help:
 	@echo "  tags           to generate tag pages from posts properties"
 
 serve:
-	jekyll serve --drafts
+	jekyll serve --drafts --host 0.0.0.0
 
 tags:
 	python ./tag_generator.py
