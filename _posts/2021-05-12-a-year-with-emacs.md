@@ -14,7 +14,7 @@ adversary is doing. Ever since that day, I live in [Emacs][emacs].
 ## Motivation
 
 Why would I commit such a heinous crime? After ten years, I came close
-to hitting my peak knowledge about VIm. Of course, nobody can claim to truly
+to hitting my peak knowledge about Vim. Of course, nobody can claim to truly
 know Vim in its full depth but I got to the point where the learning
 curve slowed to a deadly pace and new tricks just slightly adjust your approach
 when solving obscure scenarios. The only real game-changer yet to be conquered
