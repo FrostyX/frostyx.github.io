@@ -2,7 +2,7 @@
 layout: post
 title: Stop distro hopping for great good
 lang: en
-tags: linux fedora dev packaging localization testing writing help
+tags: linux fedora
 ---
 
 I spend a lot of time on Reddit, Mastodon, and Youtube and
