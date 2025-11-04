@@ -1,0 +1,105 @@
+---
+layout: default
+title: Videos
+permalink: /videos/
+---
+
+<p>
+  My latest YouTube videos. See all of them at
+  <a href="https://www.youtube.com/@jakubkadlcik">@jakubkadlcik</a> and
+  <a href="https://www.youtube.com/@frostyx-unscripted">@frostyx-unscripted</a>.
+</p>
+
+<noscript>
+  Sorry, the videos are fetched using JavaScript
+</noscript>
+
+
+<div id="videos-main-channel"></div>
+<div id="videos-secondary-channel"></div>
+
+
+<script>
+function renderVideo(video) {
+  const a1 = Object.assign(document.createElement('a'), {
+    href: video.link,
+  });
+
+  video.thumbnail = video.thumbnail.replace('hqdefault.jpg', 'maxresdefault.jpg')
+  const img = Object.assign(document.createElement('img'), {
+    src: video.thumbnail,
+    width: 276,
+  });
+
+  const thumbnail = Object.assign(document.createElement('div'), {
+    className: 'thumbnail',
+  });
+
+  const col = Object.assign(document.createElement('div'), {
+    className: 'col-sm-6 col-md-4',
+  });
+
+  const caption = Object.assign(document.createElement('div'), {
+    className: 'caption',
+  });
+
+  const a2 = Object.assign(document.createElement('a'), {
+    href: video.link,
+    textContent: video.title,
+  });
+
+  const p = document.createElement('p');
+
+  col.appendChild(thumbnail);
+  thumbnail.appendChild(a1);
+  a1.appendChild(img)
+  thumbnail.appendChild(caption);
+  caption.appendChild(p);
+  p.appendChild(a2);
+  return col;
+}
+
+function renderVideos(videos) {
+  const rows = document.createElement('div');
+  for (let i = 0; i<6; i+=3) {
+    const row = Object.assign(document.createElement('div'), {
+      className: 'row',
+    });
+
+    videos.items.slice(i, i+3).forEach(video => {
+      const col = renderVideo(video);
+      row.appendChild(col);
+    });
+
+    rows.appendChild(row);
+  }
+
+  return rows;
+}
+
+function renderChannel(id, title, rssFeed) {
+  const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssFeed);
+  fetch(api)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      const row = renderVideos(data);
+      document.getElementById(id).append(
+        Object.assign(document.createElement('h2'), {
+          textContent: title,
+        }),
+        renderVideos(data),
+      );
+      return data;
+    })
+    .catch(err => console.error('Error:', err));
+}
+
+const main = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCbqOtuIYJ34JtX7x_xbdM5Q';
+const secondary = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCCFYOGnJ0MZtew-gRfQbP-A'
+
+renderChannel('videos-main-channel', 'Main channel', main);
+renderChannel('videos-secondary-channel', 'Secondary channel', secondary);
+
+
+</script>
