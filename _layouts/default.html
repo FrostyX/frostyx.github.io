@@ -74,7 +74,9 @@
 			</div>
 
 			<div id="content">
-				<h1 class="page-header">{{ page.title }}</h1>
+				{% if page.title != "Contact" %}
+					<h1 class="page-header">{{ page.title }}</h1>
+				{% endif %}
 				{{ content }}
 			</div>
 		</div>

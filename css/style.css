@@ -66,6 +66,23 @@ ul.nav a:hover
 	list-style-type: none;
 }
 
+#contact i
+{
+    min-width: 17px;
+}
+
+#contact hr
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#contact h2
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 .img
 {
 	margin: 20px;
