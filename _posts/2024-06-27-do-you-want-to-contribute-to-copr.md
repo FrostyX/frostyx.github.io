@@ -71,7 +71,6 @@ a dependency on a non-existing project (due to typos for example).
   <tr><th style="min-width:120px;">Difficulty:</th><td>Easy</td></tr>
   <tr><th>Required skills:</th><td>Python</td></tr>
   <tr><th>Ticket:</th><td><a href="https://github.com/fedora-copr/copr/issues/2629">fedora-copr/copr#2629</a></td></tr>
-  <tr><th>Contributor:</th><td><a href="https://fosstodon.org/@ProfessorCode">@ProfessorCode</a></td></tr>
 </table>
 
 Through the [Copr CLI][copr-cli] utility, it is possible to delete an existing
@@ -96,7 +95,7 @@ consumption. We would like our users to have the option to choose whether they
 prefer light or dark mode of the website.
 
 
-### 4. Webhook history
+### 4. Webhook history <i class="fa fa-check"></i>
 
 <table style="margin-bottom:10px;">
   <tr><th style="min-width:120px;">Difficulty:</th><td>Medium</td></tr>
