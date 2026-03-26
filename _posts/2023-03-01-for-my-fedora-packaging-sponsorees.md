@@ -114,7 +114,7 @@ You can also reach out to other packagers on
 [tito]: https://github.com/rpm-software-management/tito
 [rpmbuild]: https://linux.die.net/man/8/rpmbuild
 [distgit]: https://src.fedoraproject.org/browse/projects/
-[copr-screenshot-tutorial]: https://docs.pagure.org/copr.copr/screenshots_tutorial.html
+[copr-screenshot-tutorial]: https://docs.copr.fedorainfracloud.org/screenshots_tutorial.html
 [using-mock-is-easy]: http://frostyx.cz/posts/using-mock-is-easy
 [bodhi-new-update]: https://bodhi.fedoraproject.org/updates/new
 [fedora-packaging-list]: https://lists.fedoraproject.org/archives/list/packaging@lists.fedoraproject.org/

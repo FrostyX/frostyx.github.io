@@ -303,10 +303,10 @@ documentation][doc-mass-rebuilds].
 [cpan]: https://www.cpan.org/
 [elpa]: https://elpa.gnu.org/
 [packagist]: https://packagist.org/
-[doc-mass-rebuilds]: https://docs.pagure.org/copr.copr/user_documentation.html#mass-rebuilds
+[doc-mass-rebuilds]: https://docs.copr.fedorainfracloud.org/user_documentation.html#mass-rebuilds
 [gem2rpm]: https://github.com/fedora-ruby/gem2rpm
-[docs-rubygems]: https://docs.pagure.org/copr.copr/user_documentation.html#rubygems
-[custom-method]: https://docs.pagure.org/copr.copr/custom_source_method.html#custom-source-method
+[docs-rubygems]: https://docs.copr.fedorainfracloud.org/user_documentation.html#rubygems
+[custom-method]: https://docs.copr.fedorainfracloud.org/custom_source_method.html#custom-source-method
 [copr-rebuild-tools]: https://github.com/fedora-copr/copr-rebuild-tools
 [release-monitoring]: https://release-monitoring.org/
 [anitya-script]: https://pagure.io/copr/copr/blob/main/f/frontend/coprs_frontend/run/check_for_anitya_version_updates.py

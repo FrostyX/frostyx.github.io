@@ -80,7 +80,7 @@ rely on this feature.
 [modularity-retrospect]: https://frostyx.cz/posts/copr-modularity-in-retrospect
 [fedora-modularity]: https://docs.pagure.org/modularity/
 [module-hotfixes]: https://frostyx.cz/posts/module-hotfixes-in-copr
-[module-deps]: https://docs.pagure.org/copr.copr/user_documentation.html#modularity
+[module-deps]: https://docs.copr.fedorainfracloud.org/user_documentation.html#modularity
 [modularity-end-fedora]: https://fedoraproject.org/wiki/Changes/RetireModularity
 [rhel-9-support]: https://access.redhat.com/support/policy/updates/errata
 [matrix]: https://matrix.to/#/#buildsys:fedoraproject.org

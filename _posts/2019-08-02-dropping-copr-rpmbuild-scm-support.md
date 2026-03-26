@@ -5,7 +5,7 @@ lang: en
 tags: dev copr fedora
 ---
 
-First of all, let me assure you that this **doesn't mean** dropping the [SCM method](https://docs.pagure.org/copr.copr/user_documentation.html#scm) from Copr itself. That is an awesome feature and will remain available. In this article, we are going to discuss only an interface for one of the Copr internal tools, `copr-rpmbuild`.
+First of all, let me assure you that this **doesn't mean** dropping the [SCM method](https://docs.copr.fedorainfracloud.org/user_documentation.html#scm) from Copr itself. That is an awesome feature and will remain available. In this article, we are going to discuss only an interface for one of the Copr internal tools, `copr-rpmbuild`.
 
 Within [Copr](https://copr.fedorainfracloud.org/) stack we use a tool called `copr-rpmbuild`. Its main purpose is to fetch a definition of a build task from the [frontend](https://copr.fedorainfracloud.org/) and build SRPM or RPM package. We execute the `copr-rpmbuild` tool on dedicated OpenStack instances, that are used as builders, but it is possible to use this command anywhere and reproduce a build outside of the Copr infrastructure.
 

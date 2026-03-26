@@ -70,7 +70,7 @@ Any volunteers are greatly appreciated.
 [3499]: https://github.com/fedora-copr/copr/issues/3499
 [3448]: https://github.com/fedora-copr/copr/issues/3448
 [2901]: https://github.com/fedora-copr/copr/issues/2901
-[manual-createrepo]: https://docs.pagure.org/copr.copr/user_documentation.html#id7
+[manual-createrepo]: https://docs.copr.fedorainfracloud.org/user_documentation.html#id7
 [issues]: https://github.com/fedora-copr/copr/issues
 [matrix]: https://matrix.to/#/#buildsys:fedoraproject.org
 [copr-devel]: mailto:copr-devel@lists.fedorahosted.org

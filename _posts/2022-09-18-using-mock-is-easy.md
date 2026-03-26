@@ -83,4 +83,4 @@ follow this [screenshot tutorial][copr-screenshot-tutorial].
 [mock-plugins]: https://rpm-software-management.github.io/mock/#plugins
 [mock-features]: https://rpm-software-management.github.io/mock/#features
 [copr]: https://copr.fedorainfracloud.org/
-[copr-screenshot-tutorial]: https://docs.pagure.org/copr.copr/screenshots_tutorial.html
+[copr-screenshot-tutorial]: https://docs.copr.fedorainfracloud.org/screenshots_tutorial.html

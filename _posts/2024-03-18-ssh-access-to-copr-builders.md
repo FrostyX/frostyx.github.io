@@ -85,7 +85,7 @@ not as your personal computing system.
 
 Please be aware that the legal restrictions for what you can build
 in Copr apply here as well.
-https://docs.pagure.org/copr.copr/user_documentation.html#what-i-can-build-in-copr
+https://docs.copr.fedorainfracloud.org/user_documentation.html#what-i-can-build-in-copr
 
 You can display more help on how to use the builder by running copr-builder:
 ...
@@ -134,10 +134,10 @@ As always, happy building. Or should I say debugging?
 
 
 [copr]: https://copr.fedorainfracloud.org/
-[copr-macros]: https://docs.pagure.org/copr.copr/user_documentation.html#rpm-macros
+[copr-macros]: https://docs.copr.fedorainfracloud.org/user_documentation.html#rpm-macros
 [motd]: https://en.wikipedia.org/wiki/Message_of_the_day
 [ibm-z]: https://en.wikipedia.org/wiki/IBM_Z#/media/File:IBM_Z14_(36084219181).jpg
-[release-notes]: https://docs.pagure.org/copr.copr/release-notes/2024-03-07.html
+[release-notes]: https://docs.copr.fedorainfracloud.org/release-notes/2024-03-07.html
 [ssh-keys]: https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
-[build-source-types]: https://docs.pagure.org/copr.copr/user_documentation.html#build-source-types
+[build-source-types]: https://docs.copr.fedorainfracloud.org/user_documentation.html#build-source-types
 [great-power]: https://www.youtube.com/watch?v=guuYU74wU70
