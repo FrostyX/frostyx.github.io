@@ -3,7 +3,7 @@ layout: post
 title: Copr docker-compose without supervisord
 lang: en
 tags: dev copr fedora howto
-updated: 2025-03-03
+updated: 2026-05-13
 ---
 
 
@@ -130,7 +130,7 @@ updated version.
 ```
 $ docker-compose -f docker-compose.yaml -f docker-compose.shell.yaml up -d frontend
 $ docker exec -it copr-frontend-1 bash
-[copr-fe@frontend /]$ PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
+[copr-fe@frontend /]$ TEST_REMOTE_USER=jdoe FLASK_DEBUG=1 PYTHONPATH=/opt/copr/frontend/coprs_frontend:/opt/copr/common/ python3 /opt/copr/frontend/coprs_frontend/manage.py runserver -p 5000 -h 0.0.0.0 --without-threads --no-reload
 ```
 
 ### Distgit
