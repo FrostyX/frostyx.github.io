@@ -3,6 +3,7 @@ layout: post
 title: Flock to Fedora report 2026
 lang: en
 tags: fedora flock report
+updated: 2026-07-07
 ---
 
 This post is tough to write because [Flock to Fedora][flock-to-fedora] is my
@@ -92,6 +93,9 @@ really like [Sundaram Krishnan][sundaram-krishnan]'s project
 [Fedora Package Review Process][review-process] with me. This deserves an
 article on its own, so stay tuned.
 
+Edit: Please read the [Fedora Package Review Process reimagined][reimagined]
+article.
+
 
 [flock-to-fedora]: https://fedoraproject.org/flock/
 [flock-2025]: https://frostyx.cz/posts/flock-to-fedora-report-2025
@@ -113,3 +117,4 @@ article on its own, so stay tuned.
 [fedora-podcast]: https://www.youtube.com/watch?v=m59OdC3BLp0
 [review-process]: https://docs.fedoraproject.org/en-US/package-maintainers/Package_Review_Process/
 [half-marathon]: https://www.runczech.com/cs/akce/mattoni-running-festival-olomouc-2026/zavody/mattoni-1-2maraton-olomouc
+[reimagined]: https://frostyx.cz/posts/fedora-package-review-process-reimagined
