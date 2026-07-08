@@ -4,6 +4,7 @@ title: Making the Fedora Review Process suck less
 title: Fedora Package Review Process reimagined
 lang: en
 tags: fedora packaging
+updated: 2026-07-08
 ---
 
 The [Fedora Package Review Process][package-review-process] is clunky, archaic,
@@ -26,9 +27,14 @@ came up with, shooting shit in the hallway after the session.
 
 This is an obvious one, we talked about the same idea with
 [Zbigniew Jędrzejewski-Szmek][zbyszek] at [Flock to Fedora 2025][flock-2025]. It
-is a necessary prerequisite for any potential improvements. Proposing new
-packages through PRs would be trivial to implement if we had all Fedora packages
-in a monorepo. Which we don't, and we probably don't want to have.
+is a necessary prerequisite for any potential improvements, which will allow us
+to have a workflow that contributors are familiar with, inline code comments,
+CI/CD, and other things that are not possible in Bugzilla.
+
+Proposing new packages through PRs would be trivial to implement if we
+had all Fedora packages in a monorepo. Which we don't, and we probably
+don't want to have. And even if we wanted to have, it would require
+massive changes throughout the ecosystem.
 
 As a workaround, we discussed having an intermediate repository on the
 [forge.fedoraproject.org][forge] into which we would only propose new
