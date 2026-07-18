@@ -3,6 +3,7 @@ layout: post
 title: For my Fedora packaging sponsorees
 lang: en
 tags: fedora packaging
+updated: 2026-07-18
 ---
 
 You have just been sponsored to the Fedora `packager` group and your
@@ -60,7 +61,7 @@ cd foo
 
 # Upload the new sources and commit the new spec file
 fedpkg import /path/to/your/foo.src.rpm
-fedpkg show
+git show
 
 # Push the spec changes and build for rawhide
 fedpkg push
@@ -97,7 +98,7 @@ If you have any questions, topics to discuss, or any worries that
 you'll break something, please let me know.
 
 You can also reach out to other packagers on
-[#fedora-devel][fedora-devel-irc] channel, and
+[#devel:fedoraproject.org][fedora-devel-irc] channel, and
 [packaging@lists.fedoraproject.org][fedora-packaging-list] and
 [devel@lists.fedoraproject.org][fedora-devel-list] mailing lists.
 
@@ -119,5 +120,5 @@ You can also reach out to other packagers on
 [bodhi-new-update]: https://bodhi.fedoraproject.org/updates/new
 [fedora-packaging-list]: https://lists.fedoraproject.org/archives/list/packaging@lists.fedoraproject.org/
 [fedora-devel-list]: https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/
-[fedora-devel-irc]: https://web.libera.chat/?channels=#fedora-devel
+[fedora-devel-irc]: https://matrix.to/#/#devel:fedoraproject.org
 [fedora-accounts]: https://accounts.fedoraproject.org
